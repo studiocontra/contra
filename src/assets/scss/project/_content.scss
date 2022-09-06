@@ -1,0 +1,29 @@
+.content__group {
+  padding-top: 13px;
+  border-top: 1px solid $blue;
+  margin-bottom: 120px;
+
+  .title {
+    font-weight: 500;
+    margin-bottom: 50px;
+  }
+
+  .text {
+    p {
+      font-size: 26px;
+
+      @include m768 {
+        font-size: 32px;
+      }
+    }
+  }
+}
+
+.deliverables {
+  .text {
+    p {
+      font-size: 20px;
+      margin: 0;
+    }
+  }
+}

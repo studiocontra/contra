@@ -1,0 +1,47 @@
+.main-contact {
+  position: relative;
+  padding-top: 80px;
+  color: $white;
+
+  @include m992 {
+    padding-top: 200px;
+  }
+}
+
+.contact__intro {
+  margin-bottom: 80px;
+
+  .title {
+    max-width: 420px;
+    margin-bottom: 30px;
+  }
+}
+
+.contact__headline {
+  margin-bottom: 20px;
+
+  .title {
+    width: 100%;
+    padding: 20px 0;
+    text-transform: uppercase;
+    border-bottom: 1px solid $white;
+  }
+}
+
+.contact__content {
+  margin-bottom: 80px;
+
+  a {
+    display: block;
+    margin-bottom: 20px;
+    font-size: 16px;
+
+    @include m768 {
+      font-size: 20px;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

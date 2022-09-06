@@ -1,0 +1,105 @@
+.about-team {
+  position: relative;
+  padding: 32px 0;
+  color: $white;
+  border-top: 1px solid rgba($white, 0.5);
+}
+
+.team__intro {
+  margin-bottom: 60px;
+}
+
+.main-team-card {
+  margin-bottom: 100px;
+}
+
+.main-team-card__image {
+  position: relative;
+  margin-bottom: 32px;
+  padding-bottom: 122%;
+
+  img {
+    @include fullAbs;
+    @include fit;
+  }
+}
+
+.main-team-card__content {
+  .text--big {
+    margin-bottom: 8px;
+    font-weight: 400;
+  }
+
+  .role {
+    margin: 0;
+    font-family: $contra;
+    font-size: 20px;
+    font-weight: 400;
+  }
+}
+
+.main-team-card__description {
+  margin-top: 40px;
+
+  .text {
+    &,
+    p {
+      font-size: 20px;
+    }
+  }
+}
+
+.team-card {
+  position: relative;
+  margin-bottom: 250px;
+  padding-top: 40px;
+  border-top: 1px solid rgba($white, 0.5);
+
+  .title,
+  p {
+    position: relative;
+    z-index: 2;
+  }
+
+  .title {
+    margin-bottom: 8px;
+    font-size: 24px;
+
+    @include m768 {
+      font-size: 28px;
+    }
+    @include m992 {
+      font-size: 32px;
+    }
+  }
+
+  p {
+    margin: 0;
+    font-family: $contra;
+    font-size: 20px;
+  }
+
+  &:hover {
+    .team-card__image {
+      opacity: 1;
+    }
+  }
+}
+
+.team-card__image {
+  position: absolute;
+  z-index: 1;
+  top: 80px;
+  left: 50%;
+  width: 60%;
+  padding-bottom: 65%;
+  transition: opacity 0.3s ease-in;
+  transform: translateX(-50%);
+  pointer-events: none;
+  opacity: 0;
+
+  img {
+    @include fullAbs;
+    @include fit;
+  }
+}

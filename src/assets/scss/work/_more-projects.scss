@@ -1,0 +1,144 @@
+.wrap-accordion {
+  max-width: 1650px;
+  margin: 0 auto 180px;
+  color: $white;
+  border-top: 1px solid $white;
+}
+
+.single-accordion {
+  border-bottom: 1px solid $white;
+}
+
+.accordion__headline {
+  position: relative;
+  margin-bottom: 0;
+  padding: 20px 0;
+  cursor: pointer;
+  transition: all .3s ease-in;
+
+  &.active {
+    margin-bottom: 32px;
+
+    .icon {
+      &:after {
+        opacity: 0;
+      }
+    }
+  }
+
+  &:hover {
+    color: $blue;
+    background-color: $white;
+
+    .icon {
+      &:before,
+      &:after {
+        background-color: $blue;
+      }
+    }
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  .tags {
+    font-family: $contra;
+    font-size: 16px;
+
+    @include m768 {
+      font-size: 20px;
+    }
+  }
+
+  .icon {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    width: 20px;
+    height: 20px;
+    transform: translateY(-50%);
+
+    &:before,
+    &:after {
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      content: '';
+      transition: all 0.3s ease-in;
+      background-color: $white;
+
+      @include centerAbs;
+    }
+
+    &:after {
+      transform: translate(-50%, -50%) rotate(90deg);
+      transform-origin: center;
+    }
+  }
+}
+
+.accordion__content {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height .3s ease-in;
+
+  .intro {
+    margin-bottom: 50px;
+
+    .text {
+      max-width: 450px;
+    }
+
+    .link {
+      text-decoration: underline;
+    }
+  }
+
+  .wrap-swiper {
+    margin-bottom: 32px;
+  }
+
+  .swiper {
+    padding: 80px 24px 0;
+    padding-top: 80px;
+  }
+
+  .wrap-arrows {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 100%;
+
+    .container {
+      position: relative;
+    }
+  }
+
+  .swiper-arrow {
+    position: absolute;
+    top: 0;
+    cursor: pointer;
+
+    svg {
+      width: 18px;
+      stroke-width: 2;
+      stroke: $white;
+    }
+  }
+
+  .swiper-arrow--prev {
+    right: 100px;
+
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+
+  .swiper-arrow--next {
+    right: 24px;
+  }
+  .swiper-arrow--disabled {
+    opacity: 0.5;
+  }
+}

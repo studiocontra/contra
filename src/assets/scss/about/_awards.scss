@@ -1,0 +1,56 @@
+.about-awards {
+  position: relative;
+  padding: 32px 0 180px;
+  color: $white;
+  border-top: 1px solid rgba($white, 0.5);
+}
+
+.about-awards__intro {
+  .title {
+    margin-bottom: 21px;
+  }
+}
+
+.awards__group {
+  margin-bottom: 16px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba($white, 0.5)
+}
+
+.awards__headline {
+  display: flex;
+  margin-bottom: 32px;
+  justify-content: space-between;
+  align-items: center;
+
+  .title {
+    margin-bottom: 0;
+  }
+
+  span {
+    font-family: $contra;
+  }
+}
+
+.single-award {
+  display: flex;
+  margin: 0 -12px 18px;
+  justify-content: space-between;
+
+  h6,
+  p {
+    margin: 0;
+    padding: 0 12px;
+    flex: 0 0 50%;
+  }
+
+  h6 {
+    font-size: 20px;
+    font-weight: 400;
+  }
+
+  p {
+    font-family: $contra;
+    font-size: 16px;
+  }
+}

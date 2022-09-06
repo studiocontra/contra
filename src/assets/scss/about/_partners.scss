@@ -1,0 +1,29 @@
+.about-partners {
+  position: relative;
+  padding: 0 0 150px;
+
+  .title {
+    margin-bottom: 60px;
+    text-align: center;
+    text-transform: uppercase;
+    color: $white;
+  }
+
+  .logos-grid {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    img {
+      width: auto;
+      height: 56px;
+      margin: 20px 15px;
+
+      @include m768 {
+        margin: 20px 30px;
+        height: 84px;
+      }
+    }
+  }
+}

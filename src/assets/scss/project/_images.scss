@@ -1,0 +1,51 @@
+.project__images {
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+
+.single-image {
+  position: relative;
+  width: 100%;
+  margin-bottom: 50px;
+
+  @include m992 {
+    margin-bottom: 120px;
+  }
+
+  img {
+    @include fullAbs;
+    @include fit;
+  }
+}
+
+.single-image--full {
+  padding-bottom: 62.5%;
+}
+
+.single-image--75 {
+  padding-bottom: 62.5%;
+
+  @include m768 {
+    width: 75%;
+  }
+}
+
+.single-image--small {
+  padding-bottom: 0;
+
+  @include m768 {
+    width: calc(50% - 25px);
+  }
+  @include m992 {
+    width: calc(50% - 65px);
+  }
+
+  img {
+    position: relative;
+    height: auto;
+    object-fit: none;
+  }
+}

@@ -1,0 +1,62 @@
+.link {
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  color: $white;
+  font-family: $contra;
+  font-size: 20px;
+
+  &:hover {
+    font-family: $contra_pixel;
+
+    .icon {
+      background-color: $white;
+
+      svg {
+        stroke: $blue;
+      }
+    }
+  }
+
+  .icon {
+    display: inline-flex;
+    width: 35px;
+    height: 35px;
+    margin-left: 5px;
+    padding: 5px;
+    transition: background 0.3s ease-in;
+    border-radius: 5px;
+    background-color: rgba($white, 0.3);
+    justify-content: center;
+    align-items: center;
+
+    svg {
+      width: 18px;
+      transition: stroke 0.3s ease-in;
+      fill: none;
+      stroke: $white;
+      stroke-width: 2;
+    }
+  }
+}
+
+.link--dark {
+  color: $blue;
+
+  &:hover {
+    .icon {
+      background-color: $blue;
+
+      svg {
+        stroke: $white;
+      }
+    }
+  }
+
+  .icon {
+    background-color: rgba($blue, 0.1);
+
+    svg {
+      stroke: $blue;
+    }
+  }
+}

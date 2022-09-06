@@ -1,0 +1,59 @@
+.project__next {
+  position: relative;
+  margin-bottom: 180px;
+
+  .container {
+    position: relative;
+  }
+
+  a {
+    display: block;
+    backdrop-filter: blur(30px);
+
+    &:hover {
+      backdrop-filter: blur(10px);
+    }
+  }
+}
+
+.next__bg {
+  @include fullAbs;
+  @include fit;
+}
+
+.next__headline {
+  display: flex;
+  padding: 20px 0;
+  color: $white;
+  border-bottom: 1px solid $white;
+  font-size: 20px;
+  justify-content: space-between;
+  align-items: center;
+  font-family: $contra;
+
+  p {
+    margin: 0;
+  }
+
+  .icon {
+    width: 18px;
+    stroke: $white;
+    stroke-width: 2;
+    fill: none;
+  }
+}
+
+.next__marquee {
+  position: relative;
+  width: 100%;
+  padding: 100px 0;
+  align-items: center;
+
+  .content {
+    white-space: nowrap;
+    color: $white;
+    font-size: 8.3vw;
+    @include anim(marquee, 10s, -50%);
+    font-family: $contra;
+  }
+}

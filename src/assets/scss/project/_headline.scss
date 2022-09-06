@@ -1,0 +1,22 @@
+.project__headline {
+  padding: 150px 0 64px;
+}
+
+.project__data {
+  margin-bottom: 64px;
+
+  .logo {
+    width: auto;
+    height: 24px;
+  }
+}
+
+.main__image {
+  padding-bottom: 62.5%;
+  position: relative;
+
+  img {
+    @include fullAbs;
+    @include fit;
+  }
+}
