@@ -29,12 +29,12 @@ export default {
     };
   },
   async created() {
-    const { data: { _value: homeData } } = await useFetch('http://contra.local/wp-json/wp/v2/pages/2');
+    const { data: { _value: homeData } } = await useFetch('https://contra.local/wp-json/wp/v2/pages/2');
 
-    const { data: { _value: catData } } = await useFetch('http://contra.local/wp-json/wp/v2/categories');
+    const { data: { _value: catData } } = await useFetch('https://contra.local/wp-json/wp/v2/categories');
 
     const allProjects = await Promise.all(homeData.acf.projects.map(async (item) => {
-      const data = await $fetch(`http://contra.local/wp-json/wp/v2/projects/${item.project}?categories`);
+      const data = await $fetch(`https://contra.local/wp-json/wp/v2/projects/${item.project}?categories`);
 
       return {
         'data': data,

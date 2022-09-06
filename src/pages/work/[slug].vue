@@ -26,7 +26,7 @@ export default {
     };
   },
   async created() {
-    const { data: { _value: home } } = await useFetch('http://contra.local/wp-json/wp/v2/pages/2')
+    const { data: { _value: home } } = await useFetch('https://contra.local/wp-json/wp/v2/pages/2')
   },
   mounted() {
     setTimeout(() => {

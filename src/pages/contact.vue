@@ -17,15 +17,7 @@ import mixins from '@/assets/js/mixins';
 
 export default {
   name: 'WorkPage',
-  mixins: [mixins],
-  data() {
-    return {
-      heroData: '',
-    };
-  },
-  async created() {
-    const { data: { _value: home } } = await useFetch('http://contra.local/wp-json/wp/v2/pages/2')
-  }
+  mixins: [mixins]
 }
 </script>
 

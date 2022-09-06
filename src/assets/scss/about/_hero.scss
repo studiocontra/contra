@@ -5,20 +5,29 @@
   .shapes {
     .red {
       top: 0;
-      left: 60%;
-      width: 50%;
+      left: 40%;
+      width: 120%;
       transform: translateY(-40%);
-      background-color: $red;
-      aspect-ratio: 1 / 1;
-      filter: blur(100px);
+      filter: blur(50px);
+
+      @include m768 {
+        left: 60%;
+        width: 50%;
+        filter: blur(100px);
+      }
     }
 
     .red--2 {
       top: 25%;
-      right: 70%;
+      right: 60%;
       left: auto;
-      width: 40%;
+      width: 100%;
       transform: translateY(0);
+
+      @include m768 {
+        right: 70%;
+        width: 40%;
+      }
     }
   }
 

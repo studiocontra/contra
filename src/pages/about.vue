@@ -30,13 +30,9 @@ export default {
   mixins: [mixins],
   data() {
     return {
-      heroData: '',
       changeBgDark: null,
       changeBgLight: null,
     };
-  },
-  async created() {
-    const { data: { _value: home } } = await useFetch('http://contra.local/wp-json/wp/v2/pages/2')
   },
   mounted() {
     setTimeout(() => {

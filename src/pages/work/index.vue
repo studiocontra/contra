@@ -34,14 +34,14 @@ export default {
     };
   },
   async created() {
-    const { data: { _value: allData } } = await useFetch('http://contra.local/wp-json/wp/v2/pages/?slug=work');
+    const { data: { _value: allData } } = await useFetch('https://contra.local/wp-json/wp/v2/pages/?slug=work');
 
-    const { data: { _value: catData } } = await useFetch('http://contra.local/wp-json/wp/v2/categories');
+    const { data: { _value: catData } } = await useFetch('https://contra.local/wp-json/wp/v2/categories');
 
     const mainProjects = await Promise.all(allData[0].acf['main_projects'].map(async (item) => {
       if(!item.project)
         return console.error('Empty Item inside Wordpress page');
-      const data = await $fetch(`http://contra.local/wp-json/wp/v2/projects/${item.project}`);
+      const data = await $fetch(`https://contra.local/wp-json/wp/v2/projects/${item.project}`);
 
       return {
         'data': data,
@@ -52,7 +52,7 @@ export default {
     const additionalProjects = await Promise.all(allData[0].acf['additional_projects'].map(async (item) => {
       if(!item.project)
         return console.error('Empty Item inside Wordpress page');
-      const data = await $fetch(`http://contra.local/wp-json/wp/v2/projects/${item.project}`);
+      const data = await $fetch(`https://contra.local/wp-json/wp/v2/projects/${item.project}`);
 
       return data;
     }));
