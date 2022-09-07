@@ -32,7 +32,9 @@
             </div>
           </div>
 
-          <div class="wrap-swiper">
+          <div
+            v-if="showSlider"
+            class="wrap-swiper">
             <Swiper
               :slidesPerView="1.5"
               :spaceBetween="24"
@@ -43,8 +45,8 @@
               }"
               :modules="modules">
               <SwiperSlide
-               v-for="(item, idx) in project.acf.images"
-               :key="idx">
+              v-for="(item, idx) in project.acf.images"
+              :key="idx">
                 <picture>
                   <source :srcset="item.image.sizes['half-page']" media="(min-width: 600px)">
                   <source :srcset="item.image.sizes['card']">
@@ -102,10 +104,14 @@ export default {
   data() {
     return {
       modules: [Navigation],
+      showSlider: false,
     };
   },
   mounted() {
-    accordion('.js-single-accordion')
+    setTimeout(() => {
+      this.showSlider = true;
+      accordion('.js-single-accordion');
+    }, 750);
   }
 }
 </script>

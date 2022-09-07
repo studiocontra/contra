@@ -2,18 +2,17 @@
   <div class="project__headline">
     <div class="container">
       <div class="row">
-        <div class="col-md-10 col-lg-6">
-          <h1 class="title">
-            A complete brand new independent journalisim in Colombia.
+        <div class="col-md-10 col-lg-8">
+          <h1 class="title" v-html="headline">
           </h1>
 
           <div class="project__data">
-            <div class="logo">
-              <img src="" alt="">
+            <div v-if="logo.sizes" class="logo">
+              <img :src="logo.sizes['small']" alt="logo.alt">
             </div>
 
             <h2 class="title title--small">
-              La Silla Vacía
+              {{ client }}
             </h2>
           </div>
         </div>
@@ -21,14 +20,35 @@
     </div>
 
     <div class="main__image">
-      <img src="https://picsum.photos/seed/123/1920/1080" alt="">
+      <picture>
+        <source :srcset="image.sizes['full-page']" media="(min-width: 1200px)">
+        <source :srcset="image.sizes['half-page']" media="(min-width: 992px)">
+        <source :srcset="image.sizes['card']">
+        <img :src="image.sizes['full-page']" :alt="image.alt">
+      </picture>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'ProjectHeadline'
+  name: 'ProjectHeadline',
+   props: {
+    headline: {
+      type: String,
+    },
+    client: {
+      type: String,
+    },
+    logo: {
+      type: Object,
+      default: () => {}
+    },
+    image: {
+      type: Object,
+      default: () => {}
+    },
+  }
 }
 </script>
 

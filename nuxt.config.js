@@ -19,7 +19,9 @@ export default defineNuxtConfig({
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-
+  publicRuntimeConfig: {
+    API_BASE_URL: process.env.API_BASE_URL
+  },
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '@/assets/scss/_grid.scss',

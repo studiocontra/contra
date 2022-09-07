@@ -1,20 +1,17 @@
 <template>
   <div class="project__images js-project-images">
     <div class="container">
-      <div class="single-image single-image--full">
-        <img src="https://picsum.photos/seed/123/1920/1080" alt="">
-      </div>
-
-      <div class="single-image single-image--75">
-        <img src="https://picsum.photos/seed/124/1920/1080" alt="">
-      </div>
-
-      <div class="single-image single-image--small">
-        <img src="https://picsum.photos/seed/125/1000/800" alt="">
-      </div>
-
-      <div class="single-image single-image--small">
-        <img src="https://picsum.photos/seed/126/1000/700" alt="">
+      <div
+        v-for="(item, idx) in images"
+        :key="idx"
+        class="single-image"
+        :class="`single-image--${item.size} ${item.alignment}`">
+        <picture>
+          <source :srcset="item.image.sizes['full-page']" media="(min-width: 1200px)">
+          <source :srcset="item.image.sizes['half-page']" media="(min-width: 992px)">
+          <source :srcset="item.image.sizes['card']">
+          <img :src="item.image.sizes['full-page']" :alt="item.image.alt">
+        </picture>
       </div>
     </div>
   </div>
@@ -22,7 +19,13 @@
 
 <script>
 export default {
-  name: 'ProjectImages'
+  name: 'ProjectImages',
+  props: {
+    images: {
+      type: Object,
+      default: () => []
+    },
+  }
 }
 </script>
 

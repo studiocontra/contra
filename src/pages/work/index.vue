@@ -27,14 +27,16 @@ export default {
   name: 'WorkPage',
   mixins: [mixins],
   async setup() {
-    const { data: { value: allData } } = await useFetch('https://contra.local/wp-json/wp/v2/pages/?slug=work');
+    const { API_BASE_URL } = useRuntimeConfig();
 
-    const { data: { value: allCategories } } = await useFetch('https://contra.local/wp-json/wp/v2/categories');
+    const [allData] = await $fetch(`${API_BASE_URL}/pages/?slug=work`);
 
-    const mainProjects = await Promise.all(allData[0].acf['main_projects'].map(async (item) => {
+    const allCategories = await $fetch(`${API_BASE_URL}/categories`);
+
+    const mainProjects = await Promise.all(allData.acf['main_projects'].map(async (item) => {
       if(!item.project)
         return console.error('Empty Item inside Wordpress page');
-      const data = await $fetch(`https://contra.local/wp-json/wp/v2/projects/${item.project}`);
+      const data = await $fetch(`${API_BASE_URL}/projects/${item.project}`);
 
       return {
         'data': data,
@@ -42,10 +44,10 @@ export default {
       }
     }));
 
-    const additionalProjects = await Promise.all(allData[0].acf['additional_projects'].map(async (item) => {
+    const additionalProjects = await Promise.all(allData.acf['additional_projects'].map(async (item) => {
       if(!item.project)
         return console.error('Empty Item inside Wordpress page');
-      const data = await $fetch(`https://contra.local/wp-json/wp/v2/projects/${item.project}`);
+      const data = await $fetch(`${API_BASE_URL}/projects/${item.project}`);
 
       return data;
     }));

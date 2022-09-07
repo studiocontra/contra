@@ -25,11 +25,20 @@
   padding-bottom: 62.5%;
 }
 
-.single-image--75 {
+.single-image--medium {
   padding-bottom: 62.5%;
 
   @include m768 {
     width: 75%;
+  }
+
+  &.center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &.right {
+    margin-left: auto;
   }
 }
 

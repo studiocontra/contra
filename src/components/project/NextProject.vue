@@ -1,11 +1,16 @@
 <template>
   <div class="project__next">
-    <img
-      src="https://picsum.photos/seed/201/1920/600"
-      alt=""
-      class="next__bg">
+    <picture>
+      <source :srcset="image.sizes['full-page']" media="(min-width: 1200px)">
+      <source :srcset="image.sizes['half-page']" media="(min-width: 992px)">
+      <source :srcset="image.sizes['card']">
+      <img
+        class="next__bg"
+        :src="image.sizes['full-page']"
+        :alt="image.alt">
+    </picture>
 
-    <NuxtLink to="/">
+    <NuxtLink :to="`/work/${slug}`">
       <div class="container">
         <div class="next__headline">
           <p>
@@ -22,7 +27,7 @@
       <div class="next__marquee">
         <div class="content">
           <span v-for="i in 10" :key="i">
-            Marfala //
+            {{ name }} //
           </span>
         </div>
       </div>
@@ -32,7 +37,21 @@
 
 <script>
 export default {
-  name: 'NextProject'
+  name: 'NextProject',
+  props: {
+    image: {
+      type: Object,
+      default: () => {}
+    },
+    name: {
+      type: String,
+      default: ''
+    },
+    slug: {
+      type: String,
+      default: ''
+    }
+  }
 }
 </script>
 

@@ -10,6 +10,12 @@
     display: block;
     backdrop-filter: blur(30px);
 
+    &:before {
+      content: '';
+      @include fullAbs;
+      background-color: rgba($blue, 0.3);
+    }
+
     &:hover {
       backdrop-filter: blur(10px);
     }

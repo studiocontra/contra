@@ -8,17 +8,7 @@
               Deliverables
             </h2>
 
-            <div class="text">
-              <p>
-                User Experience Design
-              </p>
-              <p>
-                User Interface Design
-              </p>
-              <p>
-                Design system
-              </p>
-            </div>
+            <div class="text" v-html="deliverables"></div>
           </div>
         </div>
 
@@ -28,11 +18,7 @@
               The brief
             </h2>
 
-            <div class="text">
-              <p>
-                Seichi represents the bridge between streetwear and luxury, unifying street-born origins with a prestigious destination and artful state of mind. Knowing and understanding that the future is shaped from the past and moulded by the present – an axiom unavoidable in Seichi’s eyes – led to a firm belief that the world is what you make of it. Seichi, loosely translated as sacred ground or holy place, represents the path you’ve already walked and the road still to come.
-              </p>
-            </div>
+            <div class="text" v-html="brief"></div>
           </div>
 
           <div class="content__group">
@@ -40,11 +26,7 @@
               The solution
             </h2>
 
-            <div class="text">
-              <p>
-                Understanding that singular vision, the extensions of Siechi’s minimalist logomark followed suit - a no-frills shopping experience, clean lockups for a retail space and merchanside, & product-first marketing concepts.
-              </p>
-            </div>
+            <div class="text" v-html="solution"></div>
           </div>
         </div>
       </div>
@@ -54,7 +36,21 @@
 
 <script>
 export default {
-  name: 'ProjectContent'
+  name: 'ProjectContent',
+  props: {
+    deliverables: {
+      type: String,
+      default: ''
+    },
+    brief: {
+      type: String,
+      default: ''
+    },
+    solution: {
+      type: String,
+      default: ''
+    },
+  }
 }
 </script>
 

@@ -17,18 +17,20 @@
 </template>
 
 <script>
-// import axios from 'axios'
 import mixins from '@/assets/js/mixins';
 
 export default {
   name: 'HomePage',
   mixins: [mixins],
   async setup() {
-    const { data: { value: homeData } } = await useFetch('http://contra.local/wp-json/wp/v2/pages/2');
-    const { data: { value: allCategories } } = await useFetch('http://contra.local/wp-json/wp/v2/categories');
+    const { API_BASE_URL } = useRuntimeConfig();
+
+    const homeData = await $fetch(`${API_BASE_URL}/pages/2`);
+    const allCategories = await $fetch(`${API_BASE_URL}/categories`);
+
 
     const allProjects = await Promise.all(homeData.acf.projects.map(async (item) => {
-      const data = await $fetch(`http://contra.local/wp-json/wp/v2/projects/${item.project}`);
+      const data = await $fetch(`${API_BASE_URL}/projects/${item.project}`);
 
       return {
         'data': data,

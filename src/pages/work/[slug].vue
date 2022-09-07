@@ -1,10 +1,22 @@
 <template>
   <div class="single-work">
     <Header theme="dark" />
-    <ProjectHeadline />
-    <ProjectContent />
-    <ProjectImages class="js-toggle-bg" />
-    <ProjectNextProject />
+    <ProjectHeadline
+      :headline="projectData.excerpt.rendered"
+      :client="projectData.acf.client_name"
+      :logo="projectData.acf.client_logo || {}"
+      :image="projectData.acf.main_image" />
+    <ProjectContent
+      :deliverables="projectData.acf.deliverables"
+      :brief="projectData.acf.brief"
+      :solution="projectData.acf.solution" />
+    <ProjectImages
+      class="js-toggle-bg"
+      :images="projectData.acf.images" />
+    <ProjectNextProject
+      :name="nextProjectData.title.rendered"
+      :slug="nextProjectData.slug"
+      :image="nextProjectData.acf.main_image" />
     <Footer />
   </div>
 </template>
@@ -35,12 +47,14 @@ export default {
       }
     } = useRouter();
 
-    const { data } = await useFetch(`https://contra.local/wp-json/wp/v2/projects/?slug=${slug}`);
+    const { API_BASE_URL } = useRuntimeConfig();
 
-    console.log(slug, data);
+    const [projectData] = await $fetch(`${API_BASE_URL}/projects/?slug=${slug}`);
+    const nextProjectData = await $fetch(`${API_BASE_URL}/projects/${projectData.acf.next_project}`);
 
     return {
-      data
+      projectData,
+      nextProjectData
     }
   },
   mounted() {
