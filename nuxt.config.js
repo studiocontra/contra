@@ -22,7 +22,6 @@ export default defineNuxtConfig({
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    // '@/assets/scss/_mixins.scss',
     '@/assets/scss/_grid.scss',
     '@/assets/scss/_base.scss',
     '@/assets/scss/_transitions.scss',

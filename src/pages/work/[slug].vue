@@ -21,12 +21,27 @@ export default {
   mixins: [mixins],
   data() {
     return {
-      heroData: '',
       changeBgDark: null,
     };
   },
-  async created() {
-    const { data: { _value: home } } = await useFetch('https://contra.local/wp-json/wp/v2/pages/2')
+  async setup() {
+    const {
+      currentRoute: {
+        value: {
+          params: {
+            slug
+          }
+        }
+      }
+    } = useRouter();
+
+    const { data } = await useFetch(`https://contra.local/wp-json/wp/v2/projects/?slug=${slug}`);
+
+    console.log(slug, data);
+
+    return {
+      data
+    }
   },
   mounted() {
     setTimeout(() => {

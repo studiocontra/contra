@@ -26,17 +26,10 @@ import mixins from '@/assets/js/mixins';
 export default {
   name: 'WorkPage',
   mixins: [mixins],
-  data() {
-    return {
-      additionalProjects: null,
-      allCategories: null,
-      mainProjects: null,
-    };
-  },
-  async created() {
-    const { data: { _value: allData } } = await useFetch('https://contra.local/wp-json/wp/v2/pages/?slug=work');
+  async setup() {
+    const { data: { value: allData } } = await useFetch('https://contra.local/wp-json/wp/v2/pages/?slug=work');
 
-    const { data: { _value: catData } } = await useFetch('https://contra.local/wp-json/wp/v2/categories');
+    const { data: { value: allCategories } } = await useFetch('https://contra.local/wp-json/wp/v2/categories');
 
     const mainProjects = await Promise.all(allData[0].acf['main_projects'].map(async (item) => {
       if(!item.project)
@@ -57,9 +50,11 @@ export default {
       return data;
     }));
 
-    this.allCategories = catData;
-    this.mainProjects = mainProjects;
-    this.additionalProjects = additionalProjects;
+    return {
+      allCategories,
+      mainProjects,
+      additionalProjects
+    }
   },
 }
 </script>

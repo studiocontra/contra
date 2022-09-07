@@ -7,8 +7,8 @@
     <Header isHome />
     <HomeHero />
     <HomeProjects
-      v-if="homeProjects"
-      :projects-data="homeProjects"
+      v-if="allProjects"
+      :projects-data="allProjects"
       :categories="allCategories" />
     <AboutAwards />
     <News theme="light" />
@@ -17,24 +17,18 @@
 </template>
 
 <script>
+// import axios from 'axios'
 import mixins from '@/assets/js/mixins';
 
 export default {
   name: 'HomePage',
   mixins: [mixins],
-  data() {
-    return {
-      homeProjects: null,
-      allCategories: null,
-    };
-  },
-  async created() {
-    const { data: { _value: homeData } } = await useFetch('https://contra.local/wp-json/wp/v2/pages/2');
-
-    const { data: { _value: catData } } = await useFetch('https://contra.local/wp-json/wp/v2/categories');
+  async setup() {
+    const { data: { value: homeData } } = await useFetch('http://contra.local/wp-json/wp/v2/pages/2');
+    const { data: { value: allCategories } } = await useFetch('http://contra.local/wp-json/wp/v2/categories');
 
     const allProjects = await Promise.all(homeData.acf.projects.map(async (item) => {
-      const data = await $fetch(`https://contra.local/wp-json/wp/v2/projects/${item.project}?categories`);
+      const data = await $fetch(`http://contra.local/wp-json/wp/v2/projects/${item.project}`);
 
       return {
         'data': data,
@@ -42,9 +36,11 @@ export default {
       }
     }));
 
-    this.allCategories = catData;
-    this.homeProjects = allProjects;
-  }
+    return {
+      allCategories,
+      allProjects
+    }
+  },
 }
 </script>
 
