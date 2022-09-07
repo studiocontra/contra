@@ -1,5 +1,7 @@
 <template>
-  <div class="single-work">
+  <div
+    v-if="nextProjectData"
+    class="single-work">
     <Header theme="dark" />
     <ProjectHeadline
       :headline="projectData.excerpt.rendered"
@@ -34,6 +36,8 @@ export default {
   data() {
     return {
       changeBgDark: null,
+      // projectData: null,
+      // nextProjectData: null,
     };
   },
   async setup() {
@@ -49,17 +53,16 @@ export default {
 
     const { API_BASE_URL } = useRuntimeConfig();
 
-    const [projectData] = await $fetch(`${API_BASE_URL}/projects/?slug=${slug}`, {
-      mode: 'no-cors'
-    });
-    const nextProjectData = await $fetch(`${API_BASE_URL}/projects/${projectData.acf.next_project}`, {
-      mode: 'no-cors'
-    });
+    const [projectData] = await $fetch(`${API_BASE_URL}/projects/?slug=${slug}`);
+    const nextProjectData = await $fetch(`${API_BASE_URL}/projects/${projectData.acf.next_project}`);
 
     return {
       projectData,
       nextProjectData
     }
+
+    // this.projectData = projectData;
+    // this.nextProjectData = nextProjectData;
   },
   mounted() {
     setTimeout(() => {
@@ -77,6 +80,12 @@ export default {
     }, 750);
 
     window.addEventListener('resize', () => this.changeBgDark.scrollTrigger.refresh())
+  },
+  watch: {
+    nextProjectData(newVal) {
+      console.log(newVal);
+      this.changeBgDark.restart();
+    }
   }
 }
 </script>

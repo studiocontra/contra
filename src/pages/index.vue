@@ -22,21 +22,21 @@ import mixins from '@/assets/js/mixins';
 export default {
   name: 'HomePage',
   mixins: [mixins],
-  async setup() {
+  data() {
+    return {
+      allCategories: null,
+      allProjects: null,
+    };
+  },
+  async created() {
     const { API_BASE_URL } = useRuntimeConfig();
 
-    const homeData = await $fetch(`${API_BASE_URL}/pages/2`, {
-      mode: 'no-cors'
-    });
-    const allCategories = await $fetch(`${API_BASE_URL}/categories`, {
-      mode: 'no-cors'
-    });
+    const homeData = await $fetch(`${API_BASE_URL}/pages/2`);
+    const allCategories = await $fetch(`${API_BASE_URL}/categories`);
 
 
     const allProjects = await Promise.all(homeData.acf.projects.map(async (item) => {
-      const data = await $fetch(`${API_BASE_URL}/projects/${item.project}`, {
-        mode: 'no-cors'
-      });
+      const data = await $fetch(`${API_BASE_URL}/projects/${item.project}`);
 
       return {
         'data': data,
@@ -44,10 +44,13 @@ export default {
       }
     }));
 
-    return {
-      allCategories,
-      allProjects
-    }
+    // return {
+    //   allCategories,
+    //   allProjects
+    // }
+
+    this.allCategories = allCategories;
+    this.allProjects = allProjects;
   },
 }
 </script>
