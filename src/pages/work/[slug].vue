@@ -49,8 +49,12 @@ export default {
 
     const { API_BASE_URL } = useRuntimeConfig();
 
-    const [projectData] = await $fetch(`${API_BASE_URL}/projects/?slug=${slug}`);
-    const nextProjectData = await $fetch(`${API_BASE_URL}/projects/${projectData.acf.next_project}`);
+    const [projectData] = await $fetch(`${API_BASE_URL}/projects/?slug=${slug}`, {
+      mode: 'no-cors'
+    });
+    const nextProjectData = await $fetch(`${API_BASE_URL}/projects/${projectData.acf.next_project}`, {
+      mode: 'no-cors'
+    });
 
     return {
       projectData,

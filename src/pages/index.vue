@@ -25,12 +25,18 @@ export default {
   async setup() {
     const { API_BASE_URL } = useRuntimeConfig();
 
-    const homeData = await $fetch(`${API_BASE_URL}/pages/2`);
-    const allCategories = await $fetch(`${API_BASE_URL}/categories`);
+    const homeData = await $fetch(`${API_BASE_URL}/pages/2`, {
+      mode: 'no-cors'
+    });
+    const allCategories = await $fetch(`${API_BASE_URL}/categories`, {
+      mode: 'no-cors'
+    });
 
 
     const allProjects = await Promise.all(homeData.acf.projects.map(async (item) => {
-      const data = await $fetch(`${API_BASE_URL}/projects/${item.project}`);
+      const data = await $fetch(`${API_BASE_URL}/projects/${item.project}`, {
+        mode: 'no-cors'
+      });
 
       return {
         'data': data,
