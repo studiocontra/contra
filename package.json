@@ -15,6 +15,7 @@
     "axios": "^0.27.2",
     "gsap": "^3.11.0",
     "swiper": "^8.3.2",
+    "v-lazy-image": "^2.1.1",
     "vue3-rich-accordion": "^0.0.7"
   }
 }

@@ -20,19 +20,22 @@
     </div>
 
     <div class="main__image">
-      <picture>
-        <source :srcset="image.sizes['full-page']" media="(min-width: 1200px)">
-        <source :srcset="image.sizes['half-page']" media="(min-width: 992px)">
-        <source :srcset="image.sizes['card']">
-        <img :src="image.sizes['full-page']" :alt="image.alt">
-      </picture>
+      <v-lazy-image
+        :src="image.sizes['full-page']"
+        :src-placeholder="image.sizes['small']"
+      />
     </div>
   </div>
 </template>
 
 <script>
+import VLazyImage from "v-lazy-image";
+
 export default {
   name: 'ProjectHeadline',
+  components: {
+    VLazyImage
+  },
    props: {
     headline: {
       type: String,

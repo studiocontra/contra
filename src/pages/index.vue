@@ -28,7 +28,7 @@ export default {
       allProjects: null,
     };
   },
-  async created() {
+  async setup() {
     const { API_BASE_URL } = useRuntimeConfig();
 
     const homeData = await $fetch(`${API_BASE_URL}/pages/2`);
@@ -44,13 +44,13 @@ export default {
       }
     }));
 
-    // return {
-    //   allCategories,
-    //   allProjects
-    // }
+    return {
+      allCategories,
+      allProjects
+    }
 
-    this.allCategories = allCategories;
-    this.allProjects = allProjects;
+    // this.allCategories = allCategories;
+    // this.allProjects = allProjects;
   },
 }
 </script>

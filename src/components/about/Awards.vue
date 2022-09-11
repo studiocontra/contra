@@ -3,7 +3,7 @@
     <div class="about-awards">
       <div class="about-awards__intro">
         <div class="row justify-between">
-          <div class="col-md-4 ">
+          <div class="col-md-5 col-lg-6">
             <h4 class="title">
               Awards & Recognitions
             </h4>
@@ -14,7 +14,7 @@
               </p>
             </div>
           </div>
-          <div class="col-md-8 col-lg-6">
+          <div class="col-md-7 col-lg-6">
             <div class="awards__group">
               <div class="awards__headline">
                 <h5 class="title title--small">

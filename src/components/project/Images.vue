@@ -6,20 +6,22 @@
         :key="idx"
         class="single-image"
         :class="`single-image--${item.size} ${item.alignment}`">
-        <picture>
-          <source :srcset="item.image.sizes['full-page']" media="(min-width: 1200px)">
-          <source :srcset="item.image.sizes['half-page']" media="(min-width: 992px)">
-          <source :srcset="item.image.sizes['card']">
-          <img :src="item.image.sizes['full-page']" :alt="item.image.alt">
-        </picture>
+        <v-lazy-image
+          :src="item.image.sizes['full-page']"
+          :src-placeholder="item.image.sizes['pixel']" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import VLazyImage from "v-lazy-image";
+
 export default {
   name: 'ProjectImages',
+   components: {
+    VLazyImage
+  },
   props: {
     images: {
       type: Object,

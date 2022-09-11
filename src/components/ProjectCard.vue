@@ -15,11 +15,16 @@
           </template>
         </div>
 
-        <picture>
-          <source :srcset="image.sizes['half-page']" media="(min-width: 600px)">
-          <source :srcset="image.sizes['card']">
-          <img :src="image.sizes['half-page']" :alt="image.alt">
-        </picture>
+        <v-lazy-image
+          v-if="full"
+          :src="image.sizes['full-page']"
+          :src-placeholder="image.sizes['pixel']"
+        />
+        <v-lazy-image
+          v-if="!full"
+          :src="image.sizes['half-page']"
+          :src-placeholder="image.sizes['pixel']"
+        />
 
         <div class="marquee">
           <div class="content">
@@ -45,7 +50,13 @@
 </template>
 
 <script>
+import VLazyImage from "v-lazy-image";
+
 export default {
+  name: 'ProjectCard',
+  components: {
+    VLazyImage
+  },
   props: {
     full: {
       type: Boolean,

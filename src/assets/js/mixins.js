@@ -1,10 +1,9 @@
-// import { gsap } from 'gsap';
-// import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import smoothScroll from '@/assets/js/scroll';
-
-// gsap.registerPlugin(ScrollTrigger);
-
 export default {
+  setup() {
+    definePageMeta({
+      pageTransition: 'Articles',
+    });
+  },
   mounted() {
     setTimeout(() => {
       window.scrollTo(0, 0);

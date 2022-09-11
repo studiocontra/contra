@@ -1,4 +1,5 @@
 .work__filters {
+  position: relative;
   display: flex;
   padding: 32px 0 80px;
   color: $white;
@@ -11,25 +12,122 @@
   }
 
   .filters {
-    span {
-      display: inline-block;
-      margin-left: 20px;
-      padding: 8px 12px;
-      cursor: pointer;
-      transition-timing-function: ease-in;
-      transition-duration: 0.3s;
-      transition-property: color, background-color;
-      border: 1px solid $white;
-      border-radius: 8px;
-      font-size: 12px;
-      font-family: $contra;
+    position: absolute;
+    z-index: 3;
+    top: 100%;
+    left: -16px;
+    display: block;
+    overflow: hidden;
+    width: calc(100% + 32px);
+    max-height: 0;
+    padding: 0 16px;
+    transition: max-height 0.5s ease-in, padding 0.3s ease-in;
+    background-color: $blue;
 
-      &:hover,
-      &.active {
-        color: $blue;
-        background-color: $white;
+    &.active {
+      padding-bottom: 32px;
+
+      @include m1200 {
+        padding-bottom: 0;
       }
+    }
+
+    @include m1200 {
+      position: relative;
+      top: 0;
+      left: 0;
+      display: flex;
+      flex-direction: row;
+      width: auto;
+      max-height: none !important;
+      padding: 0;
+      background: none;
+      align-items: center;
+    }
+  }
+
+  .single-filter {
+    display: table;
+    width: auto;
+    margin-bottom: 16px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition-timing-function: ease-in;
+    transition-duration: 0.3s;
+    transition-property: color, background-color;
+    border: 1px solid $white;
+    border-radius: 8px;
+    font-family: $contra;
+    font-size: 16px;
+
+
+    @include m1200 {
+      display: inline-block;
+      margin-bottom: 0;
+      margin-left: 20px;
+    }
+
+    &:hover,
+    &.active {
+      color: $blue;
+      background-color: $white;
+    }
+  }
+
+  .filters--mobile {
+    display: flex;
+    align-items: center;
+
+    @include m1200 {
+      display: none;
+    }
+
+    .single-filter {
+      margin-bottom: 0;
+    }
+  }
+
+  .single-filter--toggle {
+    margin-left: 10px;
+    padding: 6px 10px;
+
+    &:hover {
+      svg {
+        stroke: $blue;
+      }
+    }
+
+    &.open {
+      padding: 4px 6px;
+    }
+
+    svg {
+      width: 18px;
+      fill: none;
+      stroke: $white;
+      stroke-width: 1.5;
+      stroke-linecap: square;
+      stroke-linejoin: round;
+    }
+
+    .close {
+      width: 23px;
     }
   }
 }
 
+.wrap-projects {
+  .error {
+    width: 100%;
+    font-size: 32px;
+    font-family: $contra;
+    padding: 64px 16px;
+    color: $white;
+    margin-bottom: 120px;
+
+    span {
+      text-align: center;
+      display: block;
+    }
+  }
+}

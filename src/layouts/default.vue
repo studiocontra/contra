@@ -4,6 +4,12 @@
   </div>
 </template>
 
-<style>
+// <script setup>
+//   const nuxtApp = useNuxtApp()
 
-</style>
+//   nuxtApp.hook("page:finish", () => {
+//     setTimeout(() => {
+//       window.scrollTo(0, 0)
+//     }, 1000);
+//   })
+// </script>

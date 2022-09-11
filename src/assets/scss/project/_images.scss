@@ -10,14 +10,20 @@
   position: relative;
   width: 100%;
   margin-bottom: 50px;
+  overflow: hidden;
 
   @include m992 {
     margin-bottom: 120px;
   }
 
-  img {
+  .v-lazy-image {
+    transition: filter 0.6s ease-out;
     @include fullAbs;
     @include fit;
+    filter: blur(20px);
+  }
+  .v-lazy-image-loaded {
+    filter: blur(0);
   }
 }
 
@@ -30,11 +36,12 @@
 
   @include m768 {
     width: 75%;
+    padding-bottom: calc(62.5% * 0.75);
   }
 
   &.center {
-    margin-left: auto;
     margin-right: auto;
+    margin-left: auto;
   }
 
   &.right {
@@ -52,9 +59,9 @@
     width: calc(50% - 65px);
   }
 
-  img {
+  .v-lazy-image {
     position: relative;
     height: auto;
-    object-fit: none;
+    object-fit: initial;
   }
 }

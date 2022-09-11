@@ -19,8 +19,13 @@
     }
   }
 
-  img {
-    transition: transform 0.6s ease-out;
+  .v-lazy-image {
+    transition: transform 0.6s ease-out, filter 0.6s ease-out;
+    width: 100%;
+    filter: blur(20px);
+  }
+  .v-lazy-image-loaded {
+    filter: blur(0);
   }
 }
 
@@ -81,7 +86,7 @@
       opacity: 1;
     }
 
-    img {
+    .v-lazy-image {
       transform: scale(1.05);
     }
 
@@ -95,7 +100,7 @@
   .project__img {
     padding-bottom: 62.5%;
 
-    img {
+    .v-lazy-image {
       @include fullAbs;
       @include fit;
     }
