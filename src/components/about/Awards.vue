@@ -5,202 +5,36 @@
         <div class="row justify-between">
           <div class="col-md-5 col-lg-6">
             <h4 class="title">
-              Awards & Recognitions
+              {{ data.headline }}
             </h4>
 
-            <div class="text">
-              <p>
-                Our work and team have been recognised and praised across some of the worlds most prestigious awarding bodies.
-              </p>
-            </div>
+            <div class="text" v-html="data.introduction"></div>
           </div>
+
           <div class="col-md-7 col-lg-6">
-            <div class="awards__group">
+            <div
+              v-for="(cat, idx) in data.categories"
+              :key="idx"
+              class="awards__group">
               <div class="awards__headline">
                 <h5 class="title title--small">
-                  Awwwards
+                  {{ cat.name }}
                 </h5>
                 <span>
-                  X7
+                  X{{ cat.awards.length }}
                 </span>
               </div>
 
               <div class="awards__list">
-                <div class="single-award">
+                <div
+                  v-for="(award, idx2) in cat.awards"
+                  :key="idx2"
+                  class="single-award">
                   <h6>
-                    Marfala
+                    {{ award.name }}
                   </h6>
                   <p>
-                    Site of the day
-                  </p>
-                </div>
-
-                <div class="single-award">
-                  <h6>
-                    Marfala
-                  </h6>
-                  <p>
-                    Honorable Mention
-                  </p>
-                </div>
-
-                <div class="single-award">
-                  <h6>
-                    Marfala
-                  </h6>
-                  <p>
-                    Mobile Excellence
-                  </p>
-                </div>
-
-                <div class="single-award">
-                  <h6>
-                    Bastarda Type
-                  </h6>
-                  <p>
-                    Honorable Mention
-                  </p>
-                </div>
-
-                <div class="single-award">
-                  <h6>
-                    Bastarda Type
-                  </h6>
-                  <p>
-                    Mobile Excellence
-                  </p>
-                </div>
-
-                <div class="single-award">
-                  <h6>
-                    Ora The Floral Agency
-                  </h6>
-                  <p>
-                    Honorable Mention
-                  </p>
-                </div>
-
-                <div class="single-award">
-                  <h6>
-                    Ora The Floral Agency
-                  </h6>
-                  <p>
-                    Mobile Excellence
-                  </p>
-                </div>
-
-              </div>
-            </div>
-
-            <div class="awards__group">
-              <div class="awards__headline">
-                <h5 class="title title--small">
-                  Latin American Design Awards
-                </h5>
-                <span>
-                  X5
-                </span>
-              </div>
-
-              <div class="awards__list">
-
-                <div class="single-award">
-                  <h6>
-                    Bastarda Type
-                  </h6>
-                  <p>
-                    Oro · Digital
-                  </p>
-                </div>
-
-                <div class="single-award">
-                  <h6>
-                    Amalia Andrade
-                  </h6>
-                  <p>
-                    Silver · Digital
-                  </p>
-                </div>
-
-                <div class="single-award">
-                  <h6>
-                    Ora The Floral Agency
-                  </h6>
-                  <p>
-                    Bronze · Digital
-                  </p>
-                </div>
-
-                <div class="single-award">
-                  <h6>
-                    S&Co
-                  </h6>
-                  <p>
-                    Bronze · Digital
-                  </p>
-                </div>
-
-                <div class="single-award">
-                  <h6>
-                    Sprout
-                  </h6>
-                  <p>
-                    Bronze · Brand expression in digital
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="awards__group">
-              <div class="awards__headline">
-                <h5 class="title title--small">
-                  Communication Arts Magazine
-                </h5>
-                <span>
-                  X2
-                </span>
-              </div>
-
-              <div class="awards__list">
-
-                <div class="single-award">
-                  <h6>
-                    Bastarda Type
-                  </h6>
-                  <p>
-                    Webpick
-                  </p>
-                </div>
-
-                <div class="single-award">
-                  <h6>
-                    Ora The Floral Agency
-                  </h6>
-                  <p>
-                    Webpick
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="awards__group">
-              <div class="awards__headline">
-                <h5 class="title title--small">
-                  Mind Sparkle Magazine
-                </h5>
-                <span>
-                  X1
-                </span>
-              </div>
-
-              <div class="awards__list">
-
-                <div class="single-award">
-                  <h6>
-                    Bastarda Type
-                  </h6>
-                  <p>
-                    Site of the Day
+                    {{ award.award }}
                   </p>
                 </div>
               </div>
@@ -215,7 +49,13 @@
 
 <script>
 export default {
-  name: 'AboutAwards'
+  name: 'AboutAwards',
+  props: {
+    data: {
+      type: Object,
+      default: () => {}
+    }
+  },
 }
 </script>
 

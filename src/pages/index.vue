@@ -5,12 +5,14 @@
     </Head>
 
     <Header isHome />
-    <HomeHero />
+    <HomeHero
+      :data="homeData.hero"/>
     <HomeProjects
       v-if="allProjects"
       :projects-data="allProjects"
       :categories="allCategories" />
-    <AboutAwards />
+    <AboutAwards
+      :data="homeData.awards" />
     <News theme="light" />
     <Footer />
   </div>
@@ -22,20 +24,13 @@ import mixins from '@/assets/js/mixins';
 export default {
   name: 'HomePage',
   mixins: [mixins],
-  data() {
-    return {
-      allCategories: null,
-      allProjects: null,
-    };
-  },
   async setup() {
     const { API_BASE_URL } = useRuntimeConfig();
 
-    const homeData = await $fetch(`${API_BASE_URL}/pages/2`);
+    const { acf } = await $fetch(`${API_BASE_URL}/pages/2`);
     const allCategories = await $fetch(`${API_BASE_URL}/categories`);
 
-
-    const allProjects = await Promise.all(homeData.acf.projects.map(async (item) => {
+    const allProjects = await Promise.all(acf.our_work.projects.map(async (item) => {
       const data = await $fetch(`${API_BASE_URL}/projects/${item.project}`);
 
       return {
@@ -44,13 +39,13 @@ export default {
       }
     }));
 
+    console.log(acf);
+
     return {
       allCategories,
-      allProjects
+      allProjects,
+      homeData: acf,
     }
-
-    // this.allCategories = allCategories;
-    // this.allProjects = allProjects;
   },
 }
 </script>

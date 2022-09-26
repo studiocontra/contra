@@ -2,26 +2,15 @@
   <div class="about-partners">
     <div class="container">
       <h4 class="title title--small">
-        Our Partners
+        {{ data.headline }}
       </h4>
 
       <div class="logos-grid">
-        <img src="~/assets/img/logo-yonex.png" />
-        <img src="~/assets/img/logo-jfoodo.png" />
-        <img src="~/assets/img/logo-canada-goose.png" />
-        <img src="~/assets/img/logo-one-fine-stay.png" />
-        <img src="~/assets/img/logo-one-fine-stay.png" />
-        <img src="~/assets/img/logo-yonex.png" />
-        <img src="~/assets/img/logo-canada-goose.png" />
-        <img src="~/assets/img/logo-yonex.png" />
-        <img src="~/assets/img/logo-canada-goose.png" />
-        <img src="~/assets/img/logo-jfoodo.png" />
-        <img src="~/assets/img/logo-one-fine-stay.png" />
-        <img src="~/assets/img/logo-jfoodo.png" />
-        <img src="~/assets/img/logo-jfoodo.png" />
-        <img src="~/assets/img/logo-one-fine-stay.png" />
-        <img src="~/assets/img/logo-yonex.png" />
-        <img src="~/assets/img/logo-canada-goose.png" />
+        <img
+          v-for="(item, idx) in data.logos"
+          :key="idx"
+          :src="item.partner.sizes.medium"
+          :alt="item.partner.alt" />
       </div>
     </div>
   </div>
@@ -29,7 +18,13 @@
 
 <script>
 export default {
-  name: 'AboutPartners'
+  name: 'AboutPartners',
+  props: {
+    data: {
+      type: Object,
+      default: () => {}
+    }
+  },
 }
 </script>
 

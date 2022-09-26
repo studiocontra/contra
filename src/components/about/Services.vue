@@ -5,14 +5,10 @@
         <div class="col-md-4">
           <div class="services__headline">
             <h2 class="title">
-              Services
+              {{ data.headline }}
             </h2>
 
-            <div class="text">
-              <p>
-                Combining a multidisciplinary team, we have the skill-sets to create meaningful products through our services.
-              </p>
-            </div>
+            <div class="text" v-html="data.introduction"></div>
 
             <Link
               theme="dark"
@@ -23,10 +19,13 @@
 
         <div class="col-md-6">
           <div class="services-accordion">
-            <div class="single-accordion">
+            <div
+              v-for="(item, id) in data.services"
+              :key="id"
+              class="single-accordion">
               <div class="accordion__headline js-services-accordion">
                 <h3 class="title title--small">
-                  Design
+                  {{ item.name }}
                 </h3>
 
                 <div class="icon"></div>
@@ -34,94 +33,9 @@
 
               <div class="accordion__content">
                 <div class="text">
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
-                  </p>
+                  <div v-html="item.description"></div>
 
-                  <ul>
-                    <li>
-                      UX/UI Design
-                    </li>
-                    <li>
-                      Prototyping y Wireframing
-                    </li>
-                    <li>
-                      Design Systems
-                    </li>
-                    <li>
-                      Motion Design
-                    </li>
-                    <li>
-                      UX Content & Guidelines
-                    </li>
-                    <li>
-                      Design Research
-                    </li>
-                    <li>
-                      Apps & digital platforms design
-                    </li>
-                    <li>
-                      Interactive & experiencial design
-                    </li>
-                    <li>
-                      Product Design.
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div class="single-accordion">
-              <div class="accordion__headline js-services-accordion">
-                <h3 class="title title--small">
-                  Technology
-                </h3>
-
-                <div class="icon"></div>
-              </div>
-
-              <div class="accordion__content">
-                <div class="text">
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="single-accordion">
-              <div class="accordion__headline js-services-accordion">
-                <h3 class="title title--small">
-                  Digital Innovation
-                </h3>
-
-                <div class="icon"></div>
-              </div>
-
-              <div class="accordion__content">
-                <div class="text">
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
-                  </p>
-
-                </div>
-              </div>
-            </div>
-
-            <div class="single-accordion">
-              <div class="accordion__headline js-services-accordion">
-                <h3 class="title title--small">
-                  Strategy
-                </h3>
-
-                <div class="icon"></div>
-              </div>
-
-              <div class="accordion__content">
-                <div class="text">
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
-                  </p>
+                  <div v-html="item.list"></div>
                 </div>
               </div>
             </div>
@@ -137,6 +51,12 @@ import accordion from '@/assets/js/accordion';
 
 export default {
   name: 'AboutServices',
+  props: {
+    data: {
+      type: Object,
+      default: () => {}
+    }
+  },
   mounted() {
     setTimeout(() => {
       accordion('.js-services-accordion');

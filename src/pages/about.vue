@@ -5,15 +5,22 @@
     </Head>
 
     <Header theme="dark" />
-    <AboutHero />
-    <AboutServices />
-    <AboutMethodology />
-    <AboutPartners class="js-dark-bg" />
-    <AboutTeam />
-    <AboutAwards />
+    <AboutHero
+      :text="aboutData.hero_headline" />
+    <AboutServices
+      :data="aboutData.services" />
+    <AboutMethodology
+      :data="aboutData.metholodogy" />
+    <AboutPartners
+      class="js-dark-bg"
+      :data="aboutData.partners" />
+    <AboutTeam
+      :data="aboutData.team" />
+    <AboutAwards
+      :data="awardsData" />
     <News
-        class="js-light-bg"
-        theme="dark" />
+      class="js-light-bg"
+      theme="dark" />
     <Footer theme="dark" />
   </div>
 </template>
@@ -28,6 +35,17 @@ gsap.registerPlugin(ScrollTrigger);
 export default {
   name: 'AboutPage',
   mixins: [mixins],
+  async setup() {
+    const { API_BASE_URL } = useRuntimeConfig();
+
+    const { acf } = await $fetch(`${API_BASE_URL}/pages/79`);
+    const { acf: { awards }} = await $fetch(`${API_BASE_URL}/pages/2`);
+
+    return {
+      aboutData: acf,
+      awardsData: awards
+    }
+  },
   data() {
     return {
       changeBgDark: null,

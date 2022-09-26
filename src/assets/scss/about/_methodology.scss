@@ -37,9 +37,12 @@
     .title {
       font-family: $contra;
 
-      span {
+      :deep(span),
+      :deep(strong),
+      :deep(b) {
         display: block;
         opacity: 0.5;
+        font-weight: 400;
       }
     }
   }

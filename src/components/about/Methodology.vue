@@ -4,16 +4,12 @@
       <div class="row justify-between">
         <div class="col-md-6">
           <h3 class="title title--small">
-            Our Methodology
+            {{ data.headline }}
           </h3>
         </div>
 
         <div class="col-md-6">
-          <div class="title title--medium">
-            <p>
-              We help our clients through the digital transformation. From initial discovery and completely understanding to full product rollouts.
-            </p>
-          </div>
+          <div class="title title--medium" v-html="data.content"></div>
         </div>
 
         <div class="col-12">
@@ -53,30 +49,21 @@
         </div>
 
         <div class="main-headline">
-          <h4 class="title">
-            We are your<br />
-            partners,
-            <span>
-              not suppliers
-            </span>
-          </h4>
+          <h4 class="title" v-html="data.headline_2"></h4>
         </div>
         <div class="row justify-between">
           <div class="col-md-6 col-lg-5">
             <h5 class="title title--small">
-              Working <br />
-              Collaboratively
+              {{ data.sub_headline }}
             </h5>
 
-            <div class="text">
-              <p>
-                We believe that work together helps us to achieve your goal easily. Listen to you is one of our strengths, no one knows more your product than you, and we know how to help you to introduce new fresh perspectives.
-              </p>
-            </div>
+            <div class="text" v-html="data.content"></div>
           </div>
 
           <div class="col-md-6 col-lg-5">
-            <div class="slider-testimonials">
+            <div
+              v-if="hasTestimonials"
+              class="slider-testimonials">
               <Swiper
                 :autoplay="{
                   delay: 5000,
@@ -86,53 +73,17 @@
                   hide: false,
                 }"
                 :modules="modules" >
-                <SwiperSlide>
+                <SwiperSlide
+                  v-for="(item, idx) in data.testimonials"
+                  :key="idx">
                   <div class="quote">
-                    <div class="text">
-                      <p>
-                        “From the start, Contra Studio has been a true partner to MAMBO. Happily sharing perspectives beyond the core of the project and helping us think more broadly about the brand.”
-                      </p>
-                    </div>
+                    <div class="text" v-html="item.quote"></div>
                     <div class="quote__author">
                       <p>
-                        Luisa Naranjo
+                        {{ item.name }}
                       </p>
                       <span>
-                        Dir. of communications at MAMBO
-                      </span>
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <div class="quote">
-                    <div class="text">
-                      <p>
-                        “From the start, Contra Studio has been a true partner to MAMBO. Happily sharing perspectives beyond the core of the project and helping us think more broadly about the brand.”
-                      </p>
-                    </div>
-                    <div class="quote__author">
-                      <p>
-                        Luisa Naranjo
-                      </p>
-                      <span>
-                        Dir. of communications at MAMBO
-                      </span>
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <div class="quote">
-                    <div class="text">
-                      <p>
-                        “From the start, Contra Studio has been a true partner to MAMBO. Happily sharing perspectives beyond the core of the project and helping us think more broadly about the brand.”
-                      </p>
-                    </div>
-                    <div class="quote__author">
-                      <p>
-                        Luisa Naranjo
-                      </p>
-                      <span>
-                        Dir. of communications at MAMBO
+                        {{ item.role }}
                       </span>
                     </div>
                   </div>
@@ -157,6 +108,12 @@ import "swiper/css/scrollbar";
 
 export default {
   name: 'OurMethodology',
+  props: {
+    data: {
+      type: Object,
+      default: () => {}
+    }
+  },
   components: {
     Swiper,
     SwiperSlide
@@ -166,6 +123,11 @@ export default {
       modules: [Autoplay, Scrollbar],
     };
   },
+  computed: {
+    hasTestimonials() {
+      return this.data.testimonials.length > 0;
+    }
+  }
 }
 </script>
 

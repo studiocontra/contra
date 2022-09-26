@@ -25,9 +25,7 @@
       </div>
 
       <div class="hero__content">
-        <h1 class="title title--big">
-          A digital driven design office. Working to build reality digital ideas.
-        </h1>
+        <h1 class="title title--big" v-html="data.headline"></h1>
 
         <Link
           link="/about"
@@ -45,31 +43,14 @@
           </svg>
         </div>
 
-        <div class="wrap-items">
-          <div class="item item--1">
-            <strong>
-              Based in Bogotá
-            </strong>
-            <p>
-              working in the internet
-            </p>
-          </div>
-          <div class="item item--2">
-            <strong>
-              Intersection of
-            </strong>
-            <p>
-              technology & culture
-            </p>
-          </div>
-          <div class="item item--3">
-            <strong>
-              Web design, development
-            </strong>
-            <p>
-              and starategy
-              </p>
-          </div>
+        <div
+          v-if="data.items"
+          class="wrap-items">
+          <div
+            v-for="(item, idx) in data.items"
+            :key="idx"
+            :class="`item item--${idx + 1}`"
+            v-html="item.content"></div>
         </div>
       </div>
     </div>
@@ -84,6 +65,12 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default {
   name: 'MainHero',
+  props: {
+    data: {
+      type: Object,
+      default: () => {}
+    }
+  },
   data() {
     return {
       linesTl: null,

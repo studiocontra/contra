@@ -8,9 +8,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-10 col-lg-9">
-          <h1 class="title title--big">
-            Contra Studio is an end-to-end creative office that works with innovative clients to bring impactful digital ideas to life.
-          </h1>
+          <h1 class="title title--big" v-html="text"></h1>
         </div>
       </div>
     </div>
@@ -19,7 +17,13 @@
 
 <script>
 export default {
-  name: 'AboutHero'
+  name: 'AboutHero',
+  props: {
+    text: {
+      type: String,
+      default: ''
+    }
+  }
 }
 </script>
 
