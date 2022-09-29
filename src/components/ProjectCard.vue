@@ -5,14 +5,14 @@
     <NuxtLink :to="link">
       <div class="project__img">
         <div class="project__tags">
-          <template v-if="tags.length > 0">
+          <!-- <template v-if="tags.length > 0">
             <div
               v-for="(tag, idx) in tags"
               :key="idx"
               class="tag">
               {{ tag.name }}
             </div>
-          </template>
+          </template> -->
         </div>
 
         <v-lazy-image
