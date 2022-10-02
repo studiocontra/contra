@@ -27,8 +27,8 @@ export default {
   async setup() {
     const { API_BASE_URL } = useRuntimeConfig();
 
-    const { acf } = await $fetch(`${API_BASE_URL}/pages/2`);
-    const allCategories = await $fetch(`${API_BASE_URL}/categories`);
+    const { acf } = await $fetch(`${API_BASE_URL}/pages/2?per_page=100`);
+    const allCategories = await $fetch(`${API_BASE_URL}/categories?per_page=100`);
 
     const allProjects = await Promise.all(acf.our_work.projects.map(async (item) => {
       const data = await $fetch(`${API_BASE_URL}/projects/${item.project}`);
@@ -39,7 +39,8 @@ export default {
       }
     }));
 
-    console.log(acf);
+    console.log(allProjects);
+    console.log(allCategories);
 
     return {
       allCategories,
