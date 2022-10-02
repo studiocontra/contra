@@ -21,20 +21,27 @@
 
     <div class="main__image">
       <v-lazy-image
+        v-if="image"
         :src="image.sizes['full-page']"
         :src-placeholder="image.sizes['small']"
       />
+
+      <client-only>
+        <iframe :src="`https://player.vimeo.com/video/${videoId}?autoplay=1&loop=1&title=0&byline=0&portrait=0&controls=1`" muted frameborder="0" allow="autoplay; fullscreen; picture-in-picture" id="home-main-video"></iframe>
+      </client-only>
     </div>
   </div>
 </template>
 
 <script>
 import VLazyImage from "v-lazy-image";
+import { vueVimeoPlayer } from 'vue-vimeo-player'
 
 export default {
   name: 'ProjectHeadline',
   components: {
-    VLazyImage
+    VLazyImage,
+    vueVimeoPlayer
   },
    props: {
     headline: {
@@ -44,12 +51,16 @@ export default {
       type: String,
     },
     logo: {
-      type: Object,
-      default: () => {}
+      type: [Object, Boolean],
+      default: false
     },
     image: {
-      type: Object,
-      default: () => {}
+      type: [Object, Boolean],
+      default: false
+    },
+    videoId: {
+      type: String,
+      default: ''
     },
   }
 }

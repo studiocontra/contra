@@ -22,8 +22,14 @@
     @include fit;
     filter: blur(20px);
   }
+
   .v-lazy-image-loaded {
     filter: blur(0);
+  }
+
+  iframe {
+    @include fullAbs;
+    @include fit;
   }
 }
 

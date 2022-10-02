@@ -7,7 +7,8 @@
       :headline="projectData.excerpt.rendered"
       :client="projectData.acf.client_name"
       :logo="projectData.acf.client_logo || {}"
-      :image="projectData.acf.main_image" />
+      :image="projectData.acf.main_image"
+      :video-id="projectData.acf.main_video" />
     <ProjectContent
       :deliverables="projectData.acf.deliverables"
       :brief="projectData.acf.brief"

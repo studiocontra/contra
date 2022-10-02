@@ -18,6 +18,10 @@
       padding-top: 15%;
       padding-bottom: 5%;
     }
+    @include m1200 {
+      padding-top: 150px;
+      padding-bottom: 5%;
+    }
   }
 }
 

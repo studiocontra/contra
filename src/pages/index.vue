@@ -40,7 +40,7 @@ export default {
     }));
 
     console.log(allProjects);
-    console.log(allCategories);
+    // console.log(allCategories);
 
     return {
       allCategories,
