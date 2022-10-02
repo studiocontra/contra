@@ -35,13 +35,11 @@
 
 <script>
 import VLazyImage from "v-lazy-image";
-import { vueVimeoPlayer } from 'vue-vimeo-player'
 
 export default {
   name: 'ProjectHeadline',
   components: {
     VLazyImage,
-    vueVimeoPlayer
   },
    props: {
     headline: {
