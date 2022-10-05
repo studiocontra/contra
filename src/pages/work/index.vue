@@ -43,7 +43,7 @@ export default {
     const mainProjects = await Promise.all(allData.acf['main_projects'].map(async (item) => {
       if(!item.project)
         return console.error('Empty Item inside Wordpress page');
-      const data = await $fetch(`${API_BASE_URL}/projects/${item.project}`);
+      const data = await $fetch(`${API_BASE_URL}/projects/${item.project}?acf_format=standard`);
 
       return {
         'data': data,
@@ -54,16 +54,10 @@ export default {
     const additionalProjects = await Promise.all(allData.acf['additional_projects'].map(async (item) => {
       if(!item.project)
         return console.error('Empty Item inside Wordpress page');
-      const data = await $fetch(`${API_BASE_URL}/projects/${item.project}`);
+      const data = await $fetch(`${API_BASE_URL}/projects/${item.project}?acf_format=standard`);
 
       return data;
     }));
-
-    // return {
-    //   allCategories,
-    //   mainProjects,
-    //   additionalProjects
-    // }
 
     this.allCategories = allCategories;
     this.mainProjects = mainProjects;

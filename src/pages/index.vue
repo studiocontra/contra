@@ -31,7 +31,7 @@ export default {
     const allCategories = await $fetch(`${API_BASE_URL}/categories?per_page=100`);
 
     const allProjects = await Promise.all(acf.our_work.projects.map(async (item) => {
-      const data = await $fetch(`${API_BASE_URL}/projects/${item.project}`);
+      const data = await $fetch(`${API_BASE_URL}/projects/${item.project}?acf_format=standard`);
 
       return {
         'data': data,

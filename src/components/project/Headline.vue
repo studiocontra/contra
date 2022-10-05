@@ -21,14 +21,14 @@
 
     <div class="main__image">
       <v-lazy-image
-        v-if="image"
+        v-if="image && !videoId"
         :src="image.sizes['full-page']"
         :src-placeholder="image.sizes['small']"
       />
 
-      <client-only>
-        <iframe :src="`https://player.vimeo.com/video/${videoId}?autoplay=1&loop=1&title=0&byline=0&portrait=0&controls=1`" muted frameborder="0" allow="autoplay; fullscreen; picture-in-picture" id="home-main-video"></iframe>
-      </client-only>
+      <iframe
+        v-if="videoId"
+        :src="`https://player.vimeo.com/video/${videoId}?autoplay=1&loop=1&muted=1&title=0&byline=0&portrait=0&controls=1`" muted frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
     </div>
   </div>
 </template>

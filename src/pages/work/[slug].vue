@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="nextProjectData"
+    v-if="projectData"
     class="single-work">
     <Header theme="dark" />
     <ProjectHeadline
@@ -16,10 +16,11 @@
     <ProjectImages
       class="js-toggle-bg"
       :images="projectData.acf.images" />
-    <ProjectNextProject
+    <!-- <ProjectNextProject
+      v-if="nextProjectData"
       :name="nextProjectData.title.rendered"
       :slug="nextProjectData.slug"
-      :image="nextProjectData.acf.main_image" />
+      :image="nextProjectData.acf.main_image" /> -->
     <Footer />
   </div>
 </template>
@@ -37,8 +38,6 @@ export default {
   data() {
     return {
       changeBgDark: null,
-      // projectData: null,
-      // nextProjectData: null,
     };
   },
   async setup() {
@@ -54,16 +53,18 @@ export default {
 
     const { API_BASE_URL } = useRuntimeConfig();
 
-    const [projectData] = await $fetch(`${API_BASE_URL}/projects/?slug=${slug}`);
-    const nextProjectData = await $fetch(`${API_BASE_URL}/projects/${projectData.acf.next_project}`);
+    const [projectData] = await $fetch(`${API_BASE_URL}/projects/?slug=${slug}&acf_format=standard`);
+    let nextProjectData = false;
+
+    const [nextId] = projectData.acf.next_project;
+    if (nextId) {
+      nextProjectData = await $fetch(`${API_BASE_URL}/projects/${nextId}`);
+    }
 
     return {
       projectData,
       nextProjectData
     }
-
-    // this.projectData = projectData;
-    // this.nextProjectData = nextProjectData;
   },
   mounted() {
     setTimeout(() => {
@@ -83,10 +84,9 @@ export default {
     window.addEventListener('resize', () => this.changeBgDark.scrollTrigger.refresh())
   },
   watch: {
-    nextProjectData(newVal) {
-      console.log(newVal);
-      this.changeBgDark.restart();
-    }
+    // nextProjectData(newVal) {
+    //   this.changeBgDark.restart();
+    // }
   }
 }
 </script>

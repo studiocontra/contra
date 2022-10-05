@@ -18,31 +18,33 @@
 
   .v-lazy-image {
     transition: filter 0.6s ease-out;
-    @include fullAbs;
-    @include fit;
     filter: blur(20px);
   }
 
   .v-lazy-image-loaded {
     filter: blur(0);
   }
+}
+
+.single-image--video {
+  position: relative;
+  padding-bottom: 56.25% ;
 
   iframe {
     @include fullAbs;
     @include fit;
   }
-}
 
-.single-image--full {
-  padding-bottom: 62.5%;
+  &.single-image--medium {
+    @include m768 {
+      padding-bottom: calc(62.5% * 0.75);
+    }
+  }
 }
 
 .single-image--medium {
-  padding-bottom: 62.5%;
-
   @include m768 {
     width: 75%;
-    padding-bottom: calc(62.5% * 0.75);
   }
 
   &.center {
@@ -63,11 +65,5 @@
   }
   @include m992 {
     width: calc(50% - 65px);
-  }
-
-  .v-lazy-image {
-    position: relative;
-    height: auto;
-    object-fit: initial;
   }
 }

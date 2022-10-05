@@ -5,26 +5,28 @@
     <NuxtLink :to="link">
       <div class="project__img">
         <div class="project__tags">
-          <!-- <template v-if="tags.length > 0">
+          <template v-if="tags.length > 0">
             <div
               v-for="(tag, idx) in tags"
               :key="idx"
               class="tag">
-              {{ tag.name }}
+              <span v-html="tag.name"></span>
             </div>
-          </template> -->
+          </template>
         </div>
 
-        <v-lazy-image
-          v-if="full"
-          :src="image.sizes['full-page']"
-          :src-placeholder="image.sizes['pixel']"
-        />
-        <v-lazy-image
-          v-if="!full"
-          :src="image.sizes['half-page']"
-          :src-placeholder="image.sizes['pixel']"
-        />
+        <template v-if="image">
+          <v-lazy-image
+            v-if="full"
+            :src="image.sizes['full-page']"
+            :src-placeholder="image.sizes['pixel']"
+          />
+          <v-lazy-image
+            v-else
+            :src="image.sizes['half-page']"
+            :src-placeholder="image.sizes['pixel']"
+          />
+        </template>
 
         <div class="marquee">
           <div class="content">
@@ -68,8 +70,8 @@ export default {
       type: String,
     },
     image: {
-      type: Object,
-      default: () => {}
+      type: [Object, Boolean],
+      default: false
     },
     link: {
       type: String,
