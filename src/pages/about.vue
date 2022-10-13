@@ -57,7 +57,7 @@ export default {
       this.changeBgDark = gsap.timeline({
         scrollTrigger: {
           trigger: '.js-dark-bg',
-          start: 'top 50%',
+          start: 'top 40%',
           end: '+=500',
           scrub: true,
         }
@@ -69,7 +69,7 @@ export default {
       this.changeBgLight = gsap.timeline({
         scrollTrigger: {
           trigger: '.js-light-bg',
-          start: 'top 80%',
+          start: 'top 60%',
           end: '+=500',
           scrub: true,
         }

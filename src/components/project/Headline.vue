@@ -11,7 +11,7 @@
               <img :src="logo.sizes['small']" alt="logo.alt">
             </div>
 
-            <h2 class="title title--small">
+            <h2 class="text text--small">
               {{ client }}
             </h2>
           </div>

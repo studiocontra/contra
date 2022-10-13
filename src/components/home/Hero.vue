@@ -84,7 +84,7 @@ export default {
           trigger: '.js-hero-home',
           start: 'top top',
           end: '+=50%',
-          scrub: 1,
+          scrub: 0.3,
         }
       })
       .to('.js-line-1', {

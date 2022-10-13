@@ -2,7 +2,9 @@
   <template v-if="link.indexOf('://') < 0">
     <NuxtLink
       class="link"
-      :class="`link--${theme}`"
+      :class="[`link--${theme}`, {
+        'link--small': small
+      }]"
       :to="link">
       <span>
         {{ text }}
@@ -19,7 +21,9 @@
   <template v-else>
     <a
       class="link"
-      :class="`link--${theme}`"
+      :class="[`link--${theme}`, {
+        'link--small': small
+      }]"
       :href="link">
       {{ text }}
       <div class="icon">
@@ -47,6 +51,10 @@ export default {
     theme: {
       type: String,
       default: 'light'
+    },
+    small: {
+      type: Boolean,
+      default: false
     }
   }
 }

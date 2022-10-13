@@ -1,6 +1,6 @@
 <template>
-  <div class="our-methodology">
-    <div class="container">
+  <div class="container">
+    <div class="our-methodology">
       <div class="row justify-between">
         <div class="col-md-6">
           <h3 class="title title--small">
@@ -53,9 +53,7 @@
         </div>
         <div class="row justify-between">
           <div class="col-md-6 col-lg-5">
-            <h5 class="title title--small">
-              {{ data.sub_headline }}
-            </h5>
+            <h5 class="title title--small" v-html="data.sub_headline"></h5>
 
             <div class="text" v-html="data.content"></div>
           </div>
@@ -66,7 +64,7 @@
               class="slider-testimonials">
               <Swiper
                 :autoplay="{
-                  delay: 5000,
+                  delay: 6000,
                   disableOnInteraction: false,
                 }"
                 :scrollbar="{

@@ -2,10 +2,14 @@
   margin-bottom: 100px;
   padding-top: 30px;
   border-top: 1px solid;
+
+  @include m768 {
+    margin-bottom: 180px;
+  }
 }
 
 .news__headline {
-  margin-bottom: 105px;
+  margin-bottom: 48px;
 }
 
 .wrap-news--dark {

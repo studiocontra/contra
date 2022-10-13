@@ -5,7 +5,7 @@
         <div class="col-md-3">
           <div class="content__group deliverables">
             <h2 class="title title--small">
-              Deliverables
+              Services
             </h2>
 
             <div class="text" v-html="deliverables"></div>

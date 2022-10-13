@@ -13,7 +13,7 @@
   overflow: hidden;
 
   @include m992 {
-    margin-bottom: 120px;
+    margin-bottom: 64px;
   }
 
   .v-lazy-image {
@@ -28,7 +28,7 @@
 
 .single-image--video {
   position: relative;
-  padding-bottom: 56.25% ;
+  padding-bottom: 52.65% ;
 
   iframe {
     @include fullAbs;
@@ -61,9 +61,6 @@
   padding-bottom: 0;
 
   @include m768 {
-    width: calc(50% - 25px);
-  }
-  @include m992 {
-    width: calc(50% - 65px);
+    width: calc(50% - 12px);
   }
 }

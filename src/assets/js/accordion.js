@@ -23,8 +23,15 @@ const getSiblings = (mainWrapper) => {
   return result;
 }
 
-export default function initAccordion(mainItem) {
+
+export default function initAccordion(mainItem, firstOpen) {
   const accordionTrigger = document.querySelectorAll(mainItem);
+
+  if (firstOpen) {
+    const firstItem = document.querySelector(mainItem);
+
+    firstItem.nextElementSibling.style.maxHeight = firstItem.nextElementSibling.scrollHeight + "px"
+  }
 
   accordionTrigger.forEach(item => {
     item.onclick = function () {

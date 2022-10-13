@@ -18,10 +18,12 @@
   }
 
   .icon {
+    position: relative;
+    top: 2px;
     display: inline-flex;
     width: 35px;
     height: 35px;
-    margin-left: 5px;
+    margin-left: 20px;
     padding: 5px;
     transition: background 0.3s ease-in;
     border-radius: 5px;
@@ -57,6 +59,22 @@
 
     svg {
       stroke: $blue;
+    }
+  }
+}
+
+.link--small {
+  font-size: 16px;
+
+  .icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 5px;
+    margin-left: 12px;
+    top: 1px;
+
+    svg {
+      width: 16px;
     }
   }
 }

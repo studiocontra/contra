@@ -16,7 +16,7 @@
 
         <div class="col-lg-6">
           <div class="contact__headline">
-            <h2 class="title title--small">
+            <h2 class="text text--small custom-title">
               Contact Us
             </h2>
           </div>
@@ -31,7 +31,7 @@
                 </div>
               </div>
               <div class="col-sm-5">
-                <a href="">
+                <a href="mailto:hello@contrastudio.co">
                   hello@contrastudio.co
                 </a>
               </div>
@@ -39,7 +39,7 @@
           </div>
 
           <div class="contact__headline">
-            <h2 class="title title--small">
+            <h2 class="text text--small custom-title">
               Follow Us
             </h2>
           </div>
@@ -65,6 +65,29 @@
                 </a>
                 <a href="">
                   Domestika
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact__headline">
+            <h2 class="text text--small custom-title">
+              Be part of Contra Studio
+            </h2>
+          </div>
+
+          <div class="contact__content">
+            <div class="row justify-between">
+              <div class="col-sm-6">
+                <div class="text text--small">
+                  <p>
+                    We are always looking for new talent and freelance collaborators. Send us your CV and portfolio via email.
+                  </p>
+                </div>
+              </div>
+              <div class="col-sm-5">
+                <a href="mailto:hello@contrastudio.co">
+                  hello@contrastudio.co
                 </a>
               </div>
             </div>

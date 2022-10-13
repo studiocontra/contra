@@ -7,6 +7,12 @@
 
 .team__intro {
   margin-bottom: 60px;
+
+  .title--medium {
+    :deep(p) {
+      margin-top: 0;
+    }
+  }
 }
 
 .main-team-card {

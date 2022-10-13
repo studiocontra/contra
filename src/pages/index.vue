@@ -39,9 +39,6 @@ export default {
       }
     }));
 
-    console.log(allProjects);
-    // console.log(allCategories);
-
     return {
       allCategories,
       allProjects,

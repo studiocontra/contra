@@ -1,21 +1,35 @@
 .project__headline {
   padding: 150px 0 64px;
+
+  .title {
+    :deep(p) {
+      margin-top: 0;
+    }
+  }
 }
 
 .project__data {
   display: flex;
   margin-bottom: 64px;
+  align-items: center;
 
   .logo {
     width: auto;
-    height: 24px;
-    margin-right: 15px;
+    height: 32px;
+    margin-right: 12px;
 
     img {
       width: auto;
       max-width: none;
       height: 100%;
     }
+  }
+
+  .text {
+    margin-bottom: 0;
+    padding-left: 12px;
+    border-left: 1px solid $blue;
+    font-weight: 400;
   }
 }
 

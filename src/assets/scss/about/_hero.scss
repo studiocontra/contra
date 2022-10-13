@@ -34,4 +34,10 @@
   .container {
     position: relative;
   }
+
+  .title {
+    :deep(p){
+      margin: 0;
+    }
+  }
 }

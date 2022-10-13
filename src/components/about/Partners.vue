@@ -6,11 +6,14 @@
       </h4>
 
       <div class="logos-grid">
-        <img
+        <template
           v-for="(item, idx) in data.logos"
-          :key="idx"
-          :src="item.partner.sizes.medium"
-          :alt="item.partner.alt" />
+          :key="idx">
+          <img
+            v-if="item.partner"
+            :src="item.partner.sizes.medium"
+            :alt="item.partner.alt" />
+        </template>
       </div>
     </div>
   </div>

@@ -1,6 +1,6 @@
 .our-methodology {
   position: relative;
-  padding: 24px 0 200px;
+  padding: 32px 0 200px;
   border-top: 1px solid $blue;
 
   .title--small {
@@ -9,7 +9,7 @@
   }
 
   .title--medium {
-    p {
+    :deep(p) {
       margin-top: 0;
     }
   }
@@ -23,6 +23,8 @@
 }
 
 .we-are-partners {
+  padding-bottom: 200px;
+
   .container {
     padding: 0 5%;
 
@@ -50,6 +52,7 @@
   .title--small {
     margin-bottom: 40px;
     font-size: 18px;
+    font-weight: 400;
   }
 }
 

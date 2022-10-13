@@ -17,7 +17,7 @@
   transition: all .3s ease-in;
 
   &.active {
-    margin-bottom: 32px;
+    margin-bottom: 24px;
 
     .icon {
       &:after {
@@ -27,13 +27,15 @@
   }
 
   &:hover {
-    color: $blue;
-    background-color: $white;
+    &:not(&.active) {
+      color: $blue;
+      background-color: $white;
 
-    .icon {
-      &:before,
-      &:after {
-        background-color: $blue;
+      .icon {
+        &:before,
+        &:after {
+          background-color: $blue;
+        }
       }
     }
   }
@@ -91,7 +93,9 @@
     }
 
     .link {
-      text-decoration: underline;
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 
@@ -102,6 +106,10 @@
   .swiper {
     padding: 80px 24px 0;
     padding-top: 80px;
+
+    .swiper-slide {
+      height: auto;
+    }
   }
 
   .wrap-arrows {

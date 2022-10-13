@@ -3,7 +3,7 @@
     <div class="about-awards">
       <div class="about-awards__intro">
         <div class="row justify-between">
-          <div class="col-md-5 col-lg-6">
+          <div class="col-md-5">
             <h4 class="title">
               {{ data.headline }}
             </h4>

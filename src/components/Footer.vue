@@ -109,7 +109,7 @@ export default {
       this.showShape = gsap.timeline({
         scrollTrigger: {
           trigger: '.js-footer',
-          start: 'top 70%',
+          start: 'bottom 105%',
           scrub: false,
           toggleActions: 'play none reverse reset'
         }
@@ -121,7 +121,7 @@ export default {
     }, 750);
 
     window.addEventListener('resize', () => {
-        this.showShape.scrollTrigger.refresh();
+      this.showShape.scrollTrigger.refresh();
     })
   },
   beforeDestroy() {
