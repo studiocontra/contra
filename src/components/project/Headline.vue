@@ -28,7 +28,7 @@
 
       <iframe
         v-if="videoId"
-        :src="`https://player.vimeo.com/video/${videoId}?autoplay=1&loop=1&muted=1&title=0&byline=0&portrait=0&controls=1`" muted frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
+        :src="`https://player.vimeo.com/video/${videoId}?loop=1&autoplay=1&autopause=0&muted=1&title=0&byline=0&portrait=0&controls=1`" muted frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
     </div>
   </div>
 </template>

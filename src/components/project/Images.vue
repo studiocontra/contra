@@ -13,7 +13,7 @@
 
         <iframe
           v-if="item.video"
-          :src="`https://player.vimeo.com/video/${item.video}?loop=1&muted=1&title=0&byline=0&portrait=0&controls=1`" muted frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
+          :src="`https://player.vimeo.com/video/${item.video}?loop=1&autoplay=1&autopause=0&muted=1&title=0&byline=0&portrait=0&controls=1`" muted frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
       </div>
     </div>
   </div>

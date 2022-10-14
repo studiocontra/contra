@@ -40,8 +40,8 @@ export default {
   name: 'NextProject',
   props: {
     image: {
-      type: Object,
-      default: () => {}
+      type: [Object, Boolean],
+      default: false
     },
     name: {
       type: String,

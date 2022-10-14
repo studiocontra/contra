@@ -78,6 +78,7 @@
             <template v-for="(project, idx) in filteredProjects" :key="idx">
               <template v-if="project.size === 'full'">
                 <div class="col-12">
+                  {{project.data.slug}}
                   <ProjectCard
                     full
                     :name="project.data.title.rendered"
@@ -89,6 +90,7 @@
               </template>
               <template v-else>
                 <div class="col-md-6">
+                  {{project.data.slug}}
                   <ProjectCard
                     :name="project.data.title.rendered"
                     :description="project.data.excerpt.rendered"

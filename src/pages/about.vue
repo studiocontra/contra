@@ -18,10 +18,8 @@
       :data="aboutData.team" />
     <AboutAwards
       :data="awardsData" />
-    <News
-      class="js-light-bg"
-      theme="dark" />
-    <Footer theme="dark" />
+    <News theme="light" />
+    <Footer theme="light" />
   </div>
 </template>
 

@@ -16,11 +16,11 @@
     <ProjectImages
       class="js-toggle-bg"
       :images="projectData.acf.images" />
-    <!-- <ProjectNextProject
+    <ProjectNextProject
       v-if="nextProjectData"
       :name="nextProjectData.title.rendered"
       :slug="nextProjectData.slug"
-      :image="nextProjectData.acf.main_image" /> -->
+      :image="nextProjectData.acf.main_image" />
     <Footer />
   </div>
 </template>
@@ -51,14 +51,15 @@ export default {
       }
     } = useRouter();
 
+
     const { API_BASE_URL } = useRuntimeConfig();
 
     const [projectData] = await $fetch(`${API_BASE_URL}/projects/?slug=${slug}&acf_format=standard`);
+    const [nextId] = projectData.acf.next_project;
     let nextProjectData = false;
 
-    const [nextId] = projectData.acf.next_project;
     if (nextId) {
-      nextProjectData = await $fetch(`${API_BASE_URL}/projects/${nextId}`);
+      nextProjectData = await $fetch(`${API_BASE_URL}/projects/${nextId.ID}?acf_format=standard`);
     }
 
     return {
