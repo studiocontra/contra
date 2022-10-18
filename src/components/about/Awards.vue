@@ -1,14 +1,15 @@
 <template>
   <div class="container">
     <div class="about-awards">
-      <div class="about-awards__intro">
         <div class="row justify-between">
           <div class="col-md-5">
-            <h4 class="title">
-              {{ data.headline }}
-            </h4>
+            <div class="about-awards__intro">
+              <h4 class="title">
+                {{ data.headline }}
+              </h4>
 
-            <div class="text" v-html="data.introduction"></div>
+              <div class="text" v-html="data.introduction"></div>
+            </div>
           </div>
 
           <div class="col-md-7 col-lg-6">
@@ -41,7 +42,6 @@
             </div>
           </div>
         </div>
-      </div>
 
     </div>
   </div>

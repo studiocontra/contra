@@ -3,7 +3,7 @@ footer {
 
   .shapes {
     .red {
-      top: 50%;
+      top: 40%;
       left: 50%;
       width: 200%;
       max-width: 1900px;
@@ -26,12 +26,12 @@ footer {
 
 .footer__logo {
   display: none;
-  padding-bottom: 24px;
 
   @include m768 {
     display: flex;
     flex-direction: column;
     height: 100%;
+    padding-bottom: 24px;
   }
 
   .logo {
@@ -46,12 +46,16 @@ footer {
   }
 
   .arrow {
-    width: 20px;
+    width: 18px;
     margin-top: auto;
     transform: rotate(-90deg);
     fill: none;
     stroke: $white;
     stroke-width: 2;
+
+    @include m768 {
+      width: 20px;
+    }
   }
 }
 
@@ -59,7 +63,7 @@ footer {
   position: relative;
   display: block;
   height: auto;
-  margin-bottom: 40px;
+  margin-bottom: 28px;
 
   @include m768 {
     display: none;
@@ -67,14 +71,18 @@ footer {
 
   .arrow {
     position: absolute;
-    top: 0;
+    top: 15px;
     right: 0;
     transform: rotate(-90deg);
   }
 }
 
 .footer__content {
-  margin-bottom: 150px;
+  margin-bottom: 100px;
+
+  @include m768 {
+    margin-bottom: 150px;
+  }
 
   .title {
     margin-bottom: 0.5em;

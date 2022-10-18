@@ -36,17 +36,19 @@
             v-if="showSlider"
             class="wrap-swiper">
             <Swiper
-              :slidesPerView="1.5"
-              :spaceBetween="24"
+              :slidesPerView="1.1"
+              :spaceBetween="16"
+              :breakpoints="swiperBreakpoints"
               :navigation="{
                 nextEl: '.swiper-arrow--next',
                 prevEl: '.swiper-arrow--prev',
                 disabledClass: 'swiper-arrow--disabled',
               }"
-              :modules="modules">
+              :modules="modules"
+              @swiper="onSwiper">
               <SwiperSlide
-              v-for="(item, idx) in project.acf.images"
-              :key="idx">
+                v-for="(item, idx) in project.acf.images"
+                :key="idx">
                 <picture>
                   <source :srcset="item.image.sizes['half-page']" media="(min-width: 600px)">
                   <source :srcset="item.image.sizes['card']">
@@ -105,6 +107,12 @@ export default {
     return {
       modules: [Navigation],
       showSlider: false,
+      swiperBreakpoints: {
+        768: {
+          slidesPerView: 1.5,
+          spaceBetween: 24
+        }
+      }
     };
   },
   mounted() {
@@ -112,6 +120,13 @@ export default {
       this.showSlider = true;
       accordion('.js-single-accordion');
     }, 750);
+  },
+  methods: {
+    onSwiper({wrapperEl, imagesToLoad}) {
+      const allHeights = imagesToLoad.map(img => img.clientHeight);
+      const smallest = Math.min.apply(Math, allHeights);
+      wrapperEl.style.height = `${smallest}px`;
+    }
   }
 }
 </script>

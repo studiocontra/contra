@@ -1,17 +1,7 @@
 <template>
   <div class="project__content">
     <div class="container">
-      <div class="row justify-between">
-        <div class="col-md-3">
-          <div class="content__group deliverables">
-            <h2 class="title title--small">
-              Services
-            </h2>
-
-            <div class="text" v-html="deliverables"></div>
-          </div>
-        </div>
-
+      <div class="row justify-between md-reverse">
         <div class="col-md-8">
           <div class="content__group">
             <h2 class="title title--small">
@@ -27,6 +17,16 @@
             </h2>
 
             <div class="text" v-html="solution"></div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="content__group deliverables">
+            <h2 class="title title--small">
+              Services
+            </h2>
+
+            <div class="text" v-html="deliverables"></div>
           </div>
         </div>
       </div>

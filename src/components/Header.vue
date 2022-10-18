@@ -60,6 +60,30 @@
               activeClass="active">
               Contact
             </NuxtLink>
+
+            <div class="menu__contact">
+              <h6>
+                Contact us
+              </h6>
+              <a href="mailto:hello@contrastudio.co">
+                hello@contrastudio.co
+              </a>
+            </div>
+
+            <div class="menu__social">
+              <a href="#" target="_blank">
+                Instagram
+              </a>
+              <a href="#" target="_blank">
+                Facebook
+              </a>
+              <a href="#" target="_blank">
+                LinkedIn
+              </a>
+              <a href="#" target="_blank">
+                Domestika
+              </a>
+            </div>
           </div>
 
           <div

@@ -64,9 +64,8 @@
             @click="toggleFilters(); filterProjects({
               id: cat.id,
               name: cat.name
-            })">
-            {{ cat.name }}
-          </span>
+            })"
+            v-html="cat.name"></span>
         </div>
       </div>
     </div>

@@ -1,15 +1,20 @@
 .wrap-news {
   margin-bottom: 100px;
-  padding-top: 30px;
+  padding-top: 20px;
   border-top: 1px solid;
 
   @include m768 {
+    padding-top: 30px;
     margin-bottom: 180px;
   }
 }
 
 .news__headline {
-  margin-bottom: 48px;
+  margin-bottom: 40px;
+
+  @include m768 {
+    margin-bottom: 48px;
+  }
 }
 
 .wrap-news--dark {

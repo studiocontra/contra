@@ -9,8 +9,12 @@
 .single-image {
   position: relative;
   width: 100%;
-  margin-bottom: 50px;
+  margin-bottom: 48px;
   overflow: hidden;
+
+  @include m768 {
+    margin-bottom: 50px;
+  }
 
   @include m992 {
     margin-bottom: 64px;
@@ -28,7 +32,8 @@
 
 .single-image--video {
   position: relative;
-  padding-bottom: 52.65% ;
+  padding-bottom: 62.5% ;
+
 
   iframe {
     @include fullAbs;
@@ -62,5 +67,13 @@
 
   @include m768 {
     width: calc(50% - 12px);
+  }
+}
+
+.single-image--xsmall {
+  padding-bottom: 0;
+
+  @include m768 {
+    width: calc(33% - 12px);
   }
 }

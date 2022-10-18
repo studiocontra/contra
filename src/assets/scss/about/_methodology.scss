@@ -4,8 +4,8 @@
   border-top: 1px solid $blue;
 
   .title--small {
-    text-transform: uppercase;
     margin-bottom: 24px;
+    text-transform: uppercase;
   }
 
   .title--medium {
@@ -23,6 +23,7 @@
 }
 
 .we-are-partners {
+  position: relative;
   padding-bottom: 200px;
 
   .container {
@@ -30,6 +31,26 @@
 
     @include m768 {
       padding: 0 10%;
+    }
+  }
+
+  .wrap-cursors {
+    @include fullAbs;
+
+    .single-cursor {
+      position: absolute;
+      opacity: 1;
+      width: 51px;
+      max-width: none;
+
+      span {
+        position: absolute;
+        top: 32px;
+        left: 9px;
+        color: $white;
+        font-family: $contra;
+        font-size: 24px;
+      }
     }
   }
 

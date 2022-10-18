@@ -106,17 +106,39 @@ export default {
   },
   mounted() {
     setTimeout(() => {
-      this.showShape = gsap.timeline({
-        scrollTrigger: {
-          trigger: '.js-footer',
-          start: 'bottom 105%',
-          scrub: false,
-          toggleActions: 'play none reverse reset'
-        }
-      })
-      .from('.js-footer-shape', {
-        top: '100%',
-        duration: 0.4
+      ScrollTrigger.matchMedia({
+        // large
+        "(min-width: 768px)": function() {
+          this.showShape = gsap.timeline({
+            scrollTrigger: {
+              trigger: '.js-footer',
+              start: 'bottom 105%',
+              scrub: false,
+              toggleActions: 'play none reverse reset'
+            }
+          })
+          .from('.js-footer-shape', {
+            top: '100%',
+            duration: 0.4
+          });
+        },
+        // small
+        "(max-width: 767px)": function() {
+          this.showShape = gsap.timeline({
+            scrollTrigger: {
+              trigger: '.js-footer',
+              start: 'bottom 105%',
+              scrub: false,
+              toggleActions: 'play none reverse reset',
+              // markers: true,
+            }
+          })
+          .from('.js-footer-shape', {
+            top: '90%',
+            duration: 0.4
+          });
+        },
+
       });
     }, 750);
 

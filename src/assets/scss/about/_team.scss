@@ -59,6 +59,7 @@
   position: relative;
   margin-bottom: 250px;
   padding-top: 40px;
+  cursor: pointer;
   border-top: 1px solid rgba($white, 0.5);
 
   .title,
@@ -82,7 +83,11 @@
   p {
     margin: 0;
     font-family: $contra;
-    font-size: 20px;
+    font-size: 16px;
+
+    @include m768 {
+      font-size: 20px;
+    }
   }
 
   &:hover {
@@ -95,14 +100,21 @@
 .team-card__image {
   position: absolute;
   z-index: 1;
-  top: 80px;
-  left: 50%;
-  width: 60%;
-  padding-bottom: 65%;
+  top: 40px;
+  right: 0;
+  width: 45%;
+  padding-bottom: 45%;
   transition: opacity 0.3s ease-in;
-  transform: translateX(-50%);
   pointer-events: none;
-  opacity: 0;
+
+  @include m768 {
+    top: 80px;
+    right: auto;
+    left: 50%;
+    width: 60%;
+    transform: translateX(-50%);
+    opacity: 0;
+  }
 
   img {
     @include fullAbs;

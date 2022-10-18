@@ -1,12 +1,17 @@
 .hero-home {
   position: relative;
-  min-height: 100vh;
-  margin-bottom: 300px;
+  min-height: 90vh;
+  margin-bottom: 100px;
+
+  @include m768 {
+    min-height: 100vh;
+    margin-bottom: 300px;
+  }
 
   >.container {
     position: relative;
     display: flex;
-    padding-top: 30vh;
+    padding-top: 175px;
     padding-bottom: 20vh;
 
     @include m576 {
@@ -134,7 +139,7 @@
 
   .arrow {
     position: absolute;
-    top: 32px;
+    top: 45px;
     right: 16px;
 
     @include m576 {
@@ -176,15 +181,19 @@
   }
 
   .item {
+    display: none;
     margin-bottom: 16px;
     line-height: 1.2;
 
     @include m768 {
+      display: block;
       margin-bottom: 0;
     }
   }
 
   .item--2 {
+    display: block;
+
     @include m992 {
       position: relative;
       left: -27px;

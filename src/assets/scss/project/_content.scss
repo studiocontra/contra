@@ -1,19 +1,27 @@
 .content__group {
   padding-top: 13px;
   border-top: 1px solid $blue;
-  margin-bottom: 120px;
+  margin-bottom: 80px;
+
+  @include m768 {
+    margin-bottom: 120px;
+  }
 
   .title {
     font-weight: 500;
-    margin-bottom: 50px;
+    margin-bottom: 32px;
+
+    @include m768 {
+      margin-bottom: 50px;
+    }
   }
 
   .text {
-    p {
-      font-size: 26px;
+    :deep(p) {
+      font-size: 24px;
 
       @include m768 {
-        font-size: 32px;
+        font-size: 30px;
       }
     }
   }
@@ -21,9 +29,13 @@
 
 .deliverables {
   .text {
-    p {
-      font-size: 20px;
+    :deep(p) {
+      font-size: 18px;
       margin: 0;
+
+      @include m768 {
+        font-size: 20px;
+      }
     }
   }
 }

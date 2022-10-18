@@ -24,7 +24,7 @@
             <!-- Main Team -->
             <div
               v-if="person.featured"
-              class="col-lg-4 col-md-6">
+              class="col-md-6 col-lg-4">
               <div class="main-team-card">
                 <div class="main-team-card__image">
                   <img src="https://picsum.photos/seed/300/500/700" alt="">
@@ -48,7 +48,7 @@
             <!-- All team -->
             <div
               v-else
-              class="col-6 col-md-3">
+              class="col-sm-6 col-md-3">
               <div class="team-card">
                 <h6 class="title title--small">
                   {{ person.name }}

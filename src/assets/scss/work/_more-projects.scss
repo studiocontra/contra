@@ -1,8 +1,12 @@
 .wrap-accordion {
   max-width: 1650px;
-  margin: 0 auto 180px;
+  margin: 36px auto 180px;
   color: $white;
   border-top: 1px solid $white;
+
+  @include m768 {
+    margin-top: 0;
+  }
 }
 
 .single-accordion {
@@ -16,8 +20,16 @@
   cursor: pointer;
   transition: all .3s ease-in;
 
+  @include m768 {
+    padding: 20px 0;
+  }
+
   &.active {
-    margin-bottom: 24px;
+    margin-bottom: 12px;
+
+    @include m768 {
+      margin-bottom: 24px;
+    }
 
     .icon {
       &:after {
@@ -27,14 +39,16 @@
   }
 
   &:hover {
-    &:not(&.active) {
-      color: $blue;
-      background-color: $white;
+    @include m768 {
+      &:not(&.active) {
+        color: $blue;
+        background-color: $white;
 
-      .icon {
-        &:before,
-        &:after {
-          background-color: $blue;
+        .icon {
+          &:before,
+          &:after {
+            background-color: $blue;
+          }
         }
       }
     }
@@ -44,7 +58,16 @@
     width: 100%;
   }
 
+  .title {
+    margin-bottom: 0.5em;
+
+    @include m768 {
+      margin-bottom: 0;
+    }
+  }
+
   .tags {
+    opacity: 0.6;
     font-family: $contra;
     font-size: 16px;
 
@@ -86,7 +109,11 @@
   transition: max-height .3s ease-in;
 
   .intro {
-    margin-bottom: 50px;
+    margin-bottom: 8;
+
+    @include m768 {
+      margin-bottom: 50px;
+    }
 
     .text {
       max-width: 450px;
@@ -104,11 +131,26 @@
   }
 
   .swiper {
-    padding: 80px 24px 0;
-    padding-top: 80px;
+    padding: 48px 24px 0;
+
+    @include m768 {
+      padding-top: 80px;
+    }
+
+    .swiper-wrapper {
+      align-items: stretch;
+    }
 
     .swiper-slide {
-      height: auto;
+      height: 100% !important;
+      cursor: url('~/assets/img/cursor-drag.png') 25 25, pointer;
+      text-align: center;
+
+      img {
+        height: 100% !important;
+        object-fit: contain;
+        object-position: center;
+      }
     }
   }
 
@@ -117,6 +159,11 @@
     top: 20px;
     left: 0;
     width: 100%;
+    display: none;
+
+    @include m768 {
+      display: block;
+    }
 
     .container {
       position: relative;

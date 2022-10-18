@@ -3,7 +3,11 @@
   letter-spacing: 0.02em;
   color: $white;
   font-family: $contra;
-  font-size: 20px;
+  font-size: 18px;
+
+  @include m768 {
+    font-size: 20px;
+  }
 
   &:hover {
     font-family: $contra_pixel;
@@ -23,13 +27,17 @@
     display: inline-flex;
     width: 35px;
     height: 35px;
-    margin-left: 20px;
+    margin-left: 12px;
     padding: 5px;
     transition: background 0.3s ease-in;
     border-radius: 5px;
     background-color: rgba($white, 0.3);
     justify-content: center;
     align-items: center;
+
+    @include m768 {
+      margin-left: 20px;
+    }
 
     svg {
       width: 18px;

@@ -1,11 +1,15 @@
 .work__filters {
   position: relative;
   display: flex;
-  padding: 32px 0 80px;
+  padding: 16px 0 64px;
   color: $white;
   border-top: 1px solid $white;
   align-items: center;
   justify-content: space-between;
+
+  @include m768 {
+    padding: 32px 0 80px;
+  }
 
   .title--small {
     text-transform: uppercase;
@@ -14,7 +18,7 @@
   .filters {
     position: absolute;
     z-index: 3;
-    top: 100%;
+    top: 70%;
     left: -16px;
     display: block;
     overflow: hidden;
@@ -23,6 +27,10 @@
     padding: 0 16px;
     transition: max-height 0.5s ease-in, padding 0.3s ease-in;
     background-color: $blue;
+
+    @include m768 {
+      top: 100%;
+    }
 
     &.active {
       padding-bottom: 32px;
@@ -89,7 +97,11 @@
 
   .single-filter--toggle {
     margin-left: 10px;
-    padding: 6px 10px;
+    padding: 6px 7px;
+
+    @include m768 {
+      padding: 6px 10px;
+    }
 
     &:hover {
       svg {
@@ -98,7 +110,11 @@
     }
 
     &.open {
-      padding: 4px 6px;
+      padding: 4px 5px;
+
+      @include m768 {
+        padding: 4px 6px;
+      }
     }
 
     svg {

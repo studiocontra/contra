@@ -29,7 +29,11 @@
 }
 
 .contact__content {
-  margin-bottom: 80px;
+  margin-bottom: 36px;
+
+  @include m768 {
+    margin-bottom: 80px;
+  }
 
   a {
     display: block;
