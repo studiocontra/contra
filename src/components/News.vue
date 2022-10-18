@@ -11,14 +11,16 @@
 
       <div class="news__grid">
         <Swiper
-          :slidesPerView="1.5"
-          :spaceBetween="24"
+          :slidesPerView="1.2"
+          :spaceBetween="16"
           :breakpoints="{
             '576': {
               slidesPerView: 2.5,
+              spaceBetween: 24,
             },
             '992': {
               slidesPerView: 4,
+              spaceBetween: 24,
             }
           }">
           <SwiperSlide>
@@ -77,7 +79,7 @@ export default {
   components: {
     Swiper,
     SwiperSlide
-  },
+  }
 }
 </script>
 

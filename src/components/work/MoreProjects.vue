@@ -38,7 +38,12 @@
             <Swiper
               :slidesPerView="1.1"
               :spaceBetween="16"
-              :breakpoints="swiperBreakpoints"
+              :breakpoints="{
+                '768': {
+                  slidesPerView: 1.5,
+                  spaceBetween: 24,
+                },
+              }"
               :navigation="{
                 nextEl: '.swiper-arrow--next',
                 prevEl: '.swiper-arrow--prev',
@@ -107,12 +112,6 @@ export default {
     return {
       modules: [Navigation],
       showSlider: false,
-      swiperBreakpoints: {
-        768: {
-          slidesPerView: 1.5,
-          spaceBetween: 24
-        }
-      }
     };
   },
   mounted() {
