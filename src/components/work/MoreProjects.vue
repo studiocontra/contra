@@ -24,7 +24,7 @@
             <div class="container">
               <div class="text text--small">
                 <div v-html="project.excerpt.rendered"></div>
-                <a :href="project.acf.project_link.url" class="link link--light">
+                <a :href="project.acf.project_link.url" class="link">
                   Visit website
                 </a>
               </div>

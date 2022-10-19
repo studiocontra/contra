@@ -120,8 +120,11 @@
     }
 
     .link {
+      font-family: Contra BT,sans-serif;
+      font-size: 18px;
       &:hover {
-        text-decoration: underline;
+        // text-decoration: underline;
+        font-family: Contra BT pixel, sans-serif;
       }
     }
   }

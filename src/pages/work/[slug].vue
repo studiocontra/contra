@@ -79,7 +79,7 @@ export default {
         }
       })
       .to('.single-work', {
-        backgroundColor: '#00001A',
+        backgroundColor: '#0f0f0f',
       });
     }, 750);
 
