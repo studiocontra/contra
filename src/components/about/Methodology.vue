@@ -19,7 +19,7 @@
         </div>
       </div>
     </div>
-
+<!-- 
     <div class="we-are-partners" ref="wrap-partners">
       <div class="wrap-cursors">
         <div class="single-cursor js-single-cursor">
@@ -97,7 +97,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
