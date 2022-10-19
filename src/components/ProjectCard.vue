@@ -31,7 +31,7 @@
         <div class="marquee">
           <div class="content">
             <span v-for="i in 10" :key="i">
-              Explore Project //
+              Explore case study //
             </span>
           </div>
         </div>

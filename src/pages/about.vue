@@ -9,8 +9,8 @@
       :text="aboutData.hero_headline" />
     <AboutServices
       :data="aboutData.services" />
-    <AboutMethodology
-      :data="aboutData.metholodogy" />
+    <!-- <AboutMethodology
+      :data="aboutData.metholodogy" /> -->
     <AboutPartners
       class="js-dark-bg"
       :data="aboutData.partners" />

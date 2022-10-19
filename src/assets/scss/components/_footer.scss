@@ -37,6 +37,10 @@ footer {
   .logo {
     width: 118px;
     fill: $white;
+
+    @include m768 {
+      width: 220px;
+    }
   }
 
   span {
@@ -87,7 +91,7 @@ footer {
   .title {
     margin-bottom: 0.5em;
     color: $white;
-    font-size: 32px;
+    font-size: 8vw;
     font-weight: 400;
 
     @include m768 {
