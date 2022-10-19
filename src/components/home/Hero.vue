@@ -82,7 +82,7 @@ export default {
       this.linesTl = gsap.timeline({
         scrollTrigger: {
           trigger: '.js-hero-home',
-          start: 'top top',
+          start: '50px top',
           end: '+=50%',
           scrub: 0.3,
         }

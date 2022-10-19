@@ -151,13 +151,7 @@ export default {
           yoyo: true,
           repeat: -1,
           repeat: '-1',
-        })
-        .to(element, {
-          opacity: 0,
-          yoyo: true,
-          repeat: -1,
-          duration: 1,
-        }, '<');
+        });
       });
     }, 750);
   },

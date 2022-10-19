@@ -59,6 +59,8 @@ export default {
       return data;
     }));
 
+    console.log(allCategories);
+
     this.allCategories = allCategories;
     this.mainProjects = mainProjects;
     this.additionalProjects = additionalProjects;

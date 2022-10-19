@@ -6,7 +6,10 @@
           <h1 class="title" v-html="headline">
           </h1>
 
-          <div class="project__data">
+          <a
+            class="project__data"
+            :href="projectLink"
+            target="_blank">
             <div v-if="logo.sizes" class="logo">
               <img :src="logo.sizes['small']" alt="logo.alt">
             </div>
@@ -14,7 +17,7 @@
             <h2 class="text text--small">
               {{ client }}
             </h2>
-          </div>
+          </a>
         </div>
       </div>
     </div>
@@ -44,6 +47,10 @@ export default {
    props: {
     headline: {
       type: String,
+    },
+    projectLink: {
+      type: String,
+      default: '#',
     },
     client: {
       type: String,

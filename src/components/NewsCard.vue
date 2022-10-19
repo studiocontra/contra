@@ -2,20 +2,20 @@
   <div
     class="news-card"
     :class="`news-card--${theme}`">
-    <a :href="link" taget="_blank">
+    <a :href="link.url || '#'" :target="link.target ? '_blank' : '_self'">
       <div class="news-card__img">
-        <img :src="image" alt="">
+        <v-lazy-image
+          v-if="image"
+          :src="image.sizes['small']"
+          :src-placeholder="image.sizes['small']"
+        />
       </div>
 
       <div class="news-card__content" >
         <div class="title title--small">
-           {{ name }}
+          {{ name }}
         </div>
-        <div class="text text--small">
-          <p>
-            {{ description }}
-          </p>
-        </div>
+        <div class="text text--small" v-html="description"></div>
         <span class="date">
           {{ date }}
         </span>
@@ -25,7 +25,12 @@
 </template>
 
 <script>
+import VLazyImage from "v-lazy-image";
+
 export default {
+  components: {
+    VLazyImage,
+  },
   props: {
     theme: {
       type: String,
@@ -42,10 +47,12 @@ export default {
       default: '29.02.2022',
     },
     image: {
-      type: String,
+      type: [Object, Boolean],
+      default: false
     },
     link: {
-      type: String,
+      type: Object,
+      default: () => {}
     },
   }
 }

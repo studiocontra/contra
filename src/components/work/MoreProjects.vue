@@ -24,8 +24,7 @@
             <div class="container">
               <div class="text text--small">
                 <div v-html="project.excerpt.rendered"></div>
-
-                <a href="" class="link">
+                <a :href="project.acf.project_link.url" class="link">
                   Visit Website
                 </a>
               </div>
@@ -49,8 +48,7 @@
                 prevEl: '.swiper-arrow--prev',
                 disabledClass: 'swiper-arrow--disabled',
               }"
-              :modules="modules"
-              @swiper="onSwiper">
+              :modules="modules">
               <SwiperSlide
                 v-for="(item, idx) in project.acf.images"
                 :key="idx">
@@ -120,13 +118,6 @@ export default {
       accordion('.js-single-accordion');
     }, 750);
   },
-  methods: {
-    onSwiper({wrapperEl, imagesToLoad}) {
-      const allHeights = imagesToLoad.map(img => img.clientHeight);
-      const smallest = Math.min.apply(Math, allHeights);
-      wrapperEl.style.height = `${smallest}px`;
-    }
-  }
 }
 </script>
 

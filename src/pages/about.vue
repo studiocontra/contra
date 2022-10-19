@@ -18,7 +18,9 @@
       :data="aboutData.team" />
     <AboutAwards
       :data="awardsData" />
-    <News theme="light" />
+    <News
+      theme="light"
+      :data="allNews" />
     <Footer theme="light" />
   </div>
 </template>
@@ -38,10 +40,12 @@ export default {
 
     const { acf } = await $fetch(`${API_BASE_URL}/pages/79?acf_format=standard`);
     const { acf: { awards }} = await $fetch(`${API_BASE_URL}/pages/2?acf_format=standard`);
+    const allNews = await $fetch(`${API_BASE_URL}/news?per_page=100&acf_format=standard`);
 
     return {
       aboutData: acf,
-      awardsData: awards
+      awardsData: awards,
+      allNews
     }
   },
   data() {

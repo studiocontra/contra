@@ -13,7 +13,9 @@
       :categories="allCategories" />
     <AboutAwards
       :data="homeData.awards" />
-    <News theme="light" />
+    <News
+      theme="light"
+      :data="allNews" />
     <Footer />
   </div>
 </template>
@@ -29,6 +31,9 @@ export default {
 
     const { acf } = await $fetch(`${API_BASE_URL}/pages/2?per_page=100`);
     const allCategories = await $fetch(`${API_BASE_URL}/categories?per_page=100`);
+    const allNews = await $fetch(`${API_BASE_URL}/news?per_page=100&acf_format=standard`);
+
+    console.log(allNews);
 
     const allProjects = await Promise.all(acf.our_work.projects.map(async (item) => {
       const data = await $fetch(`${API_BASE_URL}/projects/${item.project}?acf_format=standard`);
@@ -41,6 +46,7 @@ export default {
 
     return {
       allCategories,
+      allNews,
       allProjects,
       homeData: acf,
     }

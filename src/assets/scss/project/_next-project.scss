@@ -6,18 +6,37 @@
     position: relative;
   }
 
-  a {
+  &:after {
     display: block;
+    content: '';
+    transition: opacity 0.3s ease-in;
+    opacity: 1;
     backdrop-filter: blur(30px);
+    @include fullAbs;
+  }
+
+  &:hover {
+    &:after {
+      opacity: 0;
+    }
+
+    a {
+      &:before {
+        background-color: rgba($blue, 0.5);
+      }
+    }
+  }
+
+  a {
+    position: relative;
+    z-index: 1;
+    display: block;
 
     &:before {
       content: '';
-      @include fullAbs;
+      transition: background 0.3s ease-in;
       background-color: rgba($blue, 0.3);
-    }
-
-    &:hover {
-      backdrop-filter: blur(10px);
+      @include fullAbs;
     }
   }
 }
@@ -32,10 +51,10 @@
   padding: 20px 0;
   color: $white;
   border-bottom: 1px solid $white;
+  font-family: $contra;
   font-size: 20px;
   justify-content: space-between;
   align-items: center;
-  font-family: $contra;
 
   p {
     margin: 0;
@@ -58,8 +77,8 @@
   .content {
     white-space: nowrap;
     color: $white;
+    font-family: $contra;
     font-size: 8.3vw;
     @include anim(marquee, 10s, -50%);
-    font-family: $contra;
   }
 }
