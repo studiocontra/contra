@@ -25,11 +25,11 @@
 
         <div class="col-8"
           :class="{
-            'col-md-10': !isHome,
+            'col-md-6': !isHome,
             'col-md-10': isHome}">
           <div class="header__menu" :class="{'active': isMenuOpen}">
             <a
-              
+              v-if="isHome"
               class="playlist"
               href="https://open.spotify.com/playlist/3dX2E1dqybhhhDWH3qL6wI?si=1ff2efc9f5b44176"
               target="_blank">
