@@ -33,7 +33,7 @@
         <div class="col-md-8 col-lg-6">
           <div class="footer__content">
             <p class="title">
-              Want to work with us?<br>We’d love to hear from you.
+              Want to collaborate with us?<br>We’d love to hear from you.
             </p>
 
             <Link
@@ -66,18 +66,16 @@
           </div>
 
           <div class="footer__menu">
-            <a href="#" target="_blank">
+            <a href="https://www.instagram.com/contra_studio_/" target="_blank">
               Instagram
             </a>
-            <a href="#" target="_blank">
-              Facebook
+            <a href="https://www.awwwards.com/contrastudio/" target="_blank">
+              Awwwards
             </a>
-            <a href="#" target="_blank">
+            <a href="https://www.linkedin.com/company/contra-studio" target="_blank">
               LinkedIn
             </a>
-            <a href="#" target="_blank">
-              Domestika
-            </a>
+         
           </div>
         </div>
       </div>

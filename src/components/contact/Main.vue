@@ -9,8 +9,8 @@
             </h1>
 
             <Link
-              link="mailto:hello@contrastudio.co"
-              text="Work with us"/>
+              link="mailto:hi@studiocontra.co"
+              text="Collaborate with us"/>
           </div>
         </div>
 
@@ -26,13 +26,13 @@
               <div class="col-sm-6">
                 <div class="text text--small">
                   <p>
-                    Feel free to reach put if you want to work, collaborate with us, or just have a chat.
+                    Let's start a discussion about new projects and  collaborations, contact us through our emails or social networks.
                   </p>
                 </div>
               </div>
               <div class="col-sm-5">
-                <a href="mailto:hello@contrastudio.co">
-                  hello@contrastudio.co
+                <a href="mailto:hi@studiocontra.co">
+                  hi@studiocontra.co
                 </a>
               </div>
             </div>
@@ -49,30 +49,28 @@
               <div class="col-sm-6">
                 <div class="text text--small">
                   <p>
-                    Stay in tune with our work, processes and news, following our social media.
+                    Stay in tune with our work, careers, updates and more.
                   </p>
                 </div>
               </div>
               <div class="col-sm-5">
-                <a href="">
+                <a href="https://www.instagram.com/contra_studio_/" target="_blank">
                   Instagram
                 </a>
-                <a href="">
-                  Facebook
+                <a href="https://www.awwwards.com/contrastudio/" target="_blank">
+                  Awwwards
                 </a>
-                <a href="">
+                <a href="https://www.linkedin.com/company/contra-studio" target="_blank">
                   LinkedIn
                 </a>
-                <a href="">
-                  Domestika
-                </a>
+              
               </div>
             </div>
           </div>
 
           <div class="contact__headline">
             <h2 class="text text--small custom-title">
-              Be part of Contra Studio
+              Be a part of Contra Studio
             </h2>
           </div>
 
@@ -81,13 +79,13 @@
               <div class="col-sm-6">
                 <div class="text text--small">
                   <p>
-                    We are always looking for new talent and freelance collaborators. Send us your CV and portfolio via email.
+                    We are always looking for new talent and freelance collaborators. Send us your portfolio via email.
                   </p>
                 </div>
               </div>
               <div class="col-sm-5">
-                <a href="mailto:hello@contrastudio.co">
-                  hello@contrastudio.co
+                <a href="mailto:hi@studiocontra.co">
+                  hi@studiocontra.co
                 </a>
               </div>
             </div>

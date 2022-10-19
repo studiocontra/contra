@@ -65,24 +65,22 @@
               <h6>
                 Contact us
               </h6>
-              <a href="mailto:hello@contrastudio.co">
-                hello@contrastudio.co
+              <a href="mailto:hi@studiocontra.co">
+                hi@studiocontra.co
               </a>
             </div>
 
             <div class="menu__social">
-              <a href="#" target="_blank">
+              <a href="https://www.instagram.com/contra_studio_/" target="_blank">
                 Instagram
               </a>
-              <a href="#" target="_blank">
-                Facebook
+              <a href="https://www.awwwards.com/contrastudio/" target="_blank">
+                Awwwards
               </a>
-              <a href="#" target="_blank">
+              <a href="https://www.linkedin.com/company/contra-studio" target="_blank">
                 LinkedIn
               </a>
-              <a href="#" target="_blank">
-                Domestika
-              </a>
+             
             </div>
           </div>
 
