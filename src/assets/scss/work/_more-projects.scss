@@ -28,7 +28,7 @@
     margin-bottom: 12px;
 
     @include m768 {
-      margin-bottom: 24px;
+      margin-bottom: 0px;
     }
 
     .icon {
@@ -72,7 +72,7 @@
     font-size: 16px;
 
     @include m768 {
-      font-size: 20px;
+      font-size: 18px;
     }
   }
 
@@ -134,7 +134,7 @@
     padding: 48px 24px 0;
 
     @include m768 {
-      padding-top: 80px;
+      padding-top: 0px;
     }
 
     .swiper-wrapper {

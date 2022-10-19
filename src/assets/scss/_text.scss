@@ -70,6 +70,7 @@
 
   @include m768 {
     font-size: 20px;
+    margin-bottom: 0;
   }
   @include m992 {
     font-size: 24px;
