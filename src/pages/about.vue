@@ -67,19 +67,7 @@ export default {
       .to('.about-page', {
         backgroundColor: '#00001A',
       });
-
-      this.changeBgLight = gsap.timeline({
-        scrollTrigger: {
-          trigger: '.js-light-bg',
-          start: 'top 60%',
-          end: '+=500',
-          scrub: true,
-        }
-      })
-      .to('.about-page', {
-        backgroundColor: '#F4F4F4',
-      });
-    }, 750);
+    }, 1000);
 
     window.addEventListener('resize', () => {
       this.changeBgDark.scrollTrigger.refresh();

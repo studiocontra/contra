@@ -51,7 +51,7 @@
             @click="toggleFilters(); filterProjects({
               id: 'all',
               name: 'All'
-            })">
+            }); $emit('show-accordion')">
             All
           </span>
 
@@ -64,7 +64,7 @@
             @click="toggleFilters(); filterProjects({
               id: cat.id,
               name: cat.name
-            })"
+            }); $emit('hide-accordion')"
             v-html="cat.name"></span>
         </div>
       </div>

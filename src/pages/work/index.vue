@@ -11,9 +11,11 @@
       <WorkMainProjects
         v-if="mainProjects"
         :projects="mainProjects"
-        :categories="allCategories" />
+        :categories="allCategories"
+        @hideAccordion="isAccordionVisible = false"
+        @showAccordion="isAccordionVisible = true" />
       <WorkMoreProjects
-        v-if="additionalProjects"
+        v-if="additionalProjects && isAccordionVisible"
         :data="additionalProjects" />
     </transition-group>
     <Footer />
@@ -31,6 +33,7 @@ export default {
       allCategories: null,
       mainProjects: null,
       additionalProjects: null,
+      isAccordionVisible: true,
     };
   },
   async created() {
@@ -58,8 +61,6 @@ export default {
 
       return data;
     }));
-
-    console.log(allCategories);
 
     this.allCategories = allCategories;
     this.mainProjects = mainProjects;
