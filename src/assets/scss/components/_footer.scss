@@ -56,6 +56,7 @@ footer {
     fill: none;
     stroke: $white;
     stroke-width: 2;
+    cursor: pointer;
 
     @include m768 {
       width: 20px;

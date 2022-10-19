@@ -1,11 +1,11 @@
 .wrap-news {
-  margin-bottom: 100px;
+  margin-bottom: 80px;
   padding-top: 20px;
   border-top: 1px solid;
 
   @include m768 {
     padding-top: 30px;
-    margin-bottom: 180px;
+    margin-bottom: 120px;
   }
 }
 
