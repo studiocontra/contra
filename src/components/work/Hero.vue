@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-md-6">
           <h1 class="title title--big">
-            A selection of our latest works.
+            A selection of our latest projects.
           </h1>
         </div>
       </div>
