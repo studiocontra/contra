@@ -52,7 +52,6 @@ export default {
       }
     } = useRouter();
 
-
     const { API_BASE_URL } = useRuntimeConfig();
 
     const [projectData] = await $fetch(`${API_BASE_URL}/projects/?slug=${slug}&acf_format=standard`);

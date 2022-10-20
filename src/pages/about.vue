@@ -38,9 +38,15 @@ export default {
   async setup() {
     const { API_BASE_URL } = useRuntimeConfig();
 
-    const { acf } = await $fetch(`${API_BASE_URL}/pages/79?acf_format=standard`);
-    const { acf: { awards }} = await $fetch(`${API_BASE_URL}/pages/2?acf_format=standard`);
-    const allNews = await $fetch(`${API_BASE_URL}/news?per_page=100&acf_format=standard`);
+    // const { acf } = await $fetch(`${API_BASE_URL}/pages/79?acf_format=standard`);
+    // const { acf: { awards }} = await $fetch(`${API_BASE_URL}/pages/2?acf_format=standard`);
+    // const allNews = await $fetch(`${API_BASE_URL}/news?per_page=100&acf_format=standard`);
+
+    let [{acf}, {acf: {awards}}, allNews] = await Promise.all([
+      $fetch(`${API_BASE_URL}/pages/79?acf_format=standard`),
+      $fetch(`${API_BASE_URL}/pages/2?acf_format=standard`),
+      $fetch(`${API_BASE_URL}/news?per_page=100&acf_format=standard`)
+    ]);
 
     return {
       aboutData: acf,

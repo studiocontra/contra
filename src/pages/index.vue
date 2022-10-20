@@ -29,11 +29,15 @@ export default {
   async setup() {
     const { API_BASE_URL } = useRuntimeConfig();
 
-    const { acf } = await $fetch(`${API_BASE_URL}/pages/2?per_page=100`);
-    const allCategories = await $fetch(`${API_BASE_URL}/categories?per_page=100`);
-    const allNews = await $fetch(`${API_BASE_URL}/news?per_page=100&acf_format=standard`);
+    // const { acf } = await $fetch(`${API_BASE_URL}/pages/2?per_page=100`);
+    // const allCategories = await $fetch(`${API_BASE_URL}/categories?per_page=100`);
+    // const allNews = await $fetch(`${API_BASE_URL}/news?per_page=100&acf_format=standard`);
 
-    console.log(allNews);
+    let [{ acf }, allCategories, allNews] = await Promise.all([
+      $fetch(`${API_BASE_URL}/pages/2?per_page=100`),
+      $fetch(`${API_BASE_URL}/categories?per_page=100`),
+      $fetch(`${API_BASE_URL}/news?per_page=100&acf_format=standard`)
+    ]);
 
     const allProjects = await Promise.all(acf.our_work.projects.map(async (item) => {
       const data = await $fetch(`${API_BASE_URL}/projects/${item.project}?acf_format=standard`);
