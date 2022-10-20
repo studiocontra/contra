@@ -2,7 +2,7 @@
   <div
     class="news-card"
     :class="`news-card--${theme}`">
-    <a :href="link.url || '#'" :target="link.target ? '_blank' : '_self'">
+    <a :href="link || '#'" :target="link.target ? '_blank' : '_self'">
       <div class="news-card__img">
         <img
           v-if="image"
@@ -50,7 +50,7 @@ export default {
       default: false
     },
     link: {
-      type: Object,
+      type: [String, Object],
       default: () => {}
     },
   }
