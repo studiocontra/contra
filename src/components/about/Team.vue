@@ -27,7 +27,7 @@
               class="col-md-6 col-lg-4">
               <div class="main-team-card">
                 <div class="main-team-card__image">
-                  <img src="https://picsum.photos/seed/300/500/700" alt="">
+                  <img :src="person.image.sizes.medium" alt="">
                 </div>
 
                 <div class="main-team-card__content">
