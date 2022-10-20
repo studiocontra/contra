@@ -16,15 +16,15 @@
         </div>
 
         <template v-if="image">
-          <v-lazy-image
+          <img
             v-if="full"
             :src="image.sizes['full-page']"
-            :src-placeholder="image.sizes['pixel']"
+            
           />
-          <v-lazy-image
+          <img
             v-else
             :src="image.sizes['half-page']"
-            :src-placeholder="image.sizes['pixel']"
+            
           />
         </template>
 

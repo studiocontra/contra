@@ -4,10 +4,9 @@
     :class="`news-card--${theme}`">
     <a :href="link.url || '#'" :target="link.target ? '_blank' : '_self'">
       <div class="news-card__img">
-        <v-lazy-image
+        <img
           v-if="image"
           :src="image.sizes['small']"
-          :src-placeholder="image.sizes['small']"
         />
       </div>
 

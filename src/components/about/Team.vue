@@ -26,8 +26,10 @@
               v-if="person.featured"
               class="col-md-6 col-lg-4">
               <div class="main-team-card">
-                <div class="main-team-card__image">
-                  <img :src="person.image.sizes.medium" alt="">
+                <div 
+                  v-if="person.image"
+                  class="main-team-card__image">
+                  <img :src="person.image.sizes.medium" :alt="person.image.alt">
                 </div>
 
                 <div class="main-team-card__content">
@@ -57,8 +59,10 @@
                   {{ person.role }}
                 </p>
 
-                <div class="team-card__image">
-                  <img src="https://picsum.photos/seed/303/500/700" alt="">
+                <div
+                  v-if="person.image"
+                  class="team-card__image">
+                  <img :src="person.image.url" :alt="person.image.alt">
                 </div>
               </div>
             </div>

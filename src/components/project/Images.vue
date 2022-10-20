@@ -6,10 +6,9 @@
         :key="idx"
         class="single-image"
         :class="`single-image--${item.size} ${item.alignment} ${(item.video) ? 'single-image--video' : ''}`">
-        <v-lazy-image
+        <img
           v-if="item.image && !item.video"
-          :src="item.image.sizes['full-page']"
-          :src-placeholder="item.image.sizes['pixel']" />
+          :src="item.image.sizes['full-page']" />
 
         <iframe
           v-if="item.video"

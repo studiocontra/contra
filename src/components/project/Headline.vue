@@ -23,10 +23,9 @@
     </div>
 
     <div class="main__image">
-      <v-lazy-image
+      <img
         v-if="image && !videoId"
         :src="image.sizes['full-page']"
-        :src-placeholder="image.sizes['small']"
       />
 
       <iframe
