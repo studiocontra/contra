@@ -29,7 +29,7 @@
                 <div 
                   v-if="person.image"
                   class="main-team-card__image">
-                  <img :src="person.image.sizes.medium" :alt="person.image.alt">
+                  <img :src="person.image.sizes.large" :alt="person.image.alt">
                 </div>
 
                 <div class="main-team-card__content">
