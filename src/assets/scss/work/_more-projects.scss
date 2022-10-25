@@ -109,11 +109,11 @@
   transition: max-height .3s ease-in;
 
   .intro {
-    margin-bottom: 8;
+    margin-bottom: 8px;
 
-    @include m768 {
-      margin-bottom: 50px;
-    }
+    // @include m768 {
+    //   margin-bottom: 50px;
+    // }
 
     .text {
       max-width: 450px;
@@ -136,10 +136,6 @@
   .swiper {
     padding: 48px 24px 0;
 
-    @include m768 {
-      padding-top: 0px;
-    }
-
     .swiper-wrapper {
       align-items: stretch;
     }
@@ -159,7 +155,7 @@
 
   .wrap-arrows {
     position: absolute;
-    top: 20px;
+    top: 0;
     left: 0;
     width: 100%;
     display: none;

@@ -44,14 +44,14 @@ export default {
 
     let [[allData], allCategories] = await Promise.all([
       $fetch(`${API_BASE_URL}/pages/?slug=work`),
-      $fetch(`${API_BASE_URL}/categories?per_page=100`)
+      $fetch(`${API_BASE_URL}/categories?per_page=100&_fields=id,name`)
     ]);
 
-    let [mainProjects, additionalProjects] = await  Promise.all([
+    let [mainProjects, additionalProjects] = await Promise.all([
       Promise.all(allData.acf['main_projects'].map(async (item) => {
         if(!item.project)
           return console.error('Empty Item inside Wordpress page');
-        const data = await $fetch(`${API_BASE_URL}/projects/${item.project}?acf_format=standard`);
+        const data = await $fetch(`${API_BASE_URL}/projects/${item.project}?_fields=acf,categories,excerpt,slug,title&acf_format=standard`);
 
         return {
           'data': data,
@@ -61,30 +61,12 @@ export default {
       Promise.all(allData.acf['additional_projects'].map(async (item) => {
         if(!item.project)
           return console.error('Empty Item inside Wordpress page');
-        const data = await $fetch(`${API_BASE_URL}/projects/${item.project}?acf_format=standard`);
+
+        const data = await $fetch(`${API_BASE_URL}/projects/${item.project}?_fields=acf.images,acf.project_link,categories,excerpt,title&acf_format=standard`);
 
         return data;
       }))
-    ])
-
-    // const mainProjects = await Promise.all(allData.acf['main_projects'].map(async (item) => {
-    //   if(!item.project)
-    //     return console.error('Empty Item inside Wordpress page');
-    //   const data = await $fetch(`${API_BASE_URL}/projects/${item.project}?acf_format=standard`);
-
-    //   return {
-    //     'data': data,
-    //     'size': item.size
-    //   }
-    // }));
-
-    // const additionalProjects = await Promise.all(allData.acf['additional_projects'].map(async (item) => {
-    //   if(!item.project)
-    //     return console.error('Empty Item inside Wordpress page');
-    //   const data = await $fetch(`${API_BASE_URL}/projects/${item.project}?acf_format=standard`);
-
-    //   return data;
-    // }));
+    ]);
 
     this.allCategories = allCategories;
     this.mainProjects = mainProjects;

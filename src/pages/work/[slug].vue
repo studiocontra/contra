@@ -54,12 +54,12 @@ export default {
 
     const { API_BASE_URL } = useRuntimeConfig();
 
-    const [projectData] = await $fetch(`${API_BASE_URL}/projects/?slug=${slug}&acf_format=standard`);
+    const [projectData] = await $fetch(`${API_BASE_URL}/projects/?slug=${slug}&_fields=acf,categories,excerpt,slug,title&acf_format=standard`);
     const [nextId] = projectData.acf.next_project;
     let nextProjectData = false;
 
     if (nextId) {
-      nextProjectData = await $fetch(`${API_BASE_URL}/projects/${nextId.ID}?acf_format=standard`);
+      nextProjectData = await $fetch(`${API_BASE_URL}/projects/${nextId.ID}?_fields=acf.main_image,title,slug&acf_format=standard`);
     }
 
     return {

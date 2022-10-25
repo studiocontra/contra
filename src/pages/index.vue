@@ -1,5 +1,7 @@
 <template>
-  <div class="page-home">
+  <div
+    v-if="homeData"
+    class="page-home">
     <Head>
       <Title>Contra Studio</Title>
     </Head>
@@ -26,21 +28,32 @@ import mixins from '@/assets/js/mixins';
 export default {
   name: 'HomePage',
   mixins: [mixins],
+  data() {
+    return {
+      allCategories: null,
+      allNews: null,
+      allProjects: null,
+    };
+  },
   async setup() {
     const { API_BASE_URL } = useRuntimeConfig();
 
-    // const { acf } = await $fetch(`${API_BASE_URL}/pages/2?per_page=100`);
-    // const allCategories = await $fetch(`${API_BASE_URL}/categories?per_page=100`);
-    // const allNews = await $fetch(`${API_BASE_URL}/news?per_page=100&acf_format=standard`);
+    let { acf } = await $fetch(`${API_BASE_URL}/pages/2?per_page=100`);
 
-    let [{ acf }, allCategories, allNews] = await Promise.all([
-      $fetch(`${API_BASE_URL}/pages/2?per_page=100`),
-      $fetch(`${API_BASE_URL}/categories?per_page=100`),
-      $fetch(`${API_BASE_URL}/news?per_page=100&acf_format=standard`)
+    return {
+      homeData: acf
+    };
+  },
+  async created() {
+    const { API_BASE_URL } = useRuntimeConfig();
+
+    let [allCategories, allNews] = await Promise.all([
+      $fetch(`${API_BASE_URL}/categories?per_page=100&_fields=id,name`),
+      $fetch(`${API_BASE_URL}/news?per_page=100&_fields=acf,title&acf_format=standard`)
     ]);
 
-    const allProjects = await Promise.all(acf.our_work.projects.map(async (item) => {
-      const data = await $fetch(`${API_BASE_URL}/projects/${item.project}?acf_format=standard`);
+    const allProjects = await Promise.all(this.homeData.our_work.projects.map(async (item) => {
+      const data = await $fetch(`${API_BASE_URL}/projects/${item.project}?_fields=acf.preview_image,categories,excerpt,slug,title&acf_format=standard`);
 
       return {
         'data': data,
@@ -48,12 +61,9 @@ export default {
       }
     }));
 
-    return {
-      allCategories,
-      allNews,
-      allProjects,
-      homeData: acf,
-    }
+    this.allCategories = allCategories;
+    this.allNews = allNews;
+    this.allProjects = allProjects;
   },
 }
 </script>
