@@ -75,7 +75,7 @@
             <a href="https://www.linkedin.com/company/contra-studio" target="_blank">
               LinkedIn
             </a>
-         
+
           </div>
         </div>
       </div>
@@ -104,7 +104,7 @@ export default {
   },
   mounted() {
     setTimeout(() => {
-      ScrollTrigger.matchMedia({
+      this.showShape = ScrollTrigger.matchMedia({
         // large
         "(min-width: 768px)": function() {
           this.showShape = gsap.timeline({

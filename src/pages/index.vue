@@ -38,7 +38,7 @@ export default {
   async setup() {
     const { API_BASE_URL } = useRuntimeConfig();
 
-    let { acf } = await $fetch(`${API_BASE_URL}/pages/2?per_page=100`);
+    let { acf } = await $fetch(`${API_BASE_URL}/pages/2?per_page=100&_fields=acf`);
 
     return {
       homeData: acf
