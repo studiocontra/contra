@@ -3,7 +3,7 @@ import VueGtag from 'vue-gtag-next';
 export default defineNuxtPlugin((nuxtApp) => {
     nuxtApp.vueApp.use(VueGtag, {
         property: {
-            id: '2BD9F8LG00'
+            id: 'GTM-MDD9SZM'
         }
     })
 });
