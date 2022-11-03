@@ -31,7 +31,7 @@
             <a
               v-if="isHome"
               class="playlist"
-              href="https://open.spotify.com/playlist/3dX2E1dqybhhhDWH3qL6wI?si=1ff2efc9f5b44176"
+              :href="playlist"
               target="_blank">
               <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="12.0137" y="6.875" width="1.25" height="1.25"/>
@@ -80,7 +80,7 @@
               <a href="https://www.linkedin.com/company/contra-studio" target="_blank">
                 LinkedIn
               </a>
-             
+
             </div>
           </div>
 
@@ -105,6 +105,10 @@ export default {
     isHome: {
       type: Boolean,
       default: false,
+    },
+    playlist: {
+      type: String,
+      default: '',
     }
   },
   data() {

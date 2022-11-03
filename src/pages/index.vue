@@ -6,7 +6,9 @@
       <Title>Contra Studio</Title>
     </Head>
 
-    <Header isHome />
+    <Header
+      isHome
+      :playlist="homeData.spotify_playlist" />
     <HomeHero
       :data="homeData.hero"/>
     <HomeProjects
