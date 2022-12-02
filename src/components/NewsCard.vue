@@ -2,7 +2,7 @@
   <div
     class="news-card"
     :class="`news-card--${theme}`">
-    <a :href="link || '#'" :target="link.target ? '_blank' : '_self'">
+    <a :href="link.url || 'javascript:void(0);'" :target="link.target">
       <div class="news-card__img">
         <img
           v-if="image"
