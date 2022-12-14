@@ -2,6 +2,11 @@
   <div
     v-if="projectData"
     class="single-work">
+    <Head>
+      <Title>Contra Studio | {{projectData.title.rendered}}
+      </Title>
+    </Head>
+
     <Header theme="dark" />
     <ProjectHeadline
       :headline="projectData.excerpt.rendered"
