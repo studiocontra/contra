@@ -5,7 +5,7 @@
         <div class="col-md-8">
           <div class="content__group">
             <h2 class="title title--small">
-              The brief
+              El problema
             </h2>
 
             <div class="text" v-html="brief"></div>
@@ -13,7 +13,7 @@
 
           <div class="content__group">
             <h2 class="title title--small">
-              The solution
+              La solución
             </h2>
 
             <div class="text" v-html="solution"></div>
@@ -23,7 +23,7 @@
         <div class="col-md-3">
           <div class="content__group deliverables">
             <h2 class="title title--small">
-              Services
+              Servicios
             </h2>
 
             <div class="text" v-html="deliverables"></div>

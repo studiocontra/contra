@@ -3,7 +3,7 @@
     <div class="container">
       <div class="work__filters">
         <h2 class="title title--small">
-          Filter
+          Filtro:
         </h2>
 
         <div class="filters--mobile">
@@ -105,7 +105,7 @@
             v-if="filteredProjects.length === 0"
             class="error">
             <span>
-              No projects match this criteria
+              No hay proyectos en estas categorías.
             </span>
           </div>
         </div>

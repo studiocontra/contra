@@ -33,7 +33,7 @@
         <div class="col-md-8 col-lg-6">
           <div class="footer__content">
             <p class="title">
-              ¿Quieres colaborar con nosotros o tienes un proyecto en mente?. Nos encantaría saber más.
+              ¿Quieres colaborar con nosotros o tienes un proyecto en mente? Nos encantaría saber más.
             </p>
 
             <Link

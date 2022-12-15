@@ -10,7 +10,7 @@
               </div>
               <div class="col-md-6">
                 <div class="tags">
-                  Web Design, Development
+                  Diseño web, Desarrollo web
                 </div>
               </div>
 
@@ -25,7 +25,7 @@
               <div class="text text--small">
                 <div v-html="project.excerpt.rendered"></div>
                 <a :href="project.acf.project_link.url" class="link">
-                  Visit website
+                  Visitar website
                 </a>
               </div>
             </div>
