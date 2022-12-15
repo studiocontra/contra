@@ -21,10 +21,10 @@ export default defineNuxtConfig({
     script: [
       {
         async: true,
-        src: 'https://www.googletagmanager.com/gtag/js?id=G-2BD9F8LG00'
+        src: 'https://www.googletagmanager.com/gtag/js?id=GTM-MDD9SZM'
       },
       {
-        children: 'window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag("js", new Date());gtag("config", "G-2BD9F8LG00");',
+        children: 'window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag("js", new Date());gtag("config", "GTM-MDD9SZM");',
       }
     ]
   },

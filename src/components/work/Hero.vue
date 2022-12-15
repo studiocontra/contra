@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-md-6">
           <h1 class="title title--big">
-            Una selección de algunos proyectos destacados.
+            Algunos de nuestros proyectos de diseño, tecnología e innovación más destacados.
           </h1>
         </div>
       </div>
