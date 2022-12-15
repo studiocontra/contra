@@ -11,7 +11,7 @@
           <div class="col-md-6">
             <div class="text">
               <p>
-                Our clients constantly trust in us to help them to craft experiences where digital interfaces play a key role. Our solutions and services have been implemented in different sectors, such: Art, fintech, news, food, hospitality an technology.
+                Nuestros clientes confían en nosotros para crear experiencias innovadoras en las que el diseño digital y la tecnología desempeñan un papel fundamental. Nuestras soluciones y servicios se han implementado en diversos sectores, como fintech, arte, periodismo, hotelería y tecnología. Somos expertos en la creación de experiencias digitales donde la creatividad es el punto de unión entre marcas y usuarios. Ofrecemos servicios de alta calidad en diseño y desarrollo web, además de consultoría digital y nuevas tecnologías como AR/VR e inteligencia artificial (AI).
               </p>
             </div>
           </div>

@@ -29,7 +29,7 @@
 
         <Link
           link="/about"
-          text="About us" />
+          text="Sobre nosotros" />
       </div>
     </div>
 

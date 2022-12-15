@@ -1,7 +1,7 @@
 <template>
   <div class="page-contact">
     <Head>
-      <Title>Contact Us</Title>
+      <Title>Contacto</Title>
     </Head>
 
     <Header />

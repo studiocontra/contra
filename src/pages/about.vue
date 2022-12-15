@@ -1,7 +1,7 @@
 <template>
   <div class="about-page">
     <Head>
-      <Title>About Us</Title>
+      <Title>Nosotros</Title>
     </Head>
 
     <Header theme="dark" />
