@@ -1,7 +1,7 @@
 <template>
   <div class="page-work">
     <Head>
-      <Title>Our Work</Title>
+      <Title>Nuestro trabajo</Title>
     </Head>
 
     <Header />

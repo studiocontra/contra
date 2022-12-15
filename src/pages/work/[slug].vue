@@ -3,7 +3,7 @@
     v-if="projectData"
     class="single-work">
     <Head>
-      <Title>Contra Studio | {{projectData.title.rendered}}
+      <Title>{{projectData.title.rendered}} | Contra Studio 
       </Title>
     </Head>
 
