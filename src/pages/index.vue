@@ -6,7 +6,9 @@
       <Title>Contra Studio</Title>
     </Head>
 
-    <Header isHome />
+    <Header
+      isHome
+      :playlist="homeData.spotify_playlist" />
     <HomeHero
       :data="homeData.hero"/>
     <HomeProjects
@@ -46,6 +48,9 @@ export default {
   },
   async created() {
     const { API_BASE_URL } = useRuntimeConfig();
+
+    // let allCategories = await $fetch(`${API_BASE_URL}/categories?per_page=100&_fields=id,name`);
+    // let allNews = await $fetch(`${API_BASE_URL}/news?per_page=100&_fields=acf,title&acf_format=standard`);
 
     let [allCategories, allNews] = await Promise.all([
       $fetch(`${API_BASE_URL}/categories?per_page=100&_fields=id,name`),
