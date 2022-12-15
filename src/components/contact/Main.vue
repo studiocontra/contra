@@ -5,7 +5,7 @@
         <div class="col-lg-6">
           <div class="contact__intro">
             <h1 class="title title--big">
-              We would love to hear from you.
+              Nos encantaría saber más sobre tí.
             </h1>
 
             <Link
@@ -17,7 +17,7 @@
         <div class="col-lg-6">
           <div class="contact__headline">
             <h2 class="text text--small custom-title">
-              Contact Us
+              Contacto
             </h2>
           </div>
 
@@ -26,7 +26,7 @@
               <div class="col-sm-6">
                 <div class="text text--small">
                   <p>
-                    Let's start a discussion about new projects and  collaborations, contact us through our emails or social networks.
+                    Para hablar de nuevos proyectos, colaboraciones, o cualquier otro tema, ponte en contacto con nosotros a través de nuestros correos o redes sociales.
                   </p>
                 </div>
               </div>
@@ -40,7 +40,7 @@
 
           <div class="contact__headline">
             <h2 class="text text--small custom-title">
-              Follow Us
+              Síguenos
             </h2>
           </div>
 
@@ -49,7 +49,7 @@
               <div class="col-sm-6">
                 <div class="text text--small">
                   <p>
-                    Stay in tune with our work, careers, updates and more.
+                    Sigue de cerca nuestro trabajo, actualizaciones, vacantes y mucho más:
                   </p>
                 </div>
               </div>
@@ -70,7 +70,7 @@
 
           <div class="contact__headline">
             <h2 class="text text--small custom-title">
-              Be a part of Contra Studio
+              ¿Quieres ser parte de Contra Studio?
             </h2>
           </div>
 
@@ -79,7 +79,7 @@
               <div class="col-sm-6">
                 <div class="text text--small">
                   <p>
-                    We are always looking for new talent and freelance collaborators. Send us your portfolio via email.
+                    Siempre estamos buscando nuevos talentos y colaboradores freelance. Envíanos tu portafolio por correo electrónico.
                   </p>
                 </div>
               </div>

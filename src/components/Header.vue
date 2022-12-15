@@ -41,24 +41,24 @@
               </svg>
 
               <span>
-                Our playlist
+                Nuestra playlist
               </span>
             </a>
 
             <NuxtLink
               to="/work"
               activeClass="active">
-              Work
+              Proyectos
             </NuxtLink>
             <NuxtLink
               to="/about"
               activeClass="active">
-              About
+              Nosotros
             </NuxtLink>
             <NuxtLink
               to="/contact"
               activeClass="active">
-              Contact
+              Contacto
             </NuxtLink>
 
             <div class="menu__contact">

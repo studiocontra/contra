@@ -5,7 +5,7 @@
       :class="`wrap-news--${theme}`">
       <div class="news__headline">
         <h2 class="title">
-          News
+          Updates
         </h2>
       </div>
 
