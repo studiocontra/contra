@@ -10,7 +10,7 @@
 
             <Link
               link="mailto:hi@studiocontra.co"
-              text="Collaborate with us"/>
+              text="Escríbenos un correo"/>
           </div>
         </div>
 
