@@ -22,6 +22,15 @@ export default defineNuxtConfig({
   publicRuntimeConfig: {
     API_BASE_URL: process.env.API_BASE_URL
   },
+  modules: [
+    '@nuxtjs/robots'
+  ],
+  robots: {
+    UserAgent: '*',
+    Disallow: '/cgi-bin/',
+    Disallow: '/admin/',
+    Disallow: '/_nuxt/'
+  },
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '@/assets/scss/_grid.scss',
