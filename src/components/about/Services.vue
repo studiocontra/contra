@@ -13,7 +13,7 @@
             <Link
               :small="true"
               theme="dark"
-              text="Work with Us"
+              text="Crea un proyecto con nosotros"
               link="/contact" />
           </div>
         </div>

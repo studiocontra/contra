@@ -31,7 +31,7 @@
         <div class="marquee">
           <div class="content">
             <span v-for="i in 10" :key="i">
-              Explore case study //
+              Ver caso de estudio //
             </span>
           </div>
         </div>

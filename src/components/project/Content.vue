@@ -5,7 +5,7 @@
         <div class="col-md-8">
           <div class="content__group">
             <h2 class="title title--small">
-              El problema
+              Contexto
             </h2>
 
             <div class="text" v-html="brief"></div>
