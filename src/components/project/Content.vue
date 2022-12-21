@@ -1,9 +1,13 @@
 <template>
-  <div class="project__content">
+  <div
+    v-if="brief || solution || deliverables"
+    class="project__content">
     <div class="container">
       <div class="row justify-between md-reverse">
         <div class="col-md-8">
-          <div class="content__group">
+          <div
+            v-if="brief"
+            class="content__group">
             <h2 class="title title--small">
               Contexto
             </h2>
@@ -11,7 +15,9 @@
             <div class="text" v-html="brief"></div>
           </div>
 
-          <div class="content__group">
+          <div
+            v-if="solution"
+            class="content__group">
             <h2 class="title title--small">
               La solución
             </h2>
@@ -21,7 +27,9 @@
         </div>
 
         <div class="col-md-3">
-          <div class="content__group deliverables">
+          <div
+            v-if="deliverables"
+            class="content__group deliverables">
             <h2 class="title title--small">
               Servicios
             </h2>
