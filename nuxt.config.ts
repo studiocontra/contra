@@ -16,13 +16,9 @@ export default defineNuxtConfig({
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-      ],
-      script: [
-        {
-          src: 'https://www.googletagmanager.com/gtag/js?id=GTM-MDD9SZM&l=dataLayer', async: true,
-        }
       ]
     },
+    pageTransition: { name: 'page', mode: 'out-in' }
   },
   runtimeConfig: {
     public: {
