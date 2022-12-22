@@ -69,7 +69,7 @@ export default {
     this.allCategories = allCategories;
     this.allNews = allNews;
     this.allProjects = allProjects;
-  },
+  }
 }
 </script>
 

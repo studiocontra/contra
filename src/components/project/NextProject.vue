@@ -1,12 +1,12 @@
 <template>
   <div class="project__next">
-    <picture>
-      <source :srcset="image.sizes['full-page']" media="(min-width: 1200px)">
-      <source :srcset="image.sizes['half-page']" media="(min-width: 992px)">
-      <source :srcset="image.sizes['card']">
+    <picture v-if="image">
+      <source :srcset="image.sizes['full-page'] || image.url" media="(min-width: 1200px)">
+      <source :srcset="image.sizes['half-page'] || image.url" media="(min-width: 992px)">
+      <source :srcset="image.sizes['card'] || image.url">
       <img
         class="next__bg"
-        :src="image.sizes['full-page']"
+        :src="image.sizes['full-page'] || image.url"
         :alt="image.alt">
     </picture>
 

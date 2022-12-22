@@ -8,7 +8,7 @@
         :class="`single-image--${item.size} ${item.alignment} ${(item.video) ? 'single-image--video' : ''}`">
         <img
           v-if="item.image && !item.video"
-          :src="item.image.sizes['full-page']" />
+          :src="item.image.sizes['full-page'] || item.image.url" />
 
         <iframe
           v-if="item.video"

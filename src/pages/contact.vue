@@ -17,7 +17,7 @@ import mixins from '@/assets/js/mixins';
 
 export default {
   name: 'WorkPage',
-  mixins: [mixins]
+  mixins: [mixins],
 }
 </script>
 

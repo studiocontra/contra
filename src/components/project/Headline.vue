@@ -25,7 +25,7 @@
     <div class="main__image">
       <img
         v-if="image && !videoId"
-        :src="image.sizes['full-page']"
+        :src="image.sizes['full-page'] || image.url"
       />
 
       <iframe
