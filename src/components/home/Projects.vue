@@ -26,7 +26,7 @@
                   full
                   :name="project.data.title.rendered"
                   :description="project.data.excerpt.rendered"
-                  :link="`/work/${project.data.slug}`"
+                  :link="`/proyectos/${project.data.slug}`"
                   :image="project.data.acf.preview_image"
                   :tags="projectCategories(project.data.categories)" />
               </div>
@@ -36,7 +36,7 @@
                 <ProjectCard
                   :name="project.data.title.rendered"
                   :description="project.data.excerpt.rendered"
-                  :link="`/work/${project.data.slug}`"
+                  :link="`/proyectos/${project.data.slug}`"
                   :image="project.data.acf.preview_image"
                   :tags="projectCategories(project.data.categories)" />
               </div>

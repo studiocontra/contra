@@ -9,7 +9,7 @@
         </div>
 
         <div class="col-md-6">
-          <div class="title title--medium" v-html="data.content"></div>
+          <div class="title title--medium" v-html="data.introduction"></div>
         </div>
 
         <div class="col-12">
@@ -19,7 +19,7 @@
         </div>
       </div>
     </div>
-<!-- 
+<!--
     <div class="we-are-partners" ref="wrap-partners">
       <div class="wrap-cursors">
         <div class="single-cursor js-single-cursor">
