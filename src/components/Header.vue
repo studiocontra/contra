@@ -46,17 +46,17 @@
             </a>
 
             <NuxtLink
-              to="/work"
+              to="/proyectos"
               activeClass="active">
               Proyectos
             </NuxtLink>
             <NuxtLink
-              to="/about"
+              to="/nosotros"
               activeClass="active">
               Nosotros
             </NuxtLink>
             <NuxtLink
-              to="/contact"
+              to="/contacto"
               activeClass="active">
               Contacto
             </NuxtLink>

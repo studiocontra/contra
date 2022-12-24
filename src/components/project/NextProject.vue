@@ -10,7 +10,7 @@
         :alt="image.alt">
     </picture>
 
-    <NuxtLink :to="`/work/${slug}`">
+    <NuxtLink :to="`/proyectos/${slug}`">
       <div class="container">
         <div class="next__headline">
           <p>
