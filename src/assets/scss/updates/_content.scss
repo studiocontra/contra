@@ -1,0 +1,16 @@
+.updates__content {
+  position: relative;
+  margin-bottom: 60px;
+
+  @include m768 {
+    margin-bottom: 100px;
+  }
+
+  .block-content {
+    margin-bottom: 40px;
+
+    @include m768 {
+      margin-bottom: 80px;
+    }
+  }
+}

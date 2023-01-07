@@ -17,9 +17,10 @@
       :categories="allCategories" />
     <AboutAwards
       :data="homeData.awards" />
-    <News
+    <Updates
       theme="light"
-      :data="allNews" />
+      :data="allUpdatesMain"
+      :moreData="allUpdatesAddon" />
     <Footer />
   </div>
 </template>
@@ -33,7 +34,8 @@ export default {
   data() {
     return {
       allCategories: null,
-      allNews: null,
+      allUpdatesMain: null,
+      allUpdatesAddon: null,
       allProjects: null,
     };
   },
@@ -49,12 +51,9 @@ export default {
   async created() {
     const { API_BASE_URL } = useRuntimeConfig();
 
-    // let allCategories = await $fetch(`${API_BASE_URL}/categories?per_page=100&_fields=id,name`);
-    // let allNews = await $fetch(`${API_BASE_URL}/news?per_page=100&_fields=acf,title&acf_format=standard`);
-
-    let [allCategories, allNews] = await Promise.all([
+    let [allCategories, allUpdates] = await Promise.all([
       $fetch(`${API_BASE_URL}/categories?per_page=100&_fields=id,name`),
-      $fetch(`${API_BASE_URL}/news?per_page=100&_fields=acf,title&acf_format=standard`)
+      $fetch(`${API_BASE_URL}/updates?per_page=7&_embed=wp:featuredmedia&acf_format=standard`)
     ]);
 
     const allProjects = await Promise.all(this.homeData.our_work.projects.map(async (item) => {
@@ -67,7 +66,8 @@ export default {
     }));
 
     this.allCategories = allCategories;
-    this.allNews = allNews;
+    this.allUpdatesMain = allUpdates.slice(0, 3);
+    this.allUpdatesAddon = allUpdates.slice(3, allUpdates.length);
     this.allProjects = allProjects;
   }
 }

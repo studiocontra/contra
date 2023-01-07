@@ -1,4 +1,4 @@
-.wrap-news {
+.wrap-updates {
   margin-bottom: 80px;
   padding-top: 20px;
   border-top: 1px solid;
@@ -9,7 +9,7 @@
   }
 }
 
-.news__headline {
+.updates__headline {
   margin-bottom: 40px;
 
   @include m768 {
@@ -17,7 +17,7 @@
   }
 }
 
-.wrap-news--dark {
+.wrap-updates--dark {
   border-color: $blue;
 
   .title {
@@ -25,7 +25,7 @@
   }
 }
 
-.wrap-news--light {
+.wrap-updates--light {
   border-color: rgba($white, 0.5);
 
   .title {
@@ -33,7 +33,7 @@
   }
 }
 
-.news__grid {
+.updates__grid {
   width: calc(100% + 16px);
 
   @include m768 {

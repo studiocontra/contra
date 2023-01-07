@@ -14,7 +14,7 @@
       <div class="container">
         <div class="next__headline">
           <p>
-            Next project
+            Siguiente proyecto
           </p>
 
           <svg viewBox="0 0 18 15" class="icon">
