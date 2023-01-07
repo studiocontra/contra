@@ -1,0 +1,33 @@
+.updates__headline {
+  padding-top: 200px;
+  text-align: center;
+
+  @include m768 {
+    padding-top: 150px;
+  }
+
+  .title {
+    margin-bottom: 0.5em;
+    font-weight: 400;
+  }
+
+  .date {
+    text-transform: uppercase;
+
+    @include m768 {
+      font-size: 20px;
+    }
+  }
+}
+
+.main__image {
+  position: relative;
+  margin-top: 120px;
+  padding-bottom: 62.5%;
+
+  img,
+  iframe {
+    @include fullAbs;
+    @include fit;
+  }
+}

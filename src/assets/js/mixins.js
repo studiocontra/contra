@@ -1,21 +1,22 @@
 export default {
   mounted() {
-    const thisRoute = this.$route;
-    const { location: { origin } } = window;
-    const { title } = document;
-
-    // this.$gtag.pageview({
-    //   page_path: thisRoute,
-    // })
-
-    // gtag('event', 'page_view', {
-    //   page_title: title,
-    //   page_location: origin + thisRoute,  // The full URL is required.
-    //   send_to: 'GTM-MDD9SZM'
-    // });
-
     setTimeout(() => {
       window.scrollTo(0, 0);
     }, 500);
+  },
+  computed: {
+    getProductDataImg() {
+      return (data, size) => {
+        if(data['_embedded']) {
+          if(data['_embedded']['wp:featuredmedia'][0]['media_details']) {
+            if(data['_embedded']['wp:featuredmedia'][0]['media_details'].sizes[size]) {
+              return data['_embedded']['wp:featuredmedia'][0]['media_details'].sizes[size]['source_url'];
+            }
+            return data['_embedded']['wp:featuredmedia'][0]['source_url'];
+          }
+        }
+        return '/contra-placeholder.png';
+      };
+    }
   }
 }

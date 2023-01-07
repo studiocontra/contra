@@ -1,15 +1,15 @@
 <template>
   <div class="container">
     <div
-      class="wrap-news"
-      :class="`wrap-news--${theme}`">
-      <div class="news__headline">
+      class="wrap-updates"
+      :class="`wrap-updates--${theme}`">
+      <div class="updates__headline">
         <h2 class="title">
           Updates
         </h2>
       </div>
 
-      <div class="news__grid">
+      <div class="updates__grid">
         <Swiper
           :slidesPerView="1.2"
           :spaceBetween="16"
@@ -26,13 +26,26 @@
           <SwiperSlide
             v-for="item in data"
             :key="item.id">
-            <NewsCard
+            <UpdatesCard
               :theme="theme"
               :name="item.title.rendered"
-              :description="item.acf.content"
-              :link="item.acf.link"
-              :date="item.acf.date"
-              :image="item.acf.image" />
+              :custom-name="item.acf.headline"
+              :link="item.slug"
+              :image="getProductDataImg(item, 'card')"
+              :description="item.excerpt.rendered || item.acf.intro"/>
+          </SwiperSlide>
+
+          <SwiperSlide>
+            <UpdatesCard
+              v-for="item in moreData"
+              :key="item.id"
+              :small="true"
+              :theme="theme"
+              :name="item.title.rendered"
+              :custom-name="item.acf.headline"
+              :link="item.slug"
+              :image="getProductDataImg(item, 'card')"
+              :description="item.excerpt.rendered || item.acf.intro"/>
           </SwiperSlide>
         </Swiper>
       </div>
@@ -47,14 +60,21 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 // import Swiper styles
 import 'swiper/css';
 
+import mixins from '@/assets/js/mixins';
+
 export default {
-  name: 'NewsBlock',
+  name: 'updatesBlock',
+  mixins: [mixins],
   props: {
     theme: {
       type: String,
       default: 'light',
     },
     data: {
+      type: Array,
+      default: () => []
+    },
+    moreData: {
       type: Array,
       default: () => []
     },
@@ -67,5 +87,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "@/assets/scss/components/news";
+  @import "@/assets/scss/components/updates";
 </style>

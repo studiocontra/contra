@@ -22,7 +22,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      API_BASE_URL: process.env.API_BASE_URL
+      API_BASE_URL: 'https://dev.studiocontra.co/admin/wp-json/wp/v2'
     }
   },
   modules: [
