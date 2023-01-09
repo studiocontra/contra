@@ -30,9 +30,13 @@ export default defineNuxtConfig({
       hostname: 'https://studiocontra.co',
       cacheTime: 1,
       routes: async () => {
-        const data = await $fetch('https://dev.studiocontra.co/admin/wp-json/wp/v2/projects');
+        const projects = await $fetch('https://dev.studiocontra.co/admin/wp-json/wp/v2/projects');
+        const updates = await $fetch('https://dev.studiocontra.co/admin/wp-json/wp/v2/updates');
 
-        return data.map((project) => `/work/${project.slug}`);
+        const projectsUrl = projects.map((project) => `/proyectos/${project.slug}`);
+        const updatesUrl = updates.map((update) => `/updates/${update.slug}`);
+
+        return [...projectsUrl, ...updatesUrl];
       },
       defaults: {
         changefreq: 'daily',
