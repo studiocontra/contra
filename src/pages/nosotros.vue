@@ -20,7 +20,8 @@
       :data="awardsData" />
     <Updates
       theme="light"
-      :data="allNews" />
+      :data="allNewsMain"
+      :moreData="allNewsAddon" />
     <Footer theme="light" />
   </div>
 </template>
@@ -47,7 +48,8 @@ export default {
     return {
       aboutData: acf,
       awardsData: awards,
-      allNews
+      allNewsMain: allNews.slice(0, 3),
+      allNewsAddon: allNews.slice(3, allNews.length),
     }
   },
   data() {

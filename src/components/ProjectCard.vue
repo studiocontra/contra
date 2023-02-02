@@ -18,8 +18,9 @@
         <template v-if="image">
           <picture v-if="full">
             <source :srcset="image.sizes['full-page']" media="(min-width: 1200px)">
-            <source :srcset="image.sizes['half-page']" media="(minx-width: 768px)">
-            <source :srcset="image.sizes.card">
+            <source :srcset="image.sizes['half-page']" media="(min-width: 768px)">
+            <source :srcset="image.sizes.card"  media="(min-width: 576px)">
+            <source :srcset="image.sizes.small">
             <img
               :src="image.url"
               :alt="image.alt"
@@ -27,8 +28,10 @@
               :heght="image.height">
           </picture>
           <picture v-else>
-            <source :srcset="image.sizes['half-page']" media="(min-width: 768px)">
-            <source :srcset="image.sizes.card">
+            <source :srcset="image.sizes['half-page']" media="(min-width: 1400px)">
+            <source :srcset="image.sizes.section" media="(min-width: 768px)">
+            <source :srcset="image.sizes.card"  media="(min-width: 450px)">
+            <source :srcset="image.sizes.small">
             <img
               :src="image.url"
               :alt="image.alt"

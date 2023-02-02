@@ -12,10 +12,17 @@
       </div>
 
       <div class="main__image">
-        <img
-          v-if="image"
-          :src="image.sizes['full-page'] || image.url"
-        />
+        <picture v-if="image">
+          <source :srcset="image.sizes['half-page']" media="(min-width: 1000px)">
+          <source :srcset="image.sizes.section" media="(min-width: 768px)">
+          <source :srcset="image.sizes.card"  media="(min-width: 576px)">
+          <source :srcset="image.sizes.small">
+          <img
+            :src="image.url"
+            :alt="image.alt"
+            :width="image.width"
+            :heght="image.height">
+        </picture>
       </div>
     </div>
   </div>

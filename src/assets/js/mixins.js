@@ -8,7 +8,6 @@ export default {
     getProductDataImg() {
       return (data, size) => {
         if(data['_embedded']) {
-          console.log(data);
           if(data['_embedded']['wp:featuredmedia'][0]['media_details']) {
             if(data['_embedded']['wp:featuredmedia'][0]['media_details'].sizes[size]) {
               return data['_embedded']['wp:featuredmedia'][0]['media_details'].sizes[size]['source_url'];

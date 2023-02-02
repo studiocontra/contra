@@ -129,31 +129,31 @@ export default {
     };
   },
   mounted() {
-    setTimeout(() => {
-      const {width, height} = this.$refs['wrap-partners'].getBoundingClientRect();
+    // setTimeout(() => {
+    //   const {width, height} = this.$refs['wrap-partners'].getBoundingClientRect();
 
-      document.querySelectorAll('.js-single-cursor').forEach(element => {
-        const startXVal = gsap.utils.random(0, width);
-        const endXVal = gsap.utils.random(0, width);
-        const startYVal = gsap.utils.random(0, height);
-        const endYVal = gsap.utils.random(0, height);
+    //   document.querySelectorAll('.js-single-cursor').forEach(element => {
+    //     const startXVal = gsap.utils.random(0, width);
+    //     const endXVal = gsap.utils.random(0, width);
+    //     const startYVal = gsap.utils.random(0, height);
+    //     const endYVal = gsap.utils.random(0, height);
 
-        console.log(startXVal, endXVal);
+    //     console.log(startXVal, endXVal);
 
-        gsap.timeline().set(element, {
-          top: `${startYVal}px`,
-          left: `${startXVal}px`
-        })
-        .to(element, {
-          top: `${endYVal}px`,
-          left: `${endXVal}px`,
-          duration: 20,
-          yoyo: true,
-          repeat: -1,
-          repeat: '-1',
-        });
-      });
-    }, 750);
+    //     gsap.timeline().set(element, {
+    //       top: `${startYVal}px`,
+    //       left: `${startXVal}px`
+    //     })
+    //     .to(element, {
+    //       top: `${endYVal}px`,
+    //       left: `${endXVal}px`,
+    //       duration: 20,
+    //       yoyo: true,
+    //       repeat: -1,
+    //       repeat: '-1',
+    //     });
+    //   });
+    // }, 750);
   },
   computed: {
     hasTestimonials() {

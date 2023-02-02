@@ -23,10 +23,17 @@
     </div>
 
     <div class="main__image">
-      <img
-        v-if="image && !videoId"
-        :src="image.sizes['full-page'] || image.url"
-      />
+      <picture  v-if="image && !videoId">
+        <source :srcset="image.sizes['full-page']" media="(min-width: 1200px)">
+        <source :srcset="image.sizes['half-page']" media="(min-width: 768px)">
+        <source :srcset="image.sizes.card"  media="(min-width: 450px)">
+        <source :srcset="image.sizes.small">
+        <img
+          :src="image.url"
+          :alt="image.alt"
+          :width="image.width"
+          :heght="image.height">
+      </picture>
 
       <iframe
         v-if="videoId"

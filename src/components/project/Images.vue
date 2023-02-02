@@ -6,9 +6,18 @@
         :key="idx"
         class="single-image"
         :class="`single-image--${item.size} ${item.alignment} ${(item.video) ? 'single-image--video' : ''}`">
-        <img
-          v-if="item.image && !item.video"
-          :src="item.image.sizes['full-page'] || item.image.url" />
+        <picture
+          v-if="item.image && !item.video">
+          <source :srcset="item.image.sizes['full-page']" media="(min-width: 1200px)">
+          <source :srcset="item.image.sizes['half-page']" media="(min-width: 768px)">
+          <source :srcset="item.image.sizes.card"  media="(min-width: 450px)">
+          <source :srcset="item.image.sizes.small">
+          <img
+            :src="item.image.url"
+            :alt="item.image.alt"
+            :width="item.image.width"
+            :heght="item.image.height">
+        </picture>
 
         <iframe
           v-if="item.video"

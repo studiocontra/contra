@@ -22,10 +22,15 @@
 
             <template
               v-if=" row.acf_fc_layout === 'image'">
-              <img
-                v-if=" row.image"
-                :src="row.image.sizes['half=page'] || row.image.url"
-                :alt="row.image.alt">
+              <picture>
+                <source :srcset="row.image.sizes.card"  media="(min-width: 450px)">
+                <source :srcset="row.image.sizes.small">
+                <img
+                  :src="row.image.url"
+                  :alt="row.image.alt"
+                  :width="row.image.width"
+                  :heght="row.image.height">
+              </picture>
             </template>
 
           </div>

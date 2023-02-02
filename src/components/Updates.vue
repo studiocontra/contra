@@ -31,7 +31,7 @@
               :name="item.title.rendered"
               :custom-name="item.acf.headline"
               :link="item.slug"
-              :image="getProductDataImg(item, 'card')"
+              :image="getProductDataImg(item, 'small')"
               :description="item.excerpt.rendered || item.acf.intro"/>
           </SwiperSlide>
 
@@ -44,7 +44,6 @@
               :name="item.title.rendered"
               :custom-name="item.acf.headline"
               :link="item.slug"
-              :image="getProductDataImg(item, 'card')"
               :description="item.excerpt.rendered || item.acf.intro"/>
           </SwiperSlide>
         </Swiper>
