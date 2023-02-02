@@ -66,7 +66,7 @@ export default {
       const zeroPad = (num, places) => String(num).padStart(places, '0');
       const dt = new Date(this.updateData.date);
 
-      const day = zeroPad(dt.getDay(), 2);
+      const day = zeroPad(dt.getDate(), 2);
       const month = zeroPad(dt.getMonth() + 1, 2);
       const year = dt.getFullYear();
 
