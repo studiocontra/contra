@@ -41,7 +41,7 @@ export default {
     let [{acf}, {acf: {awards}}, allNews] = await Promise.all([
       $fetch(`${API_BASE_URL}/pages/79?acf_format=standard`),
       $fetch(`${API_BASE_URL}/pages/2?acf_format=standard`),
-      $fetch(`${API_BASE_URL}/updates?per_page=100&acf_format=standard`)
+      $fetch(`${API_BASE_URL}/updates?per_page=100&_embed=wp:featuredmedia&acf_format=standard`)
     ]);
 
     return {
