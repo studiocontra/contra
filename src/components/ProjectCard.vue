@@ -16,16 +16,25 @@
         </div>
 
         <template v-if="image">
-          <img
-            v-if="full"
-            :src="image.sizes['full-page']"
-            
-          />
-          <img
-            v-else
-            :src="image.sizes['half-page']"
-            
-          />
+          <picture v-if="full">
+            <source :srcset="image.sizes['full-page']" media="(min-width: 1200px)">
+            <source :srcset="image.sizes['half-page']" media="(minx-width: 768px)">
+            <source :srcset="image.sizes.card">
+            <img
+              :src="image.url"
+              :alt="image.alt"
+              :width="image.width"
+              :heght="image.height">
+          </picture>
+          <picture v-else>
+            <source :srcset="image.sizes['half-page']" media="(min-width: 768px)">
+            <source :srcset="image.sizes.card">
+            <img
+              :src="image.url"
+              :alt="image.alt"
+              :width="image.width"
+              :heght="image.height">
+          </picture>
         </template>
 
         <div class="marquee">
