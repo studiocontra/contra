@@ -22,7 +22,7 @@
 
             <template
               v-if=" row.acf_fc_layout === 'image'">
-              <picture>
+              <picture v-if="row.image">
                 <source :srcset="row.image.sizes.card"  media="(min-width: 450px)">
                 <source :srcset="row.image.sizes.small">
                 <img
