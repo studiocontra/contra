@@ -7,7 +7,7 @@
       <div class="row align-center">
         <div class="col-4"
           :class="{
-            'col-md-6': !isHome,
+            'col-md-4': !isHome,
             'col-md-2': isHome}">
           <div class="header__logo">
             <NuxtLink to="/">
@@ -25,7 +25,7 @@
 
         <div class="col-8"
           :class="{
-            'col-md-6': !isHome,
+            'col-md-8': !isHome,
             'col-md-10': isHome}">
           <div class="header__menu" :class="{'active': isMenuOpen}">
             <a

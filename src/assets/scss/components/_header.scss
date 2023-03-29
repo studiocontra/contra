@@ -110,7 +110,7 @@ header {
   background-color: $blue;
   justify-content: flex-start;
 
-  @include m576 {
+  @include m768 {
     position: relative;
     flex-direction: row;
     width: auto;
@@ -181,7 +181,7 @@ header {
     font-family: $contra;
     font-size: 48px;
 
-    @include m576 {
+    @include m768 {
       margin-bottom: 0;
       margin-left: 24px;
       font-size: 24px;
@@ -240,7 +240,7 @@ header {
   width: 20px;
   height: 8px;
 
-  @include m576 {
+  @include m768 {
     display: none;
   }
 
