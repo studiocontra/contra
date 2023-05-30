@@ -44,12 +44,7 @@ export default defineNuxtConfig({
         lastmod: new Date().toISOString(),
       },
     }],
-    'nuxt-delay-hydration',
   ],
-  delayHydration: {
-    debug: process.env.NODE_ENV === 'development',
-    mode: 'init'
-  },
  
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
