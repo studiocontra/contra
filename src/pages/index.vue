@@ -41,22 +41,20 @@ export default {
   async setup() {
     const { API_BASE_URL } = useRuntimeConfig();
 
-    let { acf } = await $fetch(`${API_BASE_URL}/pages/2?per_page=100&_fields=acf`);
+    let { acf } = await $fetch(`https://admin.studiocontra.co/wp-json/wp/v2/pages/2?per_page=100&_fields=acf`);
 
     return {
       homeData: acf
     };
   },
   async created() {
-    const { API_BASE_URL } = useRuntimeConfig();
-
     let [allCategories, allUpdates] = await Promise.all([
-      $fetch(`${API_BASE_URL}/categories?per_page=100&_fields=id,name`),
-      $fetch(`${API_BASE_URL}/updates?per_page=7&_embed=wp:featuredmedia&acf_format=standard`)
+      $fetch(`https://admin.studiocontra.co/wp-json/wp/v2/categories?per_page=100&_fields=id,name`),
+      $fetch(`https://admin.studiocontra.co/wp-json/wp/v2/updates?per_page=7&_embed=wp:featuredmedia&acf_format=standard`)
     ]);
 
     const allProjects = await Promise.all(this.homeData.our_work.projects.map(async (item) => {
-      const data = await $fetch(`${API_BASE_URL}/projects/${item.project}?_fields=acf.preview_image,categories,excerpt,slug,title&acf_format=standard`);
+      const data = await $fetch(`https://admin.studiocontra.co/wp-json/wp/v2/projects/${item.project}?_fields=acf.preview_image,categories,excerpt,slug,title&acf_format=standard`);
 
       return {
         'data': data,

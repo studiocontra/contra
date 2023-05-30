@@ -43,8 +43,14 @@ export default defineNuxtConfig({
         priority: 1,
         lastmod: new Date().toISOString(),
       },
-    }]
+    }],
+    'nuxt-delay-hydration',
   ],
+  delayHydration: {
+    debug: process.env.NODE_ENV === 'development',
+    mode: 'init'
+  },
+ 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '@/assets/scss/_grid.scss',
