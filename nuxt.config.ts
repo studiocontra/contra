@@ -44,8 +44,13 @@ export default defineNuxtConfig({
         lastmod: new Date().toISOString(),
       },
     }],
-    'nuxt-delay-hydration',
+    'nuxt-delay-hydration'
   ],
+
+  delayHydration: {
+    mode: 'mount',
+    debug: true
+  },
  
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
@@ -67,5 +72,8 @@ export default defineNuxtConfig({
   },
   build: {
     transpile: ['gsap'],
+  },
+  buildModules: {
+
   }
 })

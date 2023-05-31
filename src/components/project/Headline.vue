@@ -43,13 +43,8 @@
 </template>
 
 <script>
-import VLazyImage from "v-lazy-image";
-
 export default {
   name: 'ProjectHeadline',
-  components: {
-    VLazyImage,
-  },
    props: {
     headline: {
       type: String,

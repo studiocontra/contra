@@ -29,13 +29,8 @@
 </template>
 
 <script>
-import VLazyImage from "v-lazy-image";
-
 export default {
   name: 'ProjectImages',
-   components: {
-    VLazyImage
-  },
   props: {
     images: {
       type: Object,
