@@ -16,7 +16,8 @@
             :src="item.image.sizes.small"
             :alt="item.image.alt"
             :width="item.image.sizes.small['small-width']"
-            :heght="item.image.sizes.small['small-height']">
+            :heght="item.image.sizes.small['small-height']"
+            loading="lazy">
         </picture>
 
         <iframe

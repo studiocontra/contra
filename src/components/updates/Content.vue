@@ -23,13 +23,14 @@
             <template
               v-if=" row.acf_fc_layout === 'image'">
               <picture v-if="row.image">
+                <source :srcset="row.image.url"  media="(min-width: 720px)">
                 <source :srcset="row.image.sizes.card"  media="(min-width: 450px)">
-                <source :srcset="row.image.sizes.small">
                 <img
-                  :src="row.image.url"
+                  :src="row.image.sizes.small"
                   :alt="row.image.alt"
-                  :width="row.image.width"
-                  :heght="row.image.height">
+                  :width="row.image.sizes.small['small-width']"
+                  :heght="row.image.sizes.small['small-height']"
+                  loading="lazy">
               </picture>
             </template>
 

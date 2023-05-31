@@ -1,13 +1,14 @@
 <template>
   <div class="project__next">
     <picture v-if="image">
+      <source :srcset="image.sizes || image.url" media="(min-width: 1920px)">
       <source :srcset="image.sizes['full-page'] || image.url" media="(min-width: 1200px)">
       <source :srcset="image.sizes['half-page'] || image.url" media="(min-width: 992px)">
-      <source :srcset="image.sizes['card'] || image.url">
       <img
         class="next__bg"
-        :src="image.sizes['full-page'] || image.url"
-        :alt="image.alt">
+        :src="image.sizes['card'] || image.url"
+        :alt="image.alt"
+        loading="lazy">
     </picture>
 
     <NuxtLink :to="`/proyectos/${slug}`">

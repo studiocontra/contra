@@ -29,7 +29,7 @@
                 <div 
                   v-if="person.image"
                   class="main-team-card__image">
-                  <img :src="person.image.sizes.large" :alt="person.image.alt">
+                  <img :src="person.image.sizes.large" :alt="person.image.alt" lazy="loading">
                 </div>
 
                 <div class="main-team-card__content">
@@ -62,7 +62,7 @@
                 <div
                   v-if="person.image"
                   class="team-card__image">
-                  <img :src="person.image.url" :alt="person.image.alt">
+                  <img :src="person.image.url" :alt="person.image.alt" lazy="loading">
                 </div>
               </div>
             </div>

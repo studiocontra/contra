@@ -13,15 +13,16 @@
 
       <div class="main__image">
         <picture v-if="image">
+          <source :srcset="image.url" media="(min-width: 1400px)">
           <source :srcset="image.sizes['half-page']" media="(min-width: 1000px)">
           <source :srcset="image.sizes.section" media="(min-width: 768px)">
           <source :srcset="image.sizes.card"  media="(min-width: 576px)">
           <source :srcset="image.sizes.small">
           <img
-            :src="image.url"
+            :src="image.sizes.small"
             :alt="image.alt"
-            :width="image.width"
-            :heght="image.height">
+            :width="image.sizes.small['small-width']"
+            :heght="image.sizes.small['small-height']">
         </picture>
       </div>
     </div>

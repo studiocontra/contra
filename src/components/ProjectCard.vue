@@ -25,7 +25,8 @@
               :src="image.sizes.small"
               :alt="image.alt"
               :width="image.sizes.small['small-width']"
-              :heght="image.sizes.small['small-height']">
+              :heght="image.sizes.small['small-height']"
+              loading="lazy">
           </picture>
           <picture v-else>
             <source :srcset="image.url" media="(min-width: 1900px)">
@@ -36,7 +37,8 @@
               :src="image.sizes.small"
               :alt="image.alt"
               :width="image.sizes.small['small-width']"
-              :heght="image.sizes.small['small-height']">
+              :heght="image.sizes.small['small-height']"
+              loading="lazy">
           </picture>
         </template>
 

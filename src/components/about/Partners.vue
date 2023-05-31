@@ -12,7 +12,8 @@
           <img
             v-if="item.partner"
             :src="item.partner.sizes.medium"
-            :alt="item.partner.alt" />
+            :alt="item.partner.alt" 
+            loading="lazy"/>
         </template>
       </div>
     </div>
