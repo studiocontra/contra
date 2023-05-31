@@ -7,7 +7,8 @@
     </Head>
 
     <Header
-      isHome />
+      isHome
+      :playlist="homeData.spotify_playlist" />
     <HomeHero
       :data="homeData.hero"/>
     <HomeProjects

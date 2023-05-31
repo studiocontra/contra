@@ -129,8 +129,51 @@ header {
     pointer-events: all;
   }
 
-  .menu__margin {
-    width: 160px;
+  .playlist {
+    margin-left: 0;
+
+    &:hover {
+      span {
+        transform: translateX(0);
+        opacity: 1;
+        font-family: $contra;
+        font-size: 16px;
+      }
+    }
+
+    span {
+      position: relative;
+      top: -3px;
+      display: inline-block;
+      transition-timing-function: ease-in;
+      transition-duration: 0.35s;
+      transition-property: opacity, transform;
+      transform: translateX(-25px);
+      opacity: 0;
+      font-size: 16px;
+    }
+
+    svg {
+      position: relative;
+      top: 2px;
+      display: inline-block;
+      width: 20px;
+      margin-right: 5px;
+
+      rect,
+      path {
+        stroke: $white;
+        stroke-width: 1.5;
+      }
+
+      rect {
+        fill: $white;
+      }
+
+      .stroke {
+        fill: none;
+      }
+    }
   }
 
   a {
