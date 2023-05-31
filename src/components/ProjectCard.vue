@@ -66,13 +66,8 @@
 </template>
 
 <script>
-import VLazyImage from "v-lazy-image";
-
 export default {
   name: 'ProjectCard',
-  components: {
-    VLazyImage
-  },
   props: {
     full: {
       type: Boolean,

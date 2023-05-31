@@ -44,6 +44,7 @@ export default defineNuxtConfig({
         lastmod: new Date().toISOString(),
       },
     }],
+    'nuxt-delay-hydration',
   ],
  
   // Global CSS: https://go.nuxtjs.dev/config-css

@@ -56,12 +56,7 @@
 </template>
 
 <script>
-import VLazyImage from "v-lazy-image";
-
 export default {
-  components: {
-    VLazyImage,
-  },
   props: {
     small: {
       type: Boolean,
