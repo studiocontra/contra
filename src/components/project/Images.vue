@@ -8,15 +8,15 @@
         :class="`single-image--${item.size} ${item.alignment} ${(item.video) ? 'single-image--video' : ''}`">
         <picture
           v-if="item.image && !item.video">
+          <source :srcset="item.image.url" media="(min-width: 1920px)">
           <source :srcset="item.image.sizes['full-page']" media="(min-width: 1200px)">
           <source :srcset="item.image.sizes['half-page']" media="(min-width: 768px)">
           <source :srcset="item.image.sizes.card"  media="(min-width: 450px)">
-          <source :srcset="item.image.sizes.small">
           <img
-            :src="item.image.url"
+            :src="item.image.sizes.small"
             :alt="item.image.alt"
-            :width="item.image.width"
-            :heght="item.image.height">
+            :width="item.image.sizes.small['small-width']"
+            :heght="item.image.sizes.small['small-height']">
         </picture>
 
         <iframe

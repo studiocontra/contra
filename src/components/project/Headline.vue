@@ -24,15 +24,15 @@
 
     <div class="main__image">
       <picture  v-if="image && !videoId">
+        <source :srcset="image.url" media="(min-width: 1920px)">
         <source :srcset="image.sizes['full-page']" media="(min-width: 1200px)">
         <source :srcset="image.sizes['half-page']" media="(min-width: 768px)">
         <source :srcset="image.sizes.card"  media="(min-width: 450px)">
-        <source :srcset="image.sizes.small">
         <img
-          :src="image.url"
+          :src="image.sizes.small"
           :alt="image.alt"
-          :width="image.width"
-          :heght="image.height">
+          :width="image.sizes['small-width']"
+          :heght="image.sizes['small-width']">
       </picture>
 
       <iframe
