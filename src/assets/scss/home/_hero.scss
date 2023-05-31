@@ -80,6 +80,7 @@
     display: none;
     margin-bottom: 10px;
     justify-self: flex-end;
+    cursor: pointer;
 
     @include m768 {
       display: block;
