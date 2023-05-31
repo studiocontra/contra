@@ -28,22 +28,7 @@
             'col-md-8': !isHome,
             'col-md-10': isHome}">
           <div class="header__menu" :class="{'active': isMenuOpen}">
-            <a
-              v-if="isHome"
-              class="playlist"
-              :href="playlist"
-              target="_blank">
-              <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="12.0137" y="6.875" width="1.25" height="1.25"/>
-                <rect x="7.01367" y="6.875" width="1.25" height="1.25"/>
-                <path class="stroke" d="M5.13867 10C5.13867 10 6.31514 13.75 10.1387 13.75C14.5504 13.75 15.1387 10 15.1387 10" />
-                <rect class="stroke" x="0.75" y="0.75" width="18.5" height="18.5" rx="9.25" />
-              </svg>
-
-              <span>
-                Nuestra playlist
-              </span>
-            </a>
+            <div class="menu__margin"></div>
 
             <NuxtLink
               to="/proyectos"
