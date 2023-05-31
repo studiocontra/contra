@@ -58,6 +58,12 @@
                 <p>
                   {{ person.role }}
                 </p>
+
+                <div
+                  v-if="person.image"
+                  class="team-card__image">
+                  <img :src="person.image.url" :alt="person.image.alt" lazy="loading">
+                </div>
               </div>
             </div>
           </template>
