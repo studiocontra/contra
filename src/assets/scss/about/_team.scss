@@ -57,9 +57,8 @@
 
 .team-card {
   position: relative;
-  margin-bottom: 250px;
-  padding-top: 40px;
-  cursor: pointer;
+  margin-bottom: 200px;
+  padding-top: 30px;
   border-top: 1px solid rgba($white, 0.5);
 
   .title,
@@ -89,35 +88,5 @@
       font-size: 20px;
     }
   }
-
-  &:hover {
-    .team-card__image {
-      opacity: 1;
-    }
-  }
 }
 
-.team-card__image {
-  position: absolute;
-  z-index: 1;
-  top: 40px;
-  right: 0;
-  width: 45%;
-  padding-bottom: 45%;
-  transition: opacity 0.3s ease-in;
-  pointer-events: none;
-
-  @include m768 {
-    top: 80px;
-    right: auto;
-    left: 50%;
-    width: 60%;
-    transform: translateX(-50%);
-    opacity: 0;
-  }
-
-  img {
-    @include fullAbs;
-    @include fit;
-  }
-}
