@@ -37,7 +37,7 @@ export default {
   name: 'AboutPage',
   mixins: [mixins],
   async setup() {
-    const { API_BASE_URL } = useRuntimeConfig();
+    const API_BASE_URL = process.env.API_BASE_URL
 
     let [{acf}, {acf: {awards}}, allNews] = await Promise.all([
       $fetch(`${API_BASE_URL}/pages/79?acf_format=standard`),
