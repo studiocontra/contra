@@ -16,7 +16,6 @@
         </div>
 
         <template v-if="image">
-          {{ console.log(image) }}
           <div v-if="full">
             <NuxtImg v-if="((image.title) === 'bt-studio-2')" 
               src="https://admin.studiocontra.co/wp-content/uploads/2022/12/bt-studio-2.gif" 
