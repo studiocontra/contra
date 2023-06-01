@@ -16,8 +16,21 @@
         </div>
 
         <template v-if="image">
+          {{ console.log(image) }}
           <div v-if="full">
-            <NuxtImg 
+            <NuxtImg v-if="((image.title) === 'bt-studio-2')" 
+              src="https://admin.studiocontra.co/wp-content/uploads/2022/12/bt-studio-2.gif" 
+              :sizes="`
+                xs:${image.sizes.small['small-width']}
+                sm:${image.sizes.small['small-width']}
+                md:${image.sizes.card['card-width']}
+                lg:${image.sizes['half-page-width']}
+                xl:${image.sizes['full-page-width']}
+              `"
+              :alt="image.title"
+              width="1920"
+            />
+            <NuxtImg v-else
               :src="image.url" 
               :sizes="`
                 xs:${image.sizes.small['small-width']}

@@ -2,7 +2,7 @@
   <div class="project__images js-project-images">
     <div class="container">
       <div
-        v-for="(item, idx) in images"
+        v-for="(item, idx, i) in images"
         :key="idx"
         class="single-image"
         :class="`single-image--${item.size} ${item.alignment} ${(item.video) ? 'single-image--video' : ''}`">
