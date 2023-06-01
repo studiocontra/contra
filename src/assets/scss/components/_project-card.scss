@@ -15,11 +15,7 @@
     .marquee {
       opacity: 1;
     }
-
-    .v-lazy-image {
-      transform: scale(1.02);
-    }
-
+    
     .text {
       text-decoration: underline;
     }
@@ -45,15 +41,6 @@
       font-size: 30px;
       @include anim(marquee, 14s, -50%);
     }
-  }
-
-  .v-lazy-image {
-    width: 100%;
-    transition: transform 0.6s ease-out, filter 0.6s ease-out;
-    filter: blur(20px);
-  }
-  .v-lazy-image-loaded {
-    filter: blur(0);
   }
 }
 

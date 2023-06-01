@@ -23,18 +23,20 @@
     </div>
 
     <div class="main__image">
-      <picture  v-if="image && !videoId">
-        <source :srcset="image.url" media="(min-width: 1920px)">
-        <source :srcset="image.sizes['full-page']" media="(min-width: 1200px)">
-        <source :srcset="image.sizes['half-page']" media="(min-width: 768px)">
-        <source :srcset="image.sizes.card"  media="(min-width: 450px)">
-        <img
-          :src="image.sizes.small"
-          :alt="image.alt"
-          :width="image.sizes['small-width']"
-          :heght="image.sizes['small-width']">
-      </picture>
-
+      <div v-if="image && !videoId">
+        <NuxtImg 
+          :src="image.url" 
+          :sizes="`
+            xs:${image.sizes.small['small-width']}
+            sm:${image.sizes.small['small-width']}
+            md:${image.sizes.card['card-width']}
+            lg:${image.sizes['half-page-width']}
+            xl:${image.sizes['full-page-width']}
+          `"
+          :alt="image.title"
+        />
+      </div>
+      
       <iframe
         v-if="videoId"
         :src="`https://player.vimeo.com/video/${videoId}?loop=1&autoplay=1&autopause=0&muted=1&title=0&byline=0&portrait=0&controls=1`" muted frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>

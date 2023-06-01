@@ -9,10 +9,12 @@
         <template
           v-for="(item, idx) in data.logos"
           :key="idx">
-          <img
+          <NuxtImg
             v-if="item.partner"
             :src="item.partner.sizes.medium"
-            :alt="item.partner.alt"/>
+            :alt="item.partner.alt"
+            width="260"
+            height="130" />
         </template>
       </div>
     </div>

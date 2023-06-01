@@ -62,7 +62,7 @@
                 <div
                   v-if="person.image"
                   class="team-card__image">
-                  <img :src="person.image.url" :alt="person.image.alt" lazy="loading">
+                  <NuxtImg :src="person.image.url" width="410" height="502" :alt="person.image.alt"/>
                 </div>
               </div>
             </div>

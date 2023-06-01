@@ -16,32 +16,37 @@
         </div>
 
         <template v-if="image">
-          <picture v-if="full">
-            <source :srcset="image.url" media="(min-width: 1900px)">
-            <source :srcset="image.sizes['full-page']" media="(min-width: 1200px)">
-            <source :srcset="image.sizes['half-page']" media="(min-width: 768px)">
-            <source :srcset="image.sizes.card"  media="(min-width: 576px)">
-            <img
-              :src="image.sizes.small"
-              :alt="image.alt"
-              :width="image.sizes.small['small-width']"
-              :heght="image.sizes.small['small-height']"
-              loading="lazy">
-          </picture>
-          <picture v-else>
-            <source :srcset="image.url" media="(min-width: 1900px)">
-            <source :srcset="image.sizes['half-page']" media="(min-width: 1400px)">
-            <source :srcset="image.sizes.section" media="(min-width: 768px)">
-            <source :srcset="image.sizes.card"  media="(min-width: 450px)">
-            <img
-              :src="image.sizes.small"
-              :alt="image.alt"
-              :width="image.sizes.small['small-width']"
-              :heght="image.sizes.small['small-height']"
-              loading="lazy">
-          </picture>
+          <div v-if="full">
+            <NuxtImg 
+              :src="image.url" 
+              :sizes="`
+                xs:${image.sizes.small['small-width']}
+                sm:${image.sizes.small['small-width']}
+                md:${image.sizes.card['card-width']}
+                lg:${image.sizes['half-page-width']}
+                xl:${image.sizes['full-page-width']}
+              `"
+              :alt="image.title"
+              :width="image.width"
+              height="auto"
+            />
+          </div >
+          <div v-else>
+            <NuxtImg 
+              :src="image.url" 
+              :sizes="`
+                xs:${image.sizes.small['small-width']}
+                sm:${image.sizes.small['small-width']}
+                md:${image.sizes.card['card-width']}
+                lg:${image.sizes['half-page-width']}
+                xl:${image.sizes['full-page-width']}
+              `"
+              :alt="image.title"
+              :width="image.width"
+              height="auto"
+            />
+          </div >
         </template>
-
         <div class="marquee">
           <div class="content">
             <span v-for="i in 10" :key="i">

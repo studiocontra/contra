@@ -13,6 +13,9 @@
         <img
           v-if="image"
           :src="image"
+          :alt="name"
+          width="300px"
+          height="300px"
         />
       </div>
 
@@ -33,9 +36,12 @@
       <div
         v-if="!small"
         class="updates-card__img">
-        <img
+        <NuxtImg
           v-if="image"
           :src="image"
+          :alt="name"
+          width="300px"
+          height="300px"
         />
       </div>
 

@@ -6,19 +6,19 @@
         :key="idx"
         class="single-image"
         :class="`single-image--${item.size} ${item.alignment} ${(item.video) ? 'single-image--video' : ''}`">
-        <picture
-          v-if="item.image && !item.video">
-          <source :srcset="item.image.url" media="(min-width: 1920px)">
-          <source :srcset="item.image.sizes['full-page']" media="(min-width: 1200px)">
-          <source :srcset="item.image.sizes['half-page']" media="(min-width: 768px)">
-          <source :srcset="item.image.sizes.card"  media="(min-width: 450px)">
-          <img
-            :src="item.image.sizes.small"
-            :alt="item.image.alt"
-            :width="item.image.sizes.small['small-width']"
-            :heght="item.image.sizes.small['small-height']"
-            loading="lazy">
-        </picture>
+        <div v-if="item.image && !item.video">
+          <NuxtImg 
+            :src="item.image.url" 
+            :sizes="`
+              xs:${item.image.sizes.small['small-width']}
+              sm:${item.image.sizes.small['small-width']}
+              md:${item.image.sizes.card['card-width']}
+              lg:${item.image.sizes['half-page-width']}
+              xl:${item.image.sizes['full-page-width']}
+            `"
+            :alt="item.image.title"
+          />
+        </div>
 
         <iframe
           v-if="item.video"

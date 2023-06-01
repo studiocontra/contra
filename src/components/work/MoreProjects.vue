@@ -52,11 +52,15 @@
               <SwiperSlide
                 v-for="(item, idx) in project.acf.images"
                 :key="idx">
-                <picture>
-                  <source :srcset="item.image.sizes['half-page']" media="(min-width: 600px)">
-                  <source :srcset="item.image.sizes['card']">
-                  <img :src="item.image.sizes['half-page']" :alt="item.image.alt">
-                </picture>
+                <div>
+                  <NuxtImg 
+                    :src="item.image.sizes['half-page']" 
+                    :sizes="`
+                      xs:${item.image.sizes['card-page-width']}
+                      sm:${item.image.sizes['half-page-width']}
+                    `" 
+                    :alt="item.image.alt" />
+                </div>
               </SwiperSlide>
 
               <div class="wrap-arrows">

@@ -26,6 +26,7 @@ export default defineNuxtConfig({
     }
   },
   modules: [
+    '@nuxt/image-edge',
     ['@funken-studio/sitemap-nuxt-3', {
       hostname: 'https://studiocontra.co',
       cacheTime: 1,
@@ -45,6 +46,16 @@ export default defineNuxtConfig({
       },
     }],
   ],
+
+  image: {
+    screens: {
+      xs: 320,
+      sm: 576,
+      md: 768,
+      lg: 1200,
+      xl: 1500,
+    },
+  },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
@@ -67,7 +78,4 @@ export default defineNuxtConfig({
   build: {
     transpile: ['gsap'],
   },
-  buildModules: {
-
-  }
 })
