@@ -59,7 +59,6 @@
   position: relative;
   margin-bottom: 250px;
   padding-top: 40px;
-  cursor: pointer;
   border-top: 1px solid rgba($white, 0.5);
 
   .title,
@@ -87,12 +86,6 @@
 
     @include m768 {
       font-size: 20px;
-    }
-  }
-
-  &:hover {
-    .team-card__image {
-      opacity: 1;
     }
   }
 }

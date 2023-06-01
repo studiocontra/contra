@@ -29,7 +29,7 @@
                 <div 
                   v-if="person.image"
                   class="main-team-card__image">
-                  <img :src="person.image.sizes.large" :alt="person.image.alt" lazy="loading">
+                  <NuxtImg :src="person.image.sizes.large" :alt="person.name" />
                 </div>
 
                 <div class="main-team-card__content">
@@ -58,12 +58,6 @@
                 <p>
                   {{ person.role }}
                 </p>
-
-                <div
-                  v-if="person.image"
-                  class="team-card__image">
-                  <NuxtImg :src="person.image.url" width="410" height="502" :alt="person.image.alt"/>
-                </div>
               </div>
             </div>
           </template>
