@@ -27,8 +27,6 @@
                 xl:${image.sizes['full-page-width']}
               `"
               :alt="image.title"
-              :width="image.width"
-              height="auto"
             />
           </div >
           <div v-else>
@@ -42,8 +40,6 @@
                 xl:${image.sizes['full-page-width']}
               `"
               :alt="image.title"
-              :width="image.width"
-              height="auto"
             />
           </div >
         </template>
