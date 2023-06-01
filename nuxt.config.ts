@@ -49,7 +49,7 @@ export default defineNuxtConfig({
   ],
 
   purgecss: {
-    enabled: true,
+    enabled: false, // Always enable purgecss
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css

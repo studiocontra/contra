@@ -28,7 +28,7 @@
             'col-md-8': !isHome,
             'col-md-10': isHome}">
           <div class="header__menu" :class="{'active': isMenuOpen}">
-            <div class="menu__margin"></div>
+            <div class="menu__margin" v-if="isHome"></div>
 
             <NuxtLink
               to="/proyectos"

@@ -129,10 +129,6 @@ header {
     pointer-events: all;
   }
 
-  .menu__margin {
-    width: 160px;
-  }
-
   a {
     margin-bottom: 16px;
     font-family: $contra;
@@ -241,11 +237,11 @@ header {
     svg {
       fill: $blue;
     }
-  }
 
-  .header__logo:hover {
-    svg {
-      fill: $red;
+    &:hover {
+      svg {
+        fill: $red;
+      }
     }
   }
 
@@ -262,9 +258,11 @@ header {
 }
 
 .header--blue {
-  .header__logo:hover {
-    svg {
-      fill: $blue;
+  .header__logo {
+    &:hover {
+      svg {
+        fill: $blue;
+      }
     }
   }
 }
