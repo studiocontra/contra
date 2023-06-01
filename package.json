@@ -12,6 +12,7 @@
   "devDependencies": {
     "@nuxt/image-edge": "^1.0.0-28092818.5c21f4c",
     "nuxt": "3.2.3",
+    "nuxt-purgecss": "^2.0.0",
     "sass": "^1.54.6",
     "sass-loader": "10",
     "vue-gtag-next": "^1.14.0"

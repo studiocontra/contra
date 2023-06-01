@@ -26,6 +26,7 @@ export default defineNuxtConfig({
     }
   },
   modules: [
+    'nuxt-purgecss',
     '@nuxt/image-edge',
     ['@funken-studio/sitemap-nuxt-3', {
       hostname: 'https://studiocontra.co',
@@ -46,6 +47,10 @@ export default defineNuxtConfig({
       },
     }],
   ],
+
+  purgecss: {
+    enabled: true, // Always enable purgecss
+  },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
@@ -78,6 +83,5 @@ export default defineNuxtConfig({
         xl: 1500,
       },
     },
-    domains: ['studiocontra.co']
   }
 })
