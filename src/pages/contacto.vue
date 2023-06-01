@@ -4,7 +4,7 @@
       <Title>Contacto</Title>
     </Head>
 
-    <Header />
+    <Header theme="blue"/>
     <Shapes>
       <div class="shape red"></div>
     </Shapes>

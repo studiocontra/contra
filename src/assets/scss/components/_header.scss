@@ -243,6 +243,12 @@ header {
     }
   }
 
+  .header__logo:hover {
+    svg {
+      fill: $red;
+    }
+  }
+
   .header__menu {
     color: $blue;
   }
@@ -251,6 +257,14 @@ header {
     &:before,
     &:after {
       background-color: $blue;
+    }
+  }
+}
+
+.header--blue {
+  .header__logo:hover {
+    svg {
+      fill: $blue;
     }
   }
 }
