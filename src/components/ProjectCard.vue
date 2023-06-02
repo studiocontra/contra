@@ -17,40 +17,40 @@
 
         <template v-if="image">
           <div v-if="full">
-            <picture v-if="((image.title) === 'bt-studio-2')">
-              <NuxtImg 
+            <LazyNuxtPicture v-if="((image.title) === 'bt-studio-2')">
+              <LazyNuxtImg 
                 :src="image.url"
                 :alt="image.alt"
                 :width="image.width"
                 :heght="image.height" />
-            </picture>
-            <picture v-else>
+            </LazyNuxtPicture>
+            <LazyNuxtPicture v-else>
               <source :srcset="image.url" media="(min-width: 1600px)">
               <source :srcset="image.url['half-page']" media="(min-width: 1400px)">
               <source :srcset="image.sizes.section" media="(min-width: 768px)">
               <source :srcset="image.sizes.card"  media="(min-width: 450px)">
               <source :srcset="image.sizes.small">
-              <NuxtImg
+              <LazyNuxtImg
                 :src="image.sizes.small"
                 :alt="image.alt"
                 :width="image.width"
                 :heght="image.height" 
                 lazy="loading"/>
-            </picture>
+            </LazyNuxtPicture>
           </div >
           <div v-else>
-            <picture>
+            <LazyNuxtPicture>
               <source :srcset="image.url" media="(min-width: 1600px)">
               <source :srcset="image.url['half-page']" media="(min-width: 1400px)">
               <source :srcset="image.sizes.section" media="(min-width: 768px)">
               <source :srcset="image.sizes.card"  media="(min-width: 450px)">
-              <NuxtImg
+              <LazyNuxtImg
                 :src="image.sizes.small"
                 :alt="image.alt"
                 :width="image.sizes.small['small-width']"
                 :heght="image.sizes.small['small-height']" 
                 lazy="loading"/>
-            </picture>
+            </LazyNuxtPicture>
           </div >
         </template>
         <div class="marquee">
@@ -77,30 +77,33 @@
 </template>
 
 <script>
+import { LazyNuxtImg } from '../../.nuxt/components';
+
 export default {
-  name: 'ProjectCard',
-  props: {
-    full: {
-      type: Boolean,
+    name: "ProjectCard",
+    props: {
+        full: {
+            type: Boolean,
+        },
+        name: {
+            type: String,
+        },
+        description: {
+            type: String,
+        },
+        image: {
+            type: [Object, Boolean],
+            default: false
+        },
+        link: {
+            type: String,
+        },
+        tags: {
+            type: Array,
+            default: () => []
+        },
     },
-    name: {
-      type: String,
-    },
-    description: {
-      type: String,
-    },
-    image: {
-      type: [Object, Boolean],
-      default: false
-    },
-    link: {
-      type: String,
-    },
-    tags: {
-      type: Array,
-      default: () => []
-    },
-  }
+    components: { LazyNuxtImg }
 }
 </script>
 
