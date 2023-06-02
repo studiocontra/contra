@@ -17,24 +17,16 @@
 
         <template v-if="image">
           <div v-if="full">
-<<<<<<< HEAD
-            <LazyNuxtPicture v-if="((image.title) === 'bt-studio-2')">
-              <LazyNuxtImg 
-=======
             <picture v-if="((image.title) === 'bt-studio-2')">
-              <source :srcset="image.url" media="(min-width: 1600px)">
-              <source :srcset="image.url['half-page']" media="(min-width: 1400px)">
-              <source :srcset="image.url" media="(min-width: 768px)">
-              <source :srcset="image.url"  media="(min-width: 450px)">
-              <source :srcset="image.url">
-              <NuxtImg 
->>>>>>> parent of 4f3f49a (tag picture)
+              <LazyNuxtImg 
                 :src="image.url"
                 :alt="image.alt"
                 :width="image.width"
-                :heght="image.height" />
-            </LazyNuxtPicture>
-            <LazyNuxtPicture v-else>
+                :heght="image.height" 
+                loading="lazy"
+              />
+            </picture>
+            <picture v-else>
               <source :srcset="image.url" media="(min-width: 1600px)">
               <source :srcset="image.url['half-page']" media="(min-width: 1400px)">
               <source :srcset="image.sizes.section" media="(min-width: 768px)">
@@ -45,11 +37,11 @@
                 :alt="image.alt"
                 :width="image.width"
                 :heght="image.height" 
-                lazy="loading"/>
-            </LazyNuxtPicture>
+                loading="lazy"/>
+            </picture>
           </div >
           <div v-else>
-            <LazyNuxtPicture>
+            <picture>
               <source :srcset="image.url" media="(min-width: 1600px)">
               <source :srcset="image.url['half-page']" media="(min-width: 1400px)">
               <source :srcset="image.sizes.section" media="(min-width: 768px)">
@@ -59,8 +51,8 @@
                 :alt="image.alt"
                 :width="image.sizes.small['small-width']"
                 :heght="image.sizes.small['small-height']" 
-                lazy="loading"/>
-            </LazyNuxtPicture>
+                loading="lazy"/>
+            </picture>
           </div >
         </template>
         <div class="marquee">
@@ -87,8 +79,6 @@
 </template>
 
 <script>
-import { LazyNuxtImg } from '../../.nuxt/components';
-
 export default {
     name: "ProjectCard",
     props: {
@@ -113,7 +103,6 @@ export default {
             default: () => []
         },
     },
-    components: { LazyNuxtImg }
 }
 </script>
 

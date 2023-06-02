@@ -11,12 +11,13 @@
       <div
         v-if="!small"
         class="updates-card__img">
-        <img
+        <LazyNuxtImg 
           v-if="image"
           :src="image"
           :alt="name"
           width="300px"
           height="300px"
+          loading="lazy"
         />
       </div>
 
@@ -64,8 +65,6 @@
 </template>
 
 <script>
-import { LazyNuxtImg } from '../../.nuxt/components';
-
 export default {
     props: {
         small: {
@@ -94,7 +93,6 @@ export default {
             default: () => { }
         },
     },
-    components: { LazyNuxtImg }
 }
 </script>
 
