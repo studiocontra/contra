@@ -18,11 +18,6 @@
         <template v-if="image">
           <div v-if="full">
             <picture v-if="((image.title) === 'bt-studio-2')">
-              <source :srcset="image.url" media="(min-width: 1600px)">
-              <source :srcset="image.url['half-page']" media="(min-width: 1400px)">
-              <source :srcset="image.url" media="(min-width: 768px)">
-              <source :srcset="image.url"  media="(min-width: 450px)">
-              <source :srcset="image.url">
               <NuxtImg 
                 :src="image.url"
                 :alt="image.alt"
