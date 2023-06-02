@@ -17,29 +17,30 @@
 
         <template v-if="image">
           <div v-if="full">
-            <NuxtImg v-if="((image.title) === 'bt-studio-2')" 
-              src="https://admin.studiocontra.co/wp-content/uploads/2022/12/bt-studio-2.gif" 
-              :sizes="`
-                xs:${image.sizes.small['small-width']}
-                sm:${image.sizes.small['small-width']}
-                md:${image.sizes.card['card-width']}
-                lg:${image.sizes['half-page-width']}
-                xl:${image.sizes['full-page-width']}
-              `"
-              :alt="image.title"
-              width="1920"
-            />
-            <NuxtImg v-else
-              :src="image.url" 
-              :sizes="`
-                xs:${image.sizes.small['small-width']}
-                sm:${image.sizes.small['small-width']}
-                md:${image.sizes.card['card-width']}
-                lg:${image.sizes['half-page-width']}
-                xl:${image.sizes['full-page-width']}
-              `"
-              :alt="image.title"
-            />
+            <picture v-if="full">
+              <img v-if="((image.title) === 'bt-studio-2')"
+                src="https://admin.studiocontra.co/wp-content/uploads/2022/12/bt-studio-2.gif"
+                :alt="image.alt"
+                :width="image.width"
+                :heght="image.height">
+              <img v-else
+                :src="image.url"
+                :alt="image.alt"
+                :width="image.width"
+                :heght="image.height">
+            </picture>
+
+            <picture v-else>
+              <source :srcset="image.sizes['half-page']" media="(min-width: 1400px)">
+              <source :srcset="image.sizes.section" media="(min-width: 768px)">
+              <source :srcset="image.sizes.card"  media="(min-width: 450px)">
+              <source :srcset="image.sizes.small">
+              <img
+                :src="image.url"
+                :alt="image.alt"
+                :width="image.width"
+                :heght="image.height">
+            </picture>
           </div >
           <div v-else>
             <NuxtImg 

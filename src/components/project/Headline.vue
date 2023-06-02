@@ -9,7 +9,8 @@
           <a
             class="project__data"
             :href="projectLink"
-            target="_blank">
+            target="_blank"
+            aria-label="Visita el proyecto">
             <div v-if="logo.sizes" class="logo">
               <img :src="logo.sizes['small']" alt="logo.alt">
             </div>
