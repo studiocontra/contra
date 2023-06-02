@@ -32,17 +32,20 @@
 
             <NuxtLink
               to="/proyectos"
-              activeClass="active">
+              activeClass="active"
+              aria-label="Ir a la sección de Proyectos">
               Proyectos
             </NuxtLink>
             <NuxtLink
               to="/nosotros"
-              activeClass="active">
+              activeClass="active"
+              aria-label="Ir a la sección de Proyectos">
               Nosotros
             </NuxtLink>
             <NuxtLink
               to="/contacto"
-              activeClass="active">
+              activeClass="active"
+              aria-label="Ir a la sección de Proyectos">
               Contacto
             </NuxtLink>
 
@@ -56,13 +59,13 @@
             </div>
 
             <div class="menu__social">
-              <a href="https://www.instagram.com/contra_studio_/" target="_blank">
+              <a href="https://www.instagram.com/contra_studio_/" target="_blank" aria-label="Visita nuestro Instagram">
                 Instagram
               </a>
-              <a href="https://www.awwwards.com/contrastudio/" target="_blank">
+              <a href="https://www.awwwards.com/contrastudio/" target="_blank" aria-label="Visita nuestro perfil en Awwwards">
                 Awwwards
               </a>
-              <a href="https://www.linkedin.com/company/contra-studio" target="_blank">
+              <a href="https://www.linkedin.com/company/contra-studio" target="_blank" aria-label="Visita nuestro perfil en LinkedIn">
                 LinkedIn
               </a>
 

@@ -6,7 +6,8 @@
     }]">
     <a
       v-if="!customName"
-      :href="`/updates/${link}`">
+      :href="`/updates/${link}`"
+      :aria-label="`Lee más sobre ${name}`">
       <div
         v-if="!small"
         class="updates-card__img">

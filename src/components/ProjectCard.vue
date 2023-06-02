@@ -2,7 +2,7 @@
   <div
     class="project"
     :class="{'project--full': full}">
-    <NuxtLink :to="link">
+    <NuxtLink :to="link" :aria-label="`Conoce más de nuestro pryecto ${name}`">
       <div class="project__img">
         <div class="project__tags">
           <template v-if="tags.length > 0">
