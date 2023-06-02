@@ -17,16 +17,7 @@
 
         <template v-if="image">
           <div v-if="full">
-            <picture v-if="((image.title) === 'bt-studio-2')">
-              <LazyNuxtImg 
-                :src="image.url"
-                :alt="image.alt"
-                :width="image.width"
-                :heght="image.height" 
-                loading="lazy"
-              />
-            </picture>
-            <picture v-else>
+            <picture>
               <source :srcset="image.url" media="(min-width: 1600px)">
               <source :srcset="image.url['half-page']" media="(min-width: 1400px)">
               <source :srcset="image.sizes.section" media="(min-width: 768px)">
