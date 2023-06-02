@@ -110,6 +110,10 @@ header {
   background-color: $blue;
   justify-content: flex-start;
 
+  .menu__margin {
+    width: 160px;
+  }
+
   @include m768 {
     position: relative;
     flex-direction: row;
