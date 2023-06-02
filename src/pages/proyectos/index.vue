@@ -50,6 +50,7 @@ export default {
 
     let [mainProjects, additionalProjects] = await Promise.all([
       Promise.all(allData.acf['main_projects'].map(async (item) => {
+        if(item.project === 503) return
         if(!item.project)
           return console.error('Empty Item inside Wordpress page');
         const data = await $fetch(`${API_BASE_URL}/projects/${item.project}?_fields=acf,categories,excerpt,slug,title&acf_format=standard`);

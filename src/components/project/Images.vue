@@ -7,17 +7,18 @@
         class="single-image"
         :class="`single-image--${item.size} ${item.alignment} ${(item.video) ? 'single-image--video' : ''}`">
         <div v-if="item.image && !item.video">
-          <NuxtImg 
-            :src="item.image.url" 
-            :sizes="`
-              xs:${item.image.sizes.small['small-width']}
-              sm:${item.image.sizes.small['small-width']}
-              md:${item.image.sizes.card['card-width']}
-              lg:${item.image.sizes['half-page-width']}
-              xl:${item.image.sizes['full-page-width']}
-            `"
-            :alt="item.image.title"
-          />
+          <picture>
+            <source :srcset="item.image.url" media="(min-width: 1320px)">
+            <source :srcset="item.image.sizes.section" media="(min-width: 768px)">
+            <source :srcset="item.image.sizes.card"  media="(min-width: 450px)">
+            <LazyNuxtImg
+              :src="item.image.sizes.small"
+              :alt="item.image.alt"
+              :width="item.image.width"
+              :heght="item.image.height" 
+              loading="lazy"
+            />
+          </picture>
         </div>
 
         <iframe

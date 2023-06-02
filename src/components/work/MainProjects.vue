@@ -75,7 +75,8 @@
         <div class="row">
           <transition-group name="fade">
             <template v-for="(project, idx) in filteredProjects" :key="idx">
-              <template v-if="project.size === 'full'">
+              <div v-if="project === undefined"></div>
+              <template v-else-if="project.size === 'full'">
                 <div class="col-12">
                   {{project.data.slug}}
                   <ProjectCard

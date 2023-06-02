@@ -1,19 +1,16 @@
 <template>
   <div class="project__next">
-    <div v-if="image">
-      <NuxtImg
-        class="next__bg"
-        :src="image.url" 
-        :sizes="`
-          xs:${image.sizes.small['small-width']}
-          sm:${image.sizes.small['small-width']}
-          md:${image.sizes.card['card-width']}
-          lg:${image.sizes['half-page-width']}
-          xl:${image.sizes['full-page-width']}
-        `"
+    <picture >
+      <source :srcset="image.sizes['full-page']" media="(min-width: 1200px)">
+      <source :srcset="image.sizes['half-page']" media="(min-width: 992px)">
+      <source :srcset="image.sizes['card']">
+      <LazyNuxtImg
+        :src="image.sizes.small"
         :alt="image.alt"
+        loading="lazy"
+        class="next__bg"
       />
-    </div>
+    </picture> 
 
     <NuxtLink :to="`/proyectos/${slug}`">
       <div class="container">

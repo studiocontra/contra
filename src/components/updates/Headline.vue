@@ -11,19 +11,17 @@
         </span>
       </div>
       <div class="main__image">
-        <div v-if="image">
-          <NuxtImg 
-            :src="image.url" 
-            :sizes="`
-              xs:${image.sizes.small['small-width']}
-              sm:${image.sizes.card['card-width']}
-              md:${image.sizes.section['section-width']}
-              lg:${image.sizes['half-page-width']}
-              xl:${image.sizes['full-page-width']}
-            `"
+        <picture v-if="image">
+          <source :srcset="image.url" media="(min-width: 1320px)">
+          <source :srcset="image.sizes.section" media="(min-width: 768px)">
+          <source :srcset="image.sizes.card"  media="(min-width: 450px)">
+          <LazyNuxtImg
+            :src="image.sizes.small"
             :alt="image.alt"
-          />
-        </div>
+            :width="image.width"
+            :heght="image.height" 
+            loading="lazy"/>
+        </picture>
       </div>
     </div>
   </div>

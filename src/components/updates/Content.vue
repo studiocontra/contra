@@ -22,20 +22,15 @@
 
             <template
               v-if=" row.acf_fc_layout === 'image'">
-              <div v-if="row.image">
-                <NuxtImg 
-                  :src="row.image.url" 
-                  :sizes="`
-                    xs:${row.image.sizes.small['small-width']}
-                    sm:${row.image.sizes.card['card-width']}
-                    md:${row.image.sizes.section['section-width']}
-                    lg:${row.image.sizes['half-page-width']}
-                    xl:${row.image.sizes['full-page-width']}
-                  `"
-                  :alt="row.image.title"
-                />
-                {{ console.log(row.image) }}
-              </div>
+              <picture v-if="row.image">
+                <source :srcset="row.image.sizes.card"  media="(min-width: 450px)">
+                <LazyNuxtImg
+                  :src="row.image.sizes.small"
+                  :alt="row.image.alt"
+                  :width="row.image.width"
+                  :heght="row.image.height" 
+                  loading="lazy"/>
+              </picture>
             </template>
           </div>
         </div>
