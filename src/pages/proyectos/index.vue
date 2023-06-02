@@ -2,6 +2,7 @@
   <div class="page-work">
     <Head>
       <Title>Nuestro trabajo</Title>
+      <Meta name="description" content="Algunos de nuestros proyectos de diseño, tecnología e innovación más destacados." />
     </Head>
 
     <Header />

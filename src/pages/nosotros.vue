@@ -2,6 +2,7 @@
   <div class="about-page">
     <Head>
       <Title>Nosotros</Title>
+      <Meta name="description" content="Somos expertos en diseño UX/UI, diseño y desarrollo de productos digitales, E-commerce y servicios de consultoría digital." />
     </Head>
 
     <Header theme="dark" />

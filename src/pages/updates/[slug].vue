@@ -6,10 +6,10 @@
       <Title>
         {{updateData.title.rendered}} | Contra Studio
       </Title>
+      <Meta name="description" :content="updateData.yoast_head_json.og_description" />
     </Head>
 
     <Header theme="dark" />
-
     <main>
       <UpdatesHeadline
         :headline="updateData.title.rendered"

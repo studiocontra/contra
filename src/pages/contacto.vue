@@ -2,6 +2,7 @@
   <div class="page-contact">
     <Head>
       <Title>Contacto</Title>
+      <Meta name="description" content="Para hablar de nuevos proyectos, colaboraciones, o cualquier otro tema" />
     </Head>
 
     <Header theme="blue"/>

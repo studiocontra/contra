@@ -3,8 +3,8 @@
     v-if="projectData"
     class="single-work">
     <Head>
-      <Title>{{projectData.title.rendered}} | Contra Studio
-      </Title>
+      <Title>{{projectData.title.rendered}} | Contra Studio</Title>
+      <Meta name="description" :content="projectData.excerpt.rendered" />
     </Head>
 
     <Header theme="dark" />
