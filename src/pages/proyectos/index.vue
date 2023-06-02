@@ -53,7 +53,6 @@ export default {
         if(!item.project)
           return console.error('Empty Item inside Wordpress page');
         const data = await $fetch(`${API_BASE_URL}/projects/${item.project}?_fields=acf,categories,excerpt,slug,title&acf_format=standard`);
-
         return {
           'data': data,
           'size': item.size

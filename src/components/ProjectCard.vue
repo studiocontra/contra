@@ -17,42 +17,39 @@
 
         <template v-if="image">
           <div v-if="full">
-            <picture v-if="full">
-            <NuxtImage v-if="((image.title) === 'bt-studio-2')"
-              src="https://admin.studiocontra.co/wp-content/uploads/2022/12/bt-studio-2.gif"
-              :alt="image.alt"
-              :width="image.width"
-              :heght="image.height" />
-            <NuxtImage v-else
-              :src="image.url"
-              :alt="image.alt"
-              :width="image.width"
-              :heght="image.height" />
-          </picture>
-
-            <picture v-else>
-              <source :srcset="image.sizes['half-page']" media="(min-width: 1400px)">
-              <source :srcset="image.sizes.section" media="(min-width: 768px)">
-              <source :srcset="image.sizes.card"  media="(min-width: 450px)">
-              <source :srcset="image.sizes.small">
-              <NuxtImage
+            <picture v-if="((image.title) === 'bt-studio-2')">
+              <NuxtImg 
                 :src="image.url"
                 :alt="image.alt"
                 :width="image.width"
                 :heght="image.height" />
             </picture>
-          </div >
-          <div v-else>
-            <picture>
-              <source :srcset="image.url" media="(min-width: 1400px)">
+            <picture v-else>
+              <source :srcset="image.url" media="(min-width: 1600px)">
+              <source :srcset="image.url['half-page']" media="(min-width: 1400px)">
               <source :srcset="image.sizes.section" media="(min-width: 768px)">
               <source :srcset="image.sizes.card"  media="(min-width: 450px)">
               <source :srcset="image.sizes.small">
               <NuxtImg
                 :src="image.sizes.small"
                 :alt="image.alt"
+                :width="image.width"
+                :heght="image.height" 
+                lazy="loading"/>
+            </picture>
+          </div >
+          <div v-else>
+            <picture>
+              <source :srcset="image.url" media="(min-width: 1600px)">
+              <source :srcset="image.url['half-page']" media="(min-width: 1400px)">
+              <source :srcset="image.sizes.section" media="(min-width: 768px)">
+              <source :srcset="image.sizes.card"  media="(min-width: 450px)">
+              <NuxtImg
+                :src="image.sizes.small"
+                :alt="image.alt"
                 :width="image.sizes.small['small-width']"
-                :heght="image.sizes.small['small-height']" />
+                :heght="image.sizes.small['small-height']" 
+                lazy="loading"/>
             </picture>
           </div >
         </template>

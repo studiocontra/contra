@@ -43,6 +43,7 @@
           :alt="name"
           width="300px"
           height="300px"
+          lazy="loading"
         />
       </div>
 
