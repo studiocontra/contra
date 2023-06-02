@@ -18,16 +18,16 @@
         <template v-if="image">
           <div v-if="full">
             <picture v-if="full">
-            <img v-if="((image.title) === 'bt-studio-2')"
+            <NuxtImage v-if="((image.title) === 'bt-studio-2')"
               src="https://admin.studiocontra.co/wp-content/uploads/2022/12/bt-studio-2.gif"
               :alt="image.alt"
               :width="image.width"
-              :heght="image.height">
-            <img v-else
+              :heght="image.height" />
+            <NuxtImage v-else
               :src="image.url"
               :alt="image.alt"
               :width="image.width"
-              :heght="image.height">
+              :heght="image.height" />
           </picture>
 
             <picture v-else>
@@ -35,24 +35,24 @@
               <source :srcset="image.sizes.section" media="(min-width: 768px)">
               <source :srcset="image.sizes.card"  media="(min-width: 450px)">
               <source :srcset="image.sizes.small">
-              <img
+              <NuxtImage
                 :src="image.url"
                 :alt="image.alt"
                 :width="image.width"
-                :heght="image.height">
+                :heght="image.height" />
             </picture>
           </div >
           <div v-else>
             <picture>
-              <source :srcset="image.sizes['half-page']" media="(min-width: 1400px)">
+              <source :srcset="image.url" media="(min-width: 1400px)">
               <source :srcset="image.sizes.section" media="(min-width: 768px)">
               <source :srcset="image.sizes.card"  media="(min-width: 450px)">
               <source :srcset="image.sizes.small">
-              <img
-                :src="image.url"
+              <NuxtImg
+                :src="image.sizes.small"
                 :alt="image.alt"
-                :width="image.width"
-                :heght="image.height">
+                :width="image.sizes.small['small-width']"
+                :heght="image.sizes.small['small-height']" />
             </picture>
           </div >
         </template>
