@@ -17,8 +17,18 @@
 
         <template v-if="image">
           <div v-if="full">
+<<<<<<< HEAD
             <LazyNuxtPicture v-if="((image.title) === 'bt-studio-2')">
               <LazyNuxtImg 
+=======
+            <picture v-if="((image.title) === 'bt-studio-2')">
+              <source :srcset="image.url" media="(min-width: 1600px)">
+              <source :srcset="image.url['half-page']" media="(min-width: 1400px)">
+              <source :srcset="image.url" media="(min-width: 768px)">
+              <source :srcset="image.url"  media="(min-width: 450px)">
+              <source :srcset="image.url">
+              <NuxtImg 
+>>>>>>> parent of 4f3f49a (tag picture)
                 :src="image.url"
                 :alt="image.alt"
                 :width="image.width"
