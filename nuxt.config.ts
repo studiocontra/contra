@@ -19,11 +19,13 @@ export default defineNuxtConfig({
     },
     pageTransition: { name: 'page', mode: 'out-in' }
   },
+  
   runtimeConfig: {
     public: {
       API_BASE_URL: process.env.API_BASE_URL,
     }
   },
+
   modules: [
     'nuxt-purgecss',
     '@nuxt/image-edge',
@@ -72,15 +74,4 @@ export default defineNuxtConfig({
   build: {
     transpile: ['gsap'],
   },
-  buildModules: {
-    image: {
-      screens: {
-        xs: 320,
-        sm: 576,
-        md: 768,
-        lg: 1200,
-        xl: 1500,
-      },
-    },
-  }
 })
