@@ -77,4 +77,8 @@ export default {
   .page-home {
     background-color: $blue;
   }
+
+  a{
+    display: none;
+  }
 </style>
