@@ -14,7 +14,7 @@
     }
   }
 
-  .text:deep a{
+  :deep(a){
     font-weight: 500;
   }
 }
