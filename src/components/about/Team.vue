@@ -9,54 +9,51 @@
             </h4>
           </div>
           <div class="col-md-8 col-lg-6">
-            <div class="title title--medium" v-html="data.introduction"></div>
+            <div class="title title--medium" v-html="data.intro"></div>
           </div>
         </div>
       </div>
 
       <div
-        v-if="hasTeamMembers"
         class="team__grid">
         <div class="row">
           <template
-            v-for="(person, idx) in data.team_members"
+            v-for="(member, idx) in data.team"
             :key="idx">
-            <!-- Main Team -->
             <div
-              v-if="person.featured"
               class="col-md-6 col-lg-4">
               <div class="main-team-card">
                 <div 
-                  v-if="person.image"
                   class="main-team-card__image">
-                  <NuxtImg :src="person.image.sizes.large" :alt="person.name" />
+                  <NuxtImg :src="member.image.url" :alt="member.image.alt" />
                 </div>
 
                 <div class="main-team-card__content">
                   <h5 class="text text--big">
-                    {{ person.name }}
+                    {{ member.name }}
                   </h5>
                   <h6 class="role">
-                    {{ person.role }}
+                    {{ member.role }}
                   </h6>
 
                   <div class="main-team-card__description">
-                    <div class="text" v-html="person.description"></div>
+                    <div class="text" v-html="member.description"></div>
                   </div>
                 </div>
               </div>
             </div>
-
-            <!-- All team -->
+          </template>
+          <template 
+            v-for="(member, idx) in data.membersNotFeatured"
+            :key="idx">
             <div
-              v-else
               class="col-sm-6 col-md-3">
               <div class="team-card">
                 <h6 class="title title--small">
-                  {{ person.name }}
+                  {{ member.name }}
                 </h6>
                 <p>
-                  {{ person.role }}
+                  {{ member.role }}
                 </p>
               </div>
             </div>

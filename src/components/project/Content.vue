@@ -12,7 +12,9 @@
               Contexto
             </h2>
 
-            <div class="text" v-html="brief"></div>
+            <div class="text">
+              <p>{{ brief }}</p>
+            </div>
           </div>
 
           <div
@@ -22,7 +24,9 @@
               La solución
             </h2>
 
-            <div class="text" v-html="solution"></div>
+            <div class="text">
+              <p>{{ solution }}</p>
+            </div>
           </div>
         </div>
 
@@ -34,7 +38,11 @@
               Servicios
             </h2>
 
-            <div class="text" v-html="deliverables"></div>
+            <div class="text">
+              <template v-for="deliver in deliverables">
+                <p>{{ deliver.deliverable }}</p>
+              </template>
+            </div>
           </div>
         </div>
       </div>
@@ -47,7 +55,7 @@ export default {
   name: 'ProjectContent',
   props: {
     deliverables: {
-      type: String,
+      type: Array,
       default: ''
     },
     brief: {

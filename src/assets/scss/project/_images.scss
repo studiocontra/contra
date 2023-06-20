@@ -40,14 +40,14 @@
     @include fit;
   }
 
-  &.single-image--medium {
+  &.single-image--twoThirds {
     @include m768 {
       padding-bottom: calc(62.5% * 0.75);
     }
   }
 }
 
-.single-image--medium {
+.single-image--twoThirds {
   @include m768 {
     width: 75%;
   }
@@ -62,7 +62,7 @@
   }
 }
 
-.single-image--small {
+.single-image--half {
   padding-bottom: 0;
 
   @include m768 {
@@ -70,7 +70,7 @@
   }
 }
 
-.single-image--xsmall {
+.single-image--xhalf {
   padding-bottom: 0;
 
   @include m768 {

@@ -1,32 +1,34 @@
 <template>
   <div
-    v-if="projectData"
+    v-if="project"
     class="single-work">
     <Head>
-      <Title>{{projectData.title.rendered}} | Contra Studio</Title>
-      <Meta name="description" :content="projectData.excerpt.rendered" />
+      <Title> {{ project.title }} | Contra Studio</Title>
+      <Meta name="description" :content="project.extract"/>
     </Head>
 
     <Header theme="dark" />
     <ProjectHeadline
-      :headline="projectData.excerpt.rendered"
-      :client="projectData.acf.client_name"
-      :logo="projectData.acf.client_logo || {}"
-      :project-link="projectData.acf.project_link.url"
-      :image="projectData.acf.main_image"
-      :video-id="projectData.acf.main_video" />
+      :headline="project.extract"
+      :client="project.title"
+      :logo="project.link.logo.url"
+      :logoAlt="project.link.logo.alt"
+      :project-link="project.link.url"
+      :isVimeo="isVimeo"
+      :image="project.projectContent.layout[0].image"
+      :video-id="isVimeo ? project.projectContent.layout[0].vimeo : false "/>
     <ProjectContent
-      :deliverables="projectData.acf.deliverables"
-      :brief="projectData.acf.brief"
-      :solution="projectData.acf.solution" />
+      :deliverables="project.projectContent.layout[0].deliverables"
+      :brief="project.projectContent.layout[0].brief"
+      :solution="project.projectContent.layout[0].solution" />
     <ProjectImages
       class="js-toggle-bg"
-      :images="projectData.acf.images" />
+      :images="images" />
     <ProjectNextProject
-      v-if="nextProjectData"
-      :name="nextProjectData.title.rendered"
-      :slug="nextProjectData.slug"
-      :image="nextProjectData.acf.main_image" />
+      :name="nextName"
+      :image="nextImage"
+      :slug="nextSlug"
+    />
     <Footer />
   </div>
 </template>
@@ -57,19 +59,21 @@ export default {
       }
     } = useRouter();
 
-    const { API_BASE_URL } = useRuntimeConfig();
+    const { PAYLOAD_PUBLIC_URL } = useRuntimeConfig();
+    const project = await $fetch(`${PAYLOAD_PUBLIC_URL}/projects?where[slug][equals]=${slug}`);
+    const images = project.docs[0].projectContent.layout.slice(1, project.docs[0].projectContent.layout.length)
 
-    const [projectData] = await $fetch(`${API_BASE_URL}/projects/?slug=${slug}&_fields=acf,categories,excerpt,slug,title&acf_format=standard`);
-    const [nextId] = projectData.acf.next_project;
-    let nextProjectData = false;
+    const id = project.docs[0].nextProject
+    const nextProject =  await $fetch(`${PAYLOAD_PUBLIC_URL}/projects/${id}/`)
+    const isVimeo = project.docs[0].projectContent.layout[0].isVimeo
 
-    if (nextId) {
-      nextProjectData = await $fetch(`${API_BASE_URL}/projects/${nextId.ID}?_fields=acf.main_image,title,slug&acf_format=standard`);
-    }
-
-    return {
-      projectData,
-      nextProjectData
+    return{ 
+      project: project.docs[0],
+      images,
+      isVimeo,
+      nextName: nextProject.title,
+      nextImage: nextProject.preview,
+      nextSlug: nextProject.slug,
     }
   },
   mounted() {

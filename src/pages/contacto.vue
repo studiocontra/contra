@@ -1,15 +1,18 @@
 <template>
   <div class="page-contact">
     <Head>
-      <Title>Contacto</Title>
-      <Meta name="description" content="Para hablar de nuevos proyectos, colaboraciones, o cualquier otro tema" />
+      <Title>{{ title }}</Title>
+      <Meta name="description" :content="intro" />
     </Head>
 
     <Header theme="blue"/>
     <Shapes>
       <div class="shape red"></div>
     </Shapes>
-    <ContactMain />
+    <ContactMain 
+      :intro="intro"
+      :layout="layout"
+    />
   </div>
 </template>
 
@@ -19,6 +22,17 @@ import mixins from '@/assets/js/mixins';
 export default {
   name: 'WorkPage',
   mixins: [mixins],
+  async setup() {
+    const { PAYLOAD_PUBLIC_URL } = useRuntimeConfig();
+    let page = await $fetch(`${PAYLOAD_PUBLIC_URL}/pages/648f394abb08f256c8b5be14`);
+
+    return {
+      title: page.title,
+      intro: page.intro,
+      layout: page.Layout
+    }
+  },
+  
 }
 </script>
 

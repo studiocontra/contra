@@ -11,17 +11,12 @@
         </span>
       </div>
       <div class="main__image">
-        <picture v-if="image">
-          <source :srcset="image.url" media="(min-width: 1320px)">
-          <source :srcset="image.sizes.section" media="(min-width: 768px)">
-          <source :srcset="image.sizes.card"  media="(min-width: 450px)">
-          <LazyNuxtImg
-            :src="image.sizes.small"
-            :alt="image.alt"
-            :width="image.width"
-            :heght="image.height" 
-            loading="lazy"/>
-        </picture>
+        <LazyNuxtImg
+          :src="image.url"
+          :alt="image.alt"
+          :width="image.width"
+          :heght="image.height"
+          loading="lazy"/>
       </div>
     </div>
   </div>

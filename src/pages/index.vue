@@ -4,7 +4,7 @@
     class="page-home">
     <Head>
       <Title>Contra Studio</Title>
-      <Meta name="description" content="Somos un estudio digital especializado en diseño, innovación y tecnología. Proyectos globales." />
+      <Meta name="description" :content="homeData.intro" />
     </Head>
 
     <Header

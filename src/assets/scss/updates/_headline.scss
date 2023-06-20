@@ -30,7 +30,7 @@
     @include fullAbs;
     @include fit;
   }
-  img[src="https://admin.studiocontra.co/wp-content/uploads/2023/06/Frame-2824-450x188.jpg"] {
+  img[src="http://localhost:3000/media/herramientas-cover.webp"] {
     object-fit: contain;
   }
 }

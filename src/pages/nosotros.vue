@@ -1,28 +1,28 @@
 <template>
   <div class="about-page">
     <Head>
-      <Title>Nosotros</Title>
-      <Meta name="description" content="Somos expertos en diseño UX/UI, diseño y desarrollo de productos digitales, E-commerce y servicios de consultoría digital." />
+      <Title>{{title}}</Title>
+      <Meta name="description" :content="intro" />
     </Head>
 
     <Header theme="dark" />
     <AboutHero
-      :text="aboutData.hero_headline" />
+      :text="intro" />
     <AboutServices
-      :data="aboutData.services" />
+      :data="services" />
     <AboutMethodology
-      :data="aboutData.metholodogy" />
+      :data="metholodogy" />
     <AboutPartners
       class="js-dark-bg"
-      :data="aboutData.partners" />
+      :data="partners" />
     <AboutTeam
-      :data="aboutData.team" />
+      :data="team" />
     <AboutAwards
-      :data="awardsData" />
+      :data="awards" />
     <Updates
       theme="light"
-      :data="allNewsMain"
-      :moreData="allNewsAddon" />
+      :updates="updates"
+      :updatesAddon="updatesAddon" />
     <Footer theme="light" />
   </div>
 </template>
@@ -38,19 +38,20 @@ export default {
   name: 'AboutPage',
   mixins: [mixins],
   async setup() {
-    const { API_BASE_URL } = useRuntimeConfig();
-
-    let [{acf}, {acf: {awards}}, allNews] = await Promise.all([
-      $fetch(`${API_BASE_URL}/pages/79?acf_format=standard`),
-      $fetch(`${API_BASE_URL}/pages/2?acf_format=standard`),
-      $fetch(`${API_BASE_URL}/updates?per_page=100&_embed=wp:featuredmedia&acf_format=standard`)
-    ]);
+    const { PAYLOAD_PUBLIC_URL } = useRuntimeConfig();
+    let page = await $fetch(`${PAYLOAD_PUBLIC_URL}/pages/648cbf0aa72df9ea402fa10c`);
+    let updates = await $fetch(`${PAYLOAD_PUBLIC_URL}/updates/`);
 
     return {
-      aboutData: acf,
-      awardsData: awards,
-      allNewsMain: allNews.slice(0, 3),
-      allNewsAddon: allNews.slice(3, allNews.length),
+      title: page.title,
+      intro: page.intro,
+      services: page.Layout[0],
+      metholodogy: page.Layout[1],
+      partners: page.Layout[2],
+      team: page.Layout[3],
+      awards: page.Layout[4],
+      updates: updates.docs.filter(update => update.status !== 'draft').slice(0, 3),
+      updatesAddon: updates.docs.slice(4, 8)
     }
   },
   data() {

@@ -8,7 +8,7 @@
               {{ data.headline }}
             </h2>
 
-            <div class="text" v-html="data.introduction"></div>
+            <div class="text" v-html="data.intro"></div>
 
             <Link
               :small="true"
@@ -21,13 +21,13 @@
         <div class="col-md-6">
           <div class="services-accordion">
             <div
-              v-for="(item, id) in data.services"
+              v-for="(item, id) in data.servicesItems"
               :key="id"
               class="single-accordion">
               <div class="accordion__headline js-services-accordion"
               :class="{'active': id === 0}">
                 <h3 class="title title--small">
-                  {{ item.name }}
+                  {{ item.title }}
                 </h3>
 
                 <div class="icon"></div>
@@ -35,9 +35,19 @@
 
               <div class="accordion__content">
                 <div class="text">
-                  <div v-html="item.description"></div>
+                  <div>
+                    {{ item.content[0].children[0].text }}
+                  </div>
 
-                  <div v-html="item.list"></div>
+                  <div>
+                    <ul>
+                      <template v-for="li in item.content[1].children">
+                        <li v-if="li.type === 'li'">
+                          {{li.children[0].text}}
+                        </li>
+                      </template>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>

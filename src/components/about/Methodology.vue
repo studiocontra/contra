@@ -9,7 +9,11 @@
         </div>
 
         <div class="col-md-6">
-          <div class="title title--medium" v-html="data.introduction"></div>
+          <div class="title title--medium">
+            <p>
+              {{ data.content[0].children[0].text }}
+            </p>
+          </div>
         </div>
 
         <div class="col-12">

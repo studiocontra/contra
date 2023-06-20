@@ -1,16 +1,11 @@
 <template>
   <div class="project__next">
-    <picture >
-      <source :srcset="image.sizes['full-page']" media="(min-width: 1200px)">
-      <source :srcset="image.sizes['half-page']" media="(min-width: 992px)">
-      <source :srcset="image.sizes['card']">
       <LazyNuxtImg
-        :src="image.sizes.small"
+        :src="image.url"
         :alt="image.alt"
         loading="lazy"
         class="next__bg"
       />
-    </picture> 
 
     <NuxtLink :to="`/proyectos/${slug}`">
       <div class="container">
@@ -41,10 +36,6 @@
 export default {
   name: 'NextProject',
   props: {
-    image: {
-      type: [Object, Boolean],
-      default: false
-    },
     name: {
       type: String,
       default: ''
@@ -52,6 +43,9 @@ export default {
     slug: {
       type: String,
       default: ''
+    },
+    image: {
+      type: Object
     }
   }
 }

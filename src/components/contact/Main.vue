@@ -5,7 +5,7 @@
         <div class="col-lg-6">
           <div class="contact__intro">
             <h1 class="title title--big">
-              Nos encantaría saber más sobre tí.
+              {{intro}}
             </h1>
 
             <Link
@@ -17,7 +17,7 @@
         <div class="col-lg-6">
           <div class="contact__headline">
             <h2 class="text text--small custom-title">
-              Contacto
+              {{layout[0].headline}}
             </h2>
           </div>
 
@@ -26,7 +26,7 @@
               <div class="col-sm-6">
                 <div class="text text--small">
                   <p>
-                    Para hablar de nuevos proyectos, colaboraciones, o cualquier otro tema, ponte en contacto con nosotros a través de nuestros correos o redes sociales.
+                    {{layout[0].content[0].children[0].text}}
                   </p>
                 </div>
               </div>
@@ -40,7 +40,7 @@
 
           <div class="contact__headline">
             <h2 class="text text--small custom-title">
-              Síguenos
+              {{layout[1].headline}}
             </h2>
           </div>
 
@@ -49,7 +49,7 @@
               <div class="col-sm-6">
                 <div class="text text--small">
                   <p>
-                    Sigue de cerca nuestro trabajo, actualizaciones, vacantes y mucho más:
+                    {{layout[1].content[0].children[0].text}}
                   </p>
                 </div>
               </div>
@@ -70,7 +70,7 @@
 
           <div class="contact__headline">
             <h2 class="text text--small custom-title">
-              ¿Quieres ser parte de Contra Studio?
+              {{layout[2].headline}}
             </h2>
           </div>
 
@@ -79,7 +79,7 @@
               <div class="col-sm-6">
                 <div class="text text--small">
                   <p>
-                    Siempre estamos buscando nuevos talentos y colaboradores freelance. Envíanos tu portafolio por correo electrónico.
+                    {{layout[2].content[0].children[0].text}}
                   </p>
                 </div>
               </div>
@@ -98,7 +98,15 @@
 
 <script>
 export default {
-  name: 'MainContact'
+  name: 'MainContact',
+  props: {
+    intro: {
+      type: String
+    },
+    layout: {
+      type: Array
+    },
+  }
 }
 </script>
 

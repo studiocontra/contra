@@ -8,7 +8,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-10 col-lg-9">
-          <h1 class="title title--big" v-html="text"></h1>
+          <h1 class="title title--big">{{text}}</h1>
         </div>
       </div>
     </div>
@@ -24,7 +24,6 @@ export default {
   props: {
     text: {
       type: String,
-      default: ''
     }
   },data() {
     return {

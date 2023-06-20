@@ -1,33 +1,33 @@
 <template>
   <div
-    v-if="updateData"
+    v-if="project"
     class="single-updates">
     <Head>
       <Title>
-        {{updateData.title.rendered}} | Contra Studio
+        {{project.title}} | Contra Studio
       </Title>
-      <Meta name="description" :content="updateData.yoast_head_json.og_description" />
+      <Meta name="description" :content="description" />
     </Head>
 
     <Header theme="dark" />
     <main>
       <UpdatesHeadline
-        :headline="updateData.title.rendered"
-        :date="formattedDate"
-        :image="updateData.acf.main_image" />
+        :headline="project.title" 
+        :date="date"
+        :image="project.layout[0].media" />
 
-      <UpdatesIntro
+      <!--<UpdatesIntro
         :data="updateData.acf.intro" />
 
       <UpdatesContent
-        :data="updateData.acf.content" />
+        :data="updateData.acf.content" /> />-->
     </main>
 
-    <Updates
+    <!--<Updates
       v-if="moreContent"
       theme="dark"
       :data="mainUpdates"
-      :moreData="moreUpdates" />
+      :moreData="moreUpdates">--> 
 
     <Footer theme="dark" />
   </div>
@@ -50,28 +50,28 @@ export default {
       }
     } = useRouter();
 
-    const { API_BASE_URL } = useRuntimeConfig();
-
-    const [updateData] = await $fetch(`${API_BASE_URL}/updates/?slug=${slug}&_embed=wp:featuredmedia&acf_format=standard`);
-
-    const moreContent = await $fetch(`${API_BASE_URL}/updates/?exclude=${updateData.id}&per_page=7&_embed=wp:featuredmedia&acf_format=standard`);
+    const { PAYLOAD_PUBLIC_URL } = useRuntimeConfig();
+    const project = await $fetch(`${PAYLOAD_PUBLIC_URL}/updates?where[slug][equals]=${slug}`);
+    const description = project.docs[0].layout[1].intro[0].children[0].text
 
     return {
-      updateData,
-      moreContent
+      project: project.docs[0],
+      description,
+
     }
   },
   computed: {
-    formattedDate() {
-      const zeroPad = (num, places) => String(num).padStart(places, '0');
-      const dt = new Date(this.updateData.date);
-
-      const day = zeroPad(dt.getDate(), 2);
-      const month = zeroPad(dt.getMonth() + 1, 2);
-      const year = dt.getFullYear();
-
-      return `${day}.${month}.${year}`
-    },
+    date() {
+      if(this.project.id === '648b0f0daff359208cf319a6') {
+        return '23.01.2023'
+      }
+      if(this.project.id === '648b1228aff359208cf31a08') {
+        return '31.01.2023'
+      }
+      if(this.project.id === '648b15b0aff359208cf31b62') {
+        return '06.06.2023'
+      }
+    },  
     mainUpdates() {
       return this.moreContent.slice(0, 3);
     },

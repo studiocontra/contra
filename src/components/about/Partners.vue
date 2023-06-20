@@ -7,11 +7,10 @@
 
       <div class="logos-grid">
         <template
-          v-for="(item, idx) in data.logos"
+          v-for="(item, idx) in data.partners"
           :key="idx">
           <NuxtImg
-            v-if="item.partner"
-            :src="item.partner.sizes.medium"
+            :src="item.partner.url"
             :alt="item.partner.title"
             width="260"
             height="130" />

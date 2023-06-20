@@ -11,8 +11,8 @@
             :href="projectLink"
             target="_blank"
             aria-label="Visita el proyecto">
-            <div v-if="logo.sizes" class="logo">
-              <img :src="logo.sizes['small']" alt="logo.alt">
+            <div class="logo">
+              <img :src="logo" :alt="logoAlt">
             </div>
 
             <h2 class="text text--small">
@@ -22,24 +22,20 @@
         </div>
       </div>
     </div>
-
+    {{ console.log(isVimeo) }}
     <div class="main__image">
-      <div v-if="image && !videoId">
+      <div v-if="!isVimeo">
         <picture>
-          <source :srcset="image.url" media="(min-width: 1320px)">
-          <source :srcset="image.sizes.section" media="(min-width: 768px)">
-          <source :srcset="image.sizes.card"  media="(min-width: 450px)">
           <LazyNuxtImg
-            :src="image.sizes.small"
+            :src="image.url"
             :alt="image.alt"
             :width="image.width"
             :heght="image.height" 
           />
         </picture>
       </div>
-      
       <iframe
-        v-if="videoId"
+        v-else
         :src="`https://player.vimeo.com/video/${videoId}?loop=1&autoplay=1&autopause=0&muted=1&title=0&byline=0&portrait=0&controls=1`" muted frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
     </div>
   </div>
@@ -60,15 +56,22 @@ export default {
       type: String,
     },
     logo: {
-      type: [Object, Boolean],
+      type: String,
+      default: false
+    },
+    logoAlt: {
+      type: String,
+      default: false
+    },
+    isVimeo: {
+      type: Boolean,
       default: false
     },
     image: {
-      type: [Object, Boolean],
-      default: false
+      type: Object,
     },
     videoId: {
-      type: String,
+      type: [String, Boolean],
       default: ''
     },
   }
