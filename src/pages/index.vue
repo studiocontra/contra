@@ -10,17 +10,17 @@
     <Header
       isHome />
     <HomeHero
-      :data="homeData.hero"/>
+      :data="homeData"/>
     <HomeProjects
-      v-if="allProjects"
-      :projects-data="allProjects"
-      :categories="allCategories" />
+      v-if="projects"
+      :projects="projects"
+      :projectsContent="projectsContent" />
     <AboutAwards
-      :data="homeData.awards" />
+      :data="awards" />
     <Updates
       theme="light"
-      :data="allUpdatesMain"
-      :moreData="allUpdatesAddon" />
+      :updates="updates"
+      :updatesAddon="updatesAddon" />
     <Footer />
   </div>
 </template>
@@ -33,42 +33,26 @@ export default {
   mixins: [mixins],
   data() {
     return {
-      allCategories: null,
-      allUpdatesMain: null,
-      allUpdatesAddon: null,
-      allProjects: null,
+      updates: null,
+      updatesAddon: null,
     };
   },
   async setup() {
-    const { API_BASE_URL } = useRuntimeConfig();
-
-    let { acf } = await $fetch(`${API_BASE_URL}/pages/2?per_page=100&_fields=acf`);
-
+    const { PAYLOAD_PUBLIC_URL } = useRuntimeConfig();
+    let page = await $fetch(`${PAYLOAD_PUBLIC_URL}/pages/648cb65ba4fe9b50847f9f25`);
     return {
-      homeData: acf
+      homeData: page,
+      projectsContent: page.Layout[1],
+      projects: page.Layout[2].featuredProjects,
+      awards: page.Layout[3],
     };
   },
   async created() {
-    const { API_BASE_URL } = useRuntimeConfig();
+    const { PAYLOAD_PUBLIC_URL } = useRuntimeConfig()
+    let updates = await $fetch(`${PAYLOAD_PUBLIC_URL}/updates/`);
 
-    let [allCategories, allUpdates] = await Promise.all([
-      $fetch(`${API_BASE_URL}/categories?per_page=100&_fields=id,name`),
-      $fetch(`${API_BASE_URL}/updates?per_page=7&_embed=wp:featuredmedia&acf_format=standard`)
-    ]);
-
-    const allProjects = await Promise.all(this.homeData.our_work.projects.map(async (item) => {
-      const data = await $fetch(`${API_BASE_URL}/projects/${item.project}?_fields=acf.preview_image,categories,excerpt,slug,title&acf_format=standard`);
-
-      return {
-        'data': data,
-        'size': item.size
-      }
-    }));
-
-    this.allCategories = allCategories;
-    this.allUpdatesMain = allUpdates.slice(0, 3);
-    this.allUpdatesAddon = allUpdates.slice(3, allUpdates.length);
-    this.allProjects = allProjects;
+    this.updates = updates.docs.filter(update => update.status !== 'draft').slice(0, 3)
+    this.updatesAddon = updates.docs.slice(4, 8)
   }
 }
 </script>

@@ -8,16 +8,16 @@
     <Header />
     <WorkHero />
     <transition-group name="fade">
-      <Loader v-if="!mainProjects && !additionalProjects" />
+      <Loader v-if="!projects && !projectsAddon" />
       <WorkMainProjects
-        v-if="mainProjects"
-        :projects="mainProjects"
-        :categories="allCategories"
+        v-if="projects"
+        :projects="projects"
+        :categories="categories"
         @hideAccordion="isAccordionVisible = false"
         @showAccordion="isAccordionVisible = true" />
       <WorkMoreProjects
-        v-if="additionalProjects && isAccordionVisible"
-        :data="additionalProjects" />
+        v-if="projectsAddon && isAccordionVisible"
+        :projects="projectsAddon" />
     </transition-group>
     <Footer />
   </div>
@@ -31,47 +31,20 @@ export default {
   mixins: [mixins],
   data() {
     return {
-      allCategories: null,
-      mainProjects: null,
-      additionalProjects: null,
+      categories: null,
+      projects: null,
+      projectsAddon: null,
       isAccordionVisible: true,
     };
   },
   async created() {
-    const { API_BASE_URL } = useRuntimeConfig();
+    const { PAYLOAD_PUBLIC_URL } = useRuntimeConfig();
+    let page = await $fetch(`${PAYLOAD_PUBLIC_URL}/pages/648cbaf4a72df9ea402fa049`);
+    let categories = await $fetch(`${PAYLOAD_PUBLIC_URL}/categories/`);
 
-    // const [allData] = await $fetch(`${API_BASE_URL}/pages/?slug=work`);
-    // const allCategories = await $fetch(`${API_BASE_URL}/categories?per_page=100`);
-
-    let [[allData], allCategories] = await Promise.all([
-      $fetch(`${API_BASE_URL}/pages/?slug=work`),
-      $fetch(`${API_BASE_URL}/categories?per_page=100&_fields=id,name`)
-    ]);
-
-    let [mainProjects, additionalProjects] = await Promise.all([
-      Promise.all(allData.acf['main_projects'].map(async (item) => {
-        if(item.project === 503) return
-        if(!item.project)
-          return console.error('Empty Item inside Wordpress page');
-        const data = await $fetch(`${API_BASE_URL}/projects/${item.project}?_fields=acf,categories,excerpt,slug,title&acf_format=standard`);
-        return {
-          'data': data,
-          'size': item.size
-        }
-      })),
-      Promise.all(allData.acf['additional_projects'].map(async (item) => {
-        if(!item.project)
-          return console.error('Empty Item inside Wordpress page');
-
-        const data = await $fetch(`${API_BASE_URL}/projects/${item.project}?_fields=acf.images,acf.project_link,categories,excerpt,title&acf_format=standard`);
-
-        return data;
-      }))
-    ]);
-
-    this.allCategories = allCategories;
-    this.mainProjects = mainProjects;
-    this.additionalProjects = additionalProjects;
+    this.projects = page.Layout[0].featuredProjects
+    this.projectsAddon = page.Layout[0].notFeaturedProjects
+    this.categories = categories.docs.reverse()
   },
 }
 </script>

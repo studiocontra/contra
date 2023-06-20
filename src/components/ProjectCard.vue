@@ -10,19 +10,15 @@
               v-for="(tag, idx) in tags"
               :key="idx"
               class="tag">
-              <span v-html="tag.name"></span>
+              <span>{{ tag.name }}</span>
             </div>
           </template>
         </div>
-
         <template v-if="image">
           <div v-if="full">
             <picture>
-              <source :srcset="image.url" media="(min-width: 1320px)">
-              <source :srcset="image.sizes.section" media="(min-width: 768px)">
-              <source :srcset="image.sizes.card"  media="(min-width: 450px)">
               <LazyNuxtImg
-                :src="image.sizes.small"
+                :src="image.url"
                 :alt="image.alt"
                 :width="image.width"
                 :heght="image.height" 
@@ -31,15 +27,11 @@
           </div >
           <div v-else>
             <picture>
-              <source :srcset="image.url" media="(min-width: 1600px)">
-              <source :srcset="image.url['half-page']" media="(min-width: 1400px)">
-              <source :srcset="image.sizes.section" media="(min-width: 768px)">
-              <source :srcset="image.sizes.card"  media="(min-width: 450px)">
               <LazyNuxtImg
-                :src="image.sizes.small"
+                :src="image.url"
                 :alt="image.alt"
-                :width="image.sizes.small['small-width']"
-                :heght="image.sizes.small['small-height']" 
+                :width="image.width"
+                :heght="image.height" 
                 loading="lazy"/>
             </picture>
           </div >

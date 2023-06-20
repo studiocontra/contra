@@ -8,18 +8,18 @@
                 {{ data.headline }}
               </h4>
 
-              <div class="text" v-html="data.introduction"></div>
+              <div class="text" v-html="data.intro"></div>
             </div>
           </div>
 
           <div class="col-md-7 col-lg-6">
             <div
-              v-for="(cat, idx) in data.categories"
+              v-for="(cat, idx) in data.awards"
               :key="idx"
               class="awards__group">
               <div class="awards__headline">
                 <h5 class="title title--small">
-                  {{ cat.name }}
+                  {{ cat.title }}
                 </h5>
                 <span>
                   X{{ cat.awards.length }}
@@ -32,7 +32,7 @@
                   :key="idx2"
                   class="single-award">
                   <h6>
-                    {{ award.name }}
+                    {{ award.project }}
                   </h6>
                   <p>
                     {{ award.award }}

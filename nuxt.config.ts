@@ -23,6 +23,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       API_BASE_URL: process.env.API_BASE_URL,
+      PAYLOAD_PUBLIC_URL: process.env.PAYLOAD_PUBLIC_URL
     }
   },
 

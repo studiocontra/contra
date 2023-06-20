@@ -1,16 +1,17 @@
 <template>
   <div class="wrap-accordion">
-    <template v-for="(project, idx) in data" :key="idx">
+    <template v-for="(project, idx) in projects" :key="idx">
       <div class="single-accordion">
         <div class="accordion__headline js-single-accordion">
           <div class="container">
             <div class="row">
               <div class="col-md-6">
-                <h4 class="title title--small" v-html="project.title.rendered"></h4>
+                <h4 class="title title--small" v-html="project.title"></h4>
               </div>
               <div class="col-md-6">
                 <div class="tags">
-                  Diseño web, Desarrollo web
+                  <span v-for="(cat, idx) in project.categories"
+                  :key="idx" v-html="cat.name"></span>
                 </div>
               </div>
 
@@ -23,14 +24,18 @@
           <div class="intro">
             <div class="container">
               <div class="text text--small">
-                <div v-html="project.excerpt.rendered"></div>
-                <a :href="project.acf.project_link.url" class="link">
+                <div v-html="project.extract"></div>
+                <a 
+                  :href="project.link.url" 
+                  :aria-label="project.link.label" 
+                  taget="_blank"
+                  class="link"
+                >
                   Visitar website
                 </a>
               </div>
             </div>
           </div>
-
           <div
             v-if="showSlider"
             class="wrap-swiper">
@@ -50,14 +55,13 @@
               }"
               :modules="modules">
               <SwiperSlide
-                v-for="(item, idx) in project.acf.images"
-                :key="idx">
-                <picture>
-                  <source :srcset="item.image.sizes['half-page']" media="(min-width: 768px)">
-                    <NuxtImg
-                      :src="item.image.sizes.card"
-                      :alt="item.image.alt" />
-                  </picture>
+                v-for="(image, idx) in project.images"
+                :key="idx"
+              >
+                <NuxtImg
+                  :src="image.image.url"
+                  :alt="image.image.alt" 
+                />
               </SwiperSlide>
 
               <div class="wrap-arrows">
@@ -98,7 +102,7 @@ import 'swiper/css/navigation';
 export default {
   name: 'MoreProjects',
   props: {
-    data: {
+    projects: {
       type: Object,
       default: () => {}
     }

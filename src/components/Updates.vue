@@ -24,27 +24,25 @@
             }
           }">
           <SwiperSlide
-            v-for="item in data"
-            :key="item.id">
+            v-for="update in updates"
+            :key="update.id">
             <UpdatesCard
               :theme="theme"
-              :name="item.title.rendered"
-              :custom-name="item.acf.headline"
-              :link="item.slug"
-              :image="getProductDataImg(item, 'small')"
-              :description="item.excerpt.rendered || item.acf.intro"/>
+              :name="update.title"
+              :description="update.layout[1].intro[0].children[0].text"
+              :link="update.slug" 
+              :image="update.thumbnail.url"
+            />
           </SwiperSlide>
-
           <SwiperSlide>
             <UpdatesCard
-              v-for="item in moreData"
-              :key="item.id"
+              v-for="update in updatesAddon"
+              :key="update.id"
               :small="true"
               :theme="theme"
-              :name="item.title.rendered"
-              :custom-name="item.acf.headline"
-              :link="item.slug"
-              :description="item.excerpt.rendered || item.acf.intro"/>
+              :name="update.title"
+              :content="update.layout[0].content[0].children"
+            />
           </SwiperSlide>
         </Swiper>
       </div>
@@ -69,11 +67,11 @@ export default {
       type: String,
       default: 'light',
     },
-    data: {
+    updates: {
       type: Array,
       default: () => []
     },
-    moreData: {
+    updatesAddon: {
       type: Array,
       default: () => []
     },

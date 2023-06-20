@@ -76,27 +76,29 @@
           <transition-group name="fade">
             <template v-for="(project, idx) in filteredProjects" :key="idx">
               <div v-if="project === undefined"></div>
-              <template v-else-if="project.size === 'full'">
+              <template v-else-if="project.width === 'full'">
                 <div class="col-12">
-                  {{project.data.slug}}
+                  {{project.slug}}
                   <ProjectCard
                     full
-                    :name="project.data.title.rendered"
-                    :description="project.data.excerpt.rendered"
-                    :link="`/proyectos/${project.data.slug}`"
-                    :image="project.data.acf.preview_image"
-                    :tags="projectCategories(project.data.categories)" />
+                    :name="project.title"
+                    :description="project.extract"
+                    :link="`/proyectos/${project.slug}`"
+                    :image="project.preview"
+                    :tags="project.categories"
+                  />
                 </div>
               </template>
               <template v-else>
                 <div class="col-md-6">
-                  {{project.data.slug}}
+                  {{project.slug}}
                   <ProjectCard
-                    :name="project.data.title.rendered"
-                    :description="project.data.excerpt.rendered"
-                    :link="`/proyectos/${project.data.slug}`"
-                    :image="project.data.acf.preview_image"
-                    :tags="projectCategories(project.data.categories)" />
+                    :name="project.title"
+                    :description="project.extract"
+                    :link="`/proyectos/${project.slug}`"
+                    :image="project.preview"
+                    :tags="project.categories"
+                  />
                 </div>
               </template>
             </template>
@@ -120,7 +122,7 @@ export default {
   name: 'WorkMainProjects',
   props: {
     projects: {
-      type: Object,
+      type: Array,
       default: () => {}
     },
     categories: {
@@ -161,17 +163,10 @@ export default {
         return this.projects;
       }
 
-      return this.projects.filter((item) => item.data.categories.some(cat => cat === this.currentFilter.id));
+      return this.projects.filter((project) => 
+        project.categories.some(cat => cat.name === this.currentFilter.name)
+      );
     },
-    projectCategories() {
-      return (arr) => {
-        return arr.map(
-          thisCat => this.categories.filter(
-            cat => cat.id === thisCat
-          )[0]
-        );
-      }
-    }
   }
 }
 </script>

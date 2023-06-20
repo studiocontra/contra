@@ -5,11 +5,10 @@
       'updates-card--small': small
     }]">
     <a
-      v-if="!customName"
+      v-if="!small"
       :href="`/updates/${link}`"
       :aria-label="`Lee más sobre ${name}`">
       <div
-        v-if="!small"
         class="updates-card__img">
         <LazyNuxtImg 
           v-if="image"
@@ -20,47 +19,29 @@
           loading="lazy"
         />
       </div>
-
       <div class="updates-card__content">
-        <div
-          v-if="customName"
-          class="title title--small"
-          v-html="customName"></div>
-        <div
-          v-else
-          class="title title--small"
-          v-html="name"></div>
-
+        <div class="title title--small" v-html="name"></div>
         <div class="text text--small" v-html="description"></div>
       </div>
     </a>
-    <template v-else>
+
+    <div v-else>
       <div
-        v-if="!small"
-        class="updates-card__img">
-        <LazyNuxtImg
-          v-if="image"
-          :src="image"
-          :alt="name"
-          width="300px"
-          height="300px"
-          lazy="loading"
-        />
+        class="updates-card__content">
+        <div class="title title--small">
+          <p v-if="content">
+            <template v-for="node in content"> 
+              <span v-if="node.text">{{ node.text }}</span>
+              <a v-if="node.type === 'link'" :href="node.url">{{ node.children[0].text }}</a>
+            </template>
+          </p>
+          <p v-else>
+            {name}
+          </p>
+        </div>
       </div>
-
-      <div class="updates-card__content">
-        <div
-          v-if="customName"
-          class="title title--small"
-          v-html="customName"></div>
-        <div
-          v-else
-          class="title title--small"
-          v-html="name"></div>
-
-        <div class="text text--small" v-html="description"></div>
-      </div>
-    </template>
+      
+    </div>
   </div>
 </template>
 
@@ -78,8 +59,8 @@ export default {
         name: {
             type: String,
         },
-        customName: {
-            type: String,
+        content: {
+            type: Array,
         },
         description: {
             type: String,

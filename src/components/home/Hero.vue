@@ -25,7 +25,7 @@
       </div>
 
       <div class="hero__content">
-        <h1 class="title title--big" v-html="data.headline"></h1>
+        <h1 class="title title--big" v-html="data.intro"></h1>
 
         <Link
           link="/about"
@@ -42,15 +42,18 @@
             <path d="M0 7.59979L10.5143 7.59979" />
           </svg>
         </div>
-
         <div
-          v-if="data.items"
+          v-if="data.Layout[0].items"
           class="wrap-items">
           <div
-            v-for="(item, idx) in data.items"
+            v-for="(item, idx) in data.Layout[0].items"
             :key="idx"
-            :class="`item item--${idx + 1}`"
-            v-html="item.content"></div>
+            :class="`item item--${idx + 1}`">
+            <p class="">
+              <span>{{ item.leadText }}</span> <br>
+              {{ item.text }}
+            </p>
+          </div>
         </div>
       </div>
     </div>

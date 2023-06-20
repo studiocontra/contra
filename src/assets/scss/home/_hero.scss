@@ -186,6 +186,10 @@
     margin-bottom: 16px;
     line-height: 1.2;
 
+    p span{
+      font-weight: bold;
+    }
+
     @include m768 {
       display: block;
       margin-bottom: 0;
