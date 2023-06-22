@@ -1,7 +1,7 @@
 <template>
   <div class="project__next">
       <LazyNuxtImg
-        :src="image.url"
+        :src="`https://raw.githubusercontent.com/studiocontra/contra-cms/master${image.url}`"
         :alt="image.alt"
         loading="lazy"
         class="next__bg"

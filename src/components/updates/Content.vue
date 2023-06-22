@@ -3,34 +3,37 @@
     <div class="container">
       <div class="row justify-center">
         <div class="col-11 col-sm-9 col-md-7">
-          <!-- {{data}} -->
           <div
-            v-for="(row, idx) in data"
+            v-for="(node, idx) in data"
             :key="idx"
             class="block-content"
             :class="{
-              'block-content--text': row.acf_fc_layout === 'text',
-              'block-content--image': row.acf_fc_layout === 'image'
+              'block-content--text': node.content,
+              'block-content--image': node.media
             }">
-            <template
-              v-if=" row.acf_fc_layout === 'text'">
-              <div
-                v-if="row.text"
-                class="text"
-                v-html="row.text"></div>
+            <template v-if="node.content">
+              <p class="text">
+                <template v-for="(children, idx) in node.content">
+                  <br v-if="idx >= 1">
+                  <br v-if="idx >= 1">
+                  <template v-for="nodo in children">
+                    <template v-for="element in nodo">
+                      <b v-if="element.bold">{{element.text}}</b>
+                      <span v-if="element.text && !element.bold">{{ element.text }}</span>
+                      <a v-if="element.type === 'link'" :href="element.url" target="_blank">{{ element.children[0].text }}</a>
+                    </template>
+                  </template>
+                </template>
+              </p>
             </template>
-
-            <template
-              v-if=" row.acf_fc_layout === 'image'">
-              <picture v-if="row.image">
-                <source :srcset="row.image.sizes.card"  media="(min-width: 450px)">
-                <LazyNuxtImg
-                  :src="row.image.sizes.small"
-                  :alt="row.image.alt"
-                  :width="row.image.width"
-                  :heght="row.image.height" 
-                  loading="lazy"/>
-              </picture>
+            <template v-if="node.media">
+              <LazyNuxtImg
+                :src="`https://raw.githubusercontent.com/studiocontra/contra-cms/master${node.media.url}`"
+                :alt="node.media.alt"
+                :width="node.media.width"
+                :heght="node.media.height" 
+                loading="lazy"
+              />
             </template>
           </div>
         </div>

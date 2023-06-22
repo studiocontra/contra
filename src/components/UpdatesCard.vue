@@ -5,14 +5,14 @@
       'updates-card--small': small
     }]">
     <a
-      v-if="!small"
-      :href="`/updates/${link}`"
+      v-if="!content && !small"
+      :href="en ? `/en/updates/${link}` : `/updates/${link}`"
       :aria-label="`Lee más sobre ${name}`">
       <div
         class="updates-card__img">
         <LazyNuxtImg 
           v-if="image"
-          :src="image"
+          :src="`https://raw.githubusercontent.com/studiocontra/contra-cms/master${image}`"
           :alt="name"
           width="300px"
           height="300px"
@@ -25,9 +25,30 @@
       </div>
     </a>
 
-    <div v-else>
+    <div v-else-if="content && !small">
       <div
-        class="updates-card__content">
+        class="updates-card__img">
+        <LazyNuxtImg 
+          v-if="image"
+          :src="`https://raw.githubusercontent.com/studiocontra/contra-cms/master${image}`"
+          :alt="name"
+          width="300px"
+          height="300px"
+          loading="lazy"
+        />
+      </div>
+      <div class="updates-card__content">
+        <div class="title title--small">
+          <template v-for="node in content"> 
+            <span v-if="node.text">{{ node.text }}</span>
+            <a v-if="node.type === 'link'" :href="node.url">{{ node.children[0].text }}</a>
+          </template>
+        </div>
+      </div>
+    </div>
+
+    <div v-else>
+      <div class="updates-card__content">
         <div class="title title--small">
           <p v-if="content">
             <template v-for="node in content"> 
@@ -40,7 +61,6 @@
           </p>
         </div>
       </div>
-      
     </div>
   </div>
 </template>
@@ -73,6 +93,10 @@ export default {
             type: [String, Object],
             default: () => { }
         },
+        en: {
+          type: Boolean,
+          default: false
+        }
     },
 }
 </script>

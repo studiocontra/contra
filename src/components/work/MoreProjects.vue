@@ -59,7 +59,7 @@
                 :key="idx"
               >
                 <NuxtImg
-                  :src="image.image.url"
+                  :src="`https://raw.githubusercontent.com/studiocontra/contra-cms/master${image.image.url}`"
                   :alt="image.image.alt" 
                 />
               </SwiperSlide>

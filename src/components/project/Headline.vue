@@ -5,7 +5,6 @@
         <div class="col-md-10 col-lg-8">
           <h1 class="title" v-html="headline">
           </h1>
-
           <a
             class="project__data"
             :href="projectLink"
@@ -22,15 +21,14 @@
         </div>
       </div>
     </div>
-    {{ console.log(isVimeo) }}
     <div class="main__image">
       <div v-if="!isVimeo">
         <picture>
           <LazyNuxtImg
-            :src="image.url"
+            :src="`https://raw.githubusercontent.com/studiocontra/contra-cms/master${image.url}`"
             :alt="image.alt"
             :width="image.width"
-            :heght="image.height" 
+            :height="image.height" 
           />
         </picture>
       </div>

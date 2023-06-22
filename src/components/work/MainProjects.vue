@@ -81,9 +81,10 @@
                   {{project.slug}}
                   <ProjectCard
                     full
+                    :en="en"
                     :name="project.title"
                     :description="project.extract"
-                    :link="`/proyectos/${project.slug}`"
+                    :link="en ? `/en/projects/${project.slug}` : `/proyectos/${project.slug}`"
                     :image="project.preview"
                     :tags="project.categories"
                   />
@@ -93,9 +94,10 @@
                 <div class="col-md-6">
                   {{project.slug}}
                   <ProjectCard
+                    :en="en"
                     :name="project.title"
                     :description="project.extract"
-                    :link="`/proyectos/${project.slug}`"
+                    :link="en ? `/en/projects/${project.slug}` : `/proyectos/${project.slug}`"
                     :image="project.preview"
                     :tags="project.categories"
                   />
@@ -128,6 +130,10 @@ export default {
     categories: {
       type: Array,
       default: () => []
+    },
+    en: {
+      type: Boolean,
+      default: false
     }
   },
   data() {

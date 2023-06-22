@@ -8,7 +8,7 @@
         :class="`single-image--${item.width} ${item.alignment} ${(item.isVimeo) ? 'single-image--video' : ''}`">
         <div v-if="!item.isVimeo">
           <LazyNuxtImg
-            :src="item.image.url"
+            :src="`https://raw.githubusercontent.com/studiocontra/contra-cms/master${item.image.url}`"
             :alt="item.image.alt"
             :width="item.image.width"
             :heght="item.image.height" 

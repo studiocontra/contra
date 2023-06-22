@@ -5,7 +5,7 @@
       <Meta name="description" :content="intro" />
     </Head>
 
-    <Header theme="blue" />
+    <Header theme="blue" :en="true"/>
     <Shapes>
       <div class="shape red"></div>
     </Shapes>
@@ -24,7 +24,7 @@ export default {
   mixins: [mixins],
   async setup() {
     const { PAYLOAD_PUBLIC_URL } = useRuntimeConfig();
-    let page = await $fetch(`${PAYLOAD_PUBLIC_URL}/pages/648f394abb08f256c8b5be14`);
+    let page = await $fetch(`${PAYLOAD_PUBLIC_URL}/pages/648f394abb08f256c8b5be14?locale="es"`);
 
     return {
       title: page.title,

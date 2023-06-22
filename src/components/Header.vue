@@ -10,7 +10,7 @@
             'col-md-4': !isHome,
             'col-md-2': isHome}">
           <div class="header__logo">
-            <NuxtLink to="/" aria-label="Ir a nuestra página de Inicio">
+            <NuxtLink :to="en ? '/en/' : '/'" aria-label="Ir a nuestra página de Inicio">
               <svg viewBox="0 0 118 24" class="logo">
                 <path d="M9.84247 23.9979C8.08901 23.9979 6.46311 23.6497 4.96679 22.9552C3.47048 22.2607 2.26776 21.2017 1.36065 19.7803C0.453552 18.3589 0 16.5892 0 14.4733C0.0607435 12.3858 0.528469 10.6181 1.4052 9.16638C2.28193 7.71461 3.46036 6.59693 4.9425 5.80928C6.42464 5.02367 8.07281 4.63086 9.88702 4.63086C12.0029 4.63086 13.7645 5.04594 15.1717 5.87813C16.5769 6.71031 17.6359 7.7389 18.3466 8.96187C19.0573 10.1869 19.4116 11.4078 19.4116 12.6267L13.6511 12.6267C13.3494 10.8631 12.169 9.98237 10.1138 9.98237C8.75314 9.98237 7.75492 10.3529 7.11914 11.094C6.48336 11.835 6.16749 12.7806 6.16749 13.9287C6.16749 15.3501 6.48538 16.4839 7.11914 17.3323C7.7529 18.1807 8.78149 18.6019 10.2029 18.6019C11.0189 18.6019 11.7599 18.3751 12.4261 17.9215C13.0902 17.468 13.4992 16.7208 13.6511 15.6842L19.4116 15.6842C19.4116 17.0246 19.0552 18.3306 18.3466 19.6001C17.6359 20.8696 16.5688 21.9205 15.1494 22.7527C13.728 23.5849 11.9584 24 9.84247 24V23.9979Z" />
                 <path d="M31.6151 23.997C29.4081 23.997 27.5615 23.5819 26.0814 22.7498C24.5992 21.9176 23.4957 20.7756 22.7708 19.3258C22.046 17.8741 21.6815 16.2259 21.6815 14.3813C21.6511 12.5064 21.9994 10.8501 22.7243 9.41453C23.4492 7.97896 24.5608 6.84508 26.0591 6.01289C27.5554 5.18071 29.4081 4.76563 31.6151 4.76563C34.8507 4.76563 37.3088 5.64236 38.9853 7.39582C40.6639 9.14928 41.5021 11.4778 41.5021 14.3813C41.5021 16.1955 41.1458 17.8295 40.4371 19.2793C39.7264 20.731 38.6452 21.8811 37.1934 22.7275C35.7416 23.5738 33.8829 23.997 31.6131 23.997H31.6151ZM31.6151 18.7346C32.7328 18.7346 33.565 18.5078 34.1096 18.0543C34.6543 17.6007 35.0086 17.0196 35.1747 16.3069C35.3407 15.5962 35.4237 14.8774 35.4237 14.1525C35.4237 13.4276 35.3407 12.6704 35.1747 11.9759C35.0086 11.2814 34.6523 10.7063 34.1096 10.2528C33.565 9.79924 32.7328 9.57246 31.6151 9.57246C30.4974 9.57246 29.6571 9.79924 29.0983 10.2528C28.5374 10.7063 28.175 11.2814 28.009 11.9759C27.8429 12.6724 27.7599 13.3973 27.7599 14.1525C27.7599 14.9078 27.8429 15.5962 28.009 16.3069C28.175 17.0176 28.5374 17.5987 29.0983 18.0543C29.6571 18.5078 30.4974 18.7346 31.6151 18.7346Z" />
@@ -28,25 +28,27 @@
             'col-md-8': !isHome,
             'col-md-10': isHome}">
           <div class="header__menu" :class="{'active': isMenuOpen}">
-            <div class="menu__margin" v-if="isHome"></div>
-
-            <NuxtLink
-              to="/proyectos"
-              activeClass="active"
-              aria-label="Ir a la sección de Proyectos">
-              Proyectos
+            <NuxtLink v-if="isHome" :to="!en ? '/en/' : '/'" class="lang__menu">
+              <span :class="!en ? 'active' : ''">Es</span> • 
+              <span :class="en ? 'active' : ''">En</span>
             </NuxtLink>
             <NuxtLink
-              to="/nosotros"
+              :to="en ? '/en/projects' : '/proyectos'"
               activeClass="active"
               aria-label="Ir a la sección de Proyectos">
-              Nosotros
+              {{en ? 'Work' : 'Proyectos'}}
             </NuxtLink>
             <NuxtLink
-              to="/contacto"
+              :to="en ? '/en/about' : '/nosotros'"
               activeClass="active"
               aria-label="Ir a la sección de Proyectos">
-              Contacto
+              {{en ? 'About' : 'Nosotros'}}
+            </NuxtLink>
+            <NuxtLink
+              :to="en ? '/en/contact' : '/contacto'"
+              activeClass="active"
+              aria-label="Ir a la sección de Proyectos">
+              {{en ? 'Contact' : 'Contacto'}}
             </NuxtLink>
 
             <div class="menu__contact">
@@ -68,7 +70,6 @@
               <a href="https://www.linkedin.com/company/contra-studio" target="_blank" aria-label="Visita nuestro perfil en LinkedIn">
                 LinkedIn
               </a>
-
             </div>
           </div>
 
@@ -97,11 +98,16 @@ export default {
     playlist: {
       type: String,
       default: '',
+    },
+    en: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
     return {
       isMenuOpen: false,
+      route: null
     };
   },
   mounted() {

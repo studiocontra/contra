@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-md-6">
           <h1 class="title title--big">
-            Algunos de nuestros proyectos de diseño, tecnología e innovación más destacados.
+            {{intro}}
           </h1>
         </div>
       </div>
@@ -14,7 +14,12 @@
 
 <script>
 export default {
-  name: 'WorkHero'
+  name: 'WorkHero',
+  props: {
+    intro: {
+      type: String
+    }
+  }
 }
 </script>
 

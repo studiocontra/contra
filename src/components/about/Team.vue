@@ -25,7 +25,7 @@
               <div class="main-team-card">
                 <div 
                   class="main-team-card__image">
-                  <NuxtImg :src="member.image.url" :alt="member.image.alt" />
+                  <NuxtImg :src="`https://raw.githubusercontent.com/studiocontra/contra-cms/master${member.image.url}`" :alt="member.image.alt" />
                 </div>
 
                 <div class="main-team-card__content">

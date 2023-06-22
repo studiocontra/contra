@@ -9,7 +9,7 @@
       <Meta name="description" :content="description" />
     </Head>
 
-    <Header theme="dark" />
+    <Header theme="dark" :en="true" />
     <main>
       <UpdatesHeadline
         :headline="project.title" 
@@ -24,11 +24,12 @@
     </main>
 
     <Updates
+      :en="true"
       theme="dark"
       :updates="updates" 
       :updatesAddon="updatesAddon"/>
 
-    <Footer theme="dark" />
+    <Footer theme="dark" :en="true"/>
   </div>
 </template>
 
@@ -50,10 +51,10 @@ export default {
     } = useRouter();
 
     const { PAYLOAD_PUBLIC_URL } = useRuntimeConfig();
-    const project = await $fetch(`${PAYLOAD_PUBLIC_URL}/updates?where[slug][equals]=${slug}`);
+    const project = await $fetch(`${PAYLOAD_PUBLIC_URL}/updates?where[slug][equals]=${slug}&locale=en`);
     const description = project.docs[0].layout[1].intro[0].children[0].text
     const content = project.docs[0].layout.slice(2, project.docs[0].layout.length)
-    let updatesData = await $fetch(`${PAYLOAD_PUBLIC_URL}/updates/`);
+    let updatesData = await $fetch(`${PAYLOAD_PUBLIC_URL}/updates?locale=en`);
 
 
     const updates = updatesData.docs

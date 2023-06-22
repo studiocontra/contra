@@ -12,7 +12,7 @@
       </div>
       <div class="main__image">
         <LazyNuxtImg
-          :src="image.url"
+          :src="`https://raw.githubusercontent.com/studiocontra/contra-cms/master${image.url}`"
           :alt="image.alt"
           :width="image.width"
           :heght="image.height"

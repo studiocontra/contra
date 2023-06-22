@@ -27,11 +27,22 @@
             v-for="update in updates"
             :key="update.id">
             <UpdatesCard
+              v-if="update.layout[1]"
               :theme="theme"
               :name="update.title"
               :description="update.layout[1].intro[0].children[0].text"
               :link="update.slug" 
               :image="update.thumbnail.url"
+              :en="en"
+            />
+            <UpdatesCard
+              v-else
+              :theme="theme"
+              :name="update.title"
+              :link="update.slug" 
+              :image="update.thumbnail.url"
+              :content="update.layout[0].content[0].children"
+              :en="en"
             />
           </SwiperSlide>
           <SwiperSlide>
@@ -75,6 +86,10 @@ export default {
       type: Array,
       default: () => []
     },
+    en: {
+      type: Boolean,
+      default: false
+    }
   },
   components: {
     Swiper,

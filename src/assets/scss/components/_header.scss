@@ -110,8 +110,8 @@ header {
   background-color: $blue;
   justify-content: flex-start;
 
-  .menu__margin {
-    width: 160px;
+  .lang__menu span:not(.active){
+    opacity: .7;
   }
 
   @include m768 {

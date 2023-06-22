@@ -33,7 +33,7 @@
         <div class="col-md-8 col-lg-6">
           <div class="footer__content">
             <p class="title">
-              ¿Quieres colaborar con nosotros o tienes un proyecto en mente? Nos encantaría saber más.
+              {{en ? `Would you like to collaborate with us or do you have a project in mind? We would love to know more.` : `¿Quieres colaborar con nosotros o tienes un proyecto en mente? Nos encantaría saber más.`}}
             </p>
 
             <Link
@@ -95,6 +95,10 @@ export default {
     theme: {
       type: String,
       default: 'light'
+    },
+    en: {
+      type: Boolean, 
+      default: false
     }
   },
   data() {

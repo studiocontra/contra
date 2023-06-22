@@ -16,30 +16,26 @@
         </div>
         <template v-if="image">
           <div v-if="full">
-            <picture>
-              <LazyNuxtImg
-                :src="image.url"
-                :alt="image.alt"
-                :width="image.width"
-                :heght="image.height" 
-                loading="lazy"/>
-            </picture>
+            <LazyNuxtImg
+              :src="`https://raw.githubusercontent.com/studiocontra/contra-cms/master${image.url}`"
+              :alt="image.alt"
+              :width="image.width"
+              :heght="image.height" 
+              loading="lazy"/>
           </div >
           <div v-else>
-            <picture>
-              <LazyNuxtImg
-                :src="image.url"
-                :alt="image.alt"
-                :width="image.width"
-                :heght="image.height" 
-                loading="lazy"/>
-            </picture>
+            <LazyNuxtImg
+              :src="`https://raw.githubusercontent.com/studiocontra/contra-cms/master${image.url}`"
+              :alt="image.alt"
+              :width="image.width"
+              :heght="image.height" 
+              loading="lazy"/>
           </div >
         </template>
         <div class="marquee">
           <div class="content">
             <span v-for="i in 10" :key="i">
-              Ver caso de estudio //
+              {{en ? 'See case study // ' : 'Ver caso de estudio // ' }}
             </span>
           </div>
         </div>
@@ -83,6 +79,10 @@ export default {
             type: Array,
             default: () => []
         },
+        en: {
+          type: Boolean,
+          default: false
+        }
     },
 }
 </script>

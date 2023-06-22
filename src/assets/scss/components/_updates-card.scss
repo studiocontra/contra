@@ -15,7 +15,7 @@
 }
 
 .updates-card--dark {
-  border-color: $blue;
+  border-color: $blue !important;
 
   .updates-card__content {
     color: $blue;

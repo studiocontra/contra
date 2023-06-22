@@ -23,9 +23,10 @@
               <div class="col-12">
                 <ProjectCard
                   full
+                  :en="en"
                   :name="project.title"
                   :description="project.extract"
-                  :link="`/proyectos/${project.slug}`"
+                  :link="en ? `/en/projects/${project.slug}` : `/proyectos/${project.slug}`"
                   :image="project.preview"
                   :tags="project.categories"
                 />
@@ -34,9 +35,10 @@
             <template v-else>
               <div class="col-md-6">
                 <ProjectCard
+                  :en="en"
                   :name="project.title"
                   :description="project.extract"
-                  :link="`/proyectos/${project.slug}`"
+                  :link="en ? `/en/projects/${project.slug}` : `/proyectos/${project.slug}`"
                   :image="project.preview"
                   :tags="project.categories"
                 />
@@ -61,6 +63,10 @@ export default {
       type: Object,
       default: () => {}
     },
+    en: {
+      type: Boolean,
+      default: false
+    }
   },
 }
 </script>
