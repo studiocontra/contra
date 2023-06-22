@@ -28,10 +28,7 @@
             'col-md-8': !isHome,
             'col-md-10': isHome}">
           <div class="header__menu" :class="{'active': isMenuOpen}">
-            <NuxtLink v-if="isHome" :to="!en ? '/en/' : '/'" class="lang__menu">
-              <span :class="!en ? 'active' : ''">Es</span> • 
-              <span :class="en ? 'active' : ''">En</span>
-            </NuxtLink>
+            <div v-if="isHome" class="margin__menu"></div>
             <NuxtLink
               :to="en ? '/en/projects' : '/proyectos'"
               activeClass="active"
@@ -49,6 +46,10 @@
               activeClass="active"
               aria-label="Ir a la sección de Proyectos">
               {{en ? 'Contact' : 'Contacto'}}
+            </NuxtLink>
+            <NuxtLink v-if="isHome" :to="!en ? '/en/' : '/'" class="lang__menu">
+              <span :class="!en ? 'active' : ''">Es</span> • 
+              <span :class="en ? 'active' : ''">En</span>
             </NuxtLink>
 
             <div class="menu__contact">

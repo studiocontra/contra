@@ -114,6 +114,10 @@ header {
     opacity: .7;
   }
 
+  .margin__menu {
+    width: 240px;
+  }
+
   @include m768 {
     position: relative;
     flex-direction: row;
