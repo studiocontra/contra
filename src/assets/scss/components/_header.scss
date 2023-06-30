@@ -53,8 +53,8 @@ header {
     a {
       margin-bottom: 16px;
       margin-left: 0;
-      font-family: $contra;
       font-size: 48px;
+      font-weight: 400;
 
       @include m768 {
         margin-bottom: 0;
@@ -154,7 +154,6 @@ header {
 
   a {
     margin-bottom: 16px;
-    font-family: $contra;
     font-size: 48px;
 
     @include m768 {
@@ -165,7 +164,6 @@ header {
 
     &:hover,
     &.active {
-      font-family: $contra_pixel;
     }
   }
 
@@ -186,7 +184,6 @@ header {
     }
 
     a {
-      font-family: $contra;
       font-size: 18px;
     }
   }
@@ -202,7 +199,6 @@ header {
 
     a {
       margin-bottom: 0;
-      font-family: $contra;
       font-size: 14px;
     }
   }
