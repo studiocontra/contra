@@ -11,7 +11,7 @@
             target="_blank"
             aria-label="Visita el proyecto">
             <div class="logo">
-              <img :src="logo" :alt="logoAlt">
+              <img :src="`https://raw.githubusercontent.com/studiocontra/contra-cms/master${logo}`" :alt="logoAlt">
             </div>
 
             <h2 class="text text--small">

@@ -28,7 +28,7 @@
             'col-md-8': !isHome,
             'col-md-10': isHome}">
           <div class="header__menu" :class="{'active': isMenuOpen}">
-            <div v-if="isHome" class="margin__menu"></div>
+            <div class="margin__menu" :class="isHome ? 'home' : ''"></div>
             <NuxtLink
               :to="en ? '/en/projects' : '/proyectos'"
               activeClass="active"
@@ -47,8 +47,8 @@
               aria-label="Ir a la sección de Proyectos">
               {{en ? 'Contact' : 'Contacto'}}
             </NuxtLink>
-            <NuxtLink v-if="isHome" :to="!en ? '/en/' : '/'" class="lang__menu">
-              <span :class="!en ? 'active' : ''">Es</span> • 
+            <NuxtLink v-if="route" :to="!en ? `${route}` : `${route}`" class="lang__menu">
+              <span :class="!en ? 'active' : ''">Es</span> •
               <span :class="en ? 'active' : ''">En</span>
             </NuxtLink>
 
@@ -112,9 +112,29 @@ export default {
     };
   },
   mounted() {
+    const route = useRoute()
+    
+    const routes = {
+      '/' : '/en/',
+      '/nosotros' : '/en/about',
+      '/proyectos' : '/en/work',
+      '/contacto' : '/en/contact',
+      '/en/': '/',
+      '/en/about': '/nosotros',
+      '/en/work' : '/proyectos',
+      '/en/contact': '/contacto',
+    }
+
+    const routeName = route.path
+
+    console.log(routeName)
+
+    this.route = routes[routeName] 
+    
     this.checkMenu();
     window.addEventListener('resize', this.checkMenu);
   },
+
   methods: {
     toggleMenu() {
       this.isMenuOpen = !this.isMenuOpen;
@@ -123,7 +143,7 @@ export default {
       if (window.innerWidth >= 576) {
         this.isMenuOpen = false;
       }
-    }
+    },
   }
 }
 </script>
