@@ -22,7 +22,6 @@ export default defineNuxtConfig({
   
   runtimeConfig: {
     public: {
-      API_BASE_URL: process.env.API_BASE_URL,
       PAYLOAD_PUBLIC_URL: process.env.PAYLOAD_PUBLIC_URL
     }
   },
@@ -34,13 +33,17 @@ export default defineNuxtConfig({
       hostname: 'https://studiocontra.co',
       cacheTime: 1,
       routes: async () => {
-        const projects = await $fetch(`${process.env.API_BASE_URL}/projects`);
-        const updates = await $fetch(`${process.env.API_BASE_URL}/updates`);
+        const proyectos = await $fetch(`${process.env.PAYLOAD_PUBLIC_URL}/projects`);
+        const projects = await $fetch(`${process.env.PAYLOAD_PUBLIC_URL}/projects?locale=en`);
+        const updates = await $fetch(`${process.env.PAYLOAD_PUBLIC_URL}/updates`);
+        const updatesEn = await $fetch(`${process.env.PAYLOAD_PUBLIC_URL}/updates?locale=en`);
 
-        const projectsUrl = projects.map((project) => `/proyectos/${project.slug}`);
-        const updatesUrl = updates.map((update) => `/updates/${update.slug}`);
+        const proyectosUrl = proyectos.docs.map((project) => `/proyectos/${project.slug}`);
+        const projectsUrl = projects.docs.map((project) => `/en/projects/${project.slug}`);
+        const updatesUrl = updates.docs.map((update) => `/updates/${update.slug}`);
+        const updatesUrlEn = updatesEn.docs.map((update) => `/en/updates/${update.slug}`);
 
-        return [...projectsUrl, ...updatesUrl];
+        return [...proyectosUrl, ...updatesUrl, ...projectsUrl, ...updatesUrlEn];
       },
       defaults: {
         changefreq: 'daily',
