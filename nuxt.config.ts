@@ -32,6 +32,7 @@ export default defineNuxtConfig({
     ['@funken-studio/sitemap-nuxt-3', {
       hostname: 'https://studiocontra.co',
       cacheTime: 1,
+      generateOnBuild: true,
       routes: async () => {
         const proyectos = await $fetch(`${process.env.PAYLOAD_PUBLIC_URL}/projects`);
         const projects = await $fetch(`${process.env.PAYLOAD_PUBLIC_URL}/projects?locale=en`);
