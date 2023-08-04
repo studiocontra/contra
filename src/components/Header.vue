@@ -117,11 +117,11 @@ export default {
     const routes = {
       '/' : '/en/',
       '/nosotros' : '/en/about',
-      '/proyectos' : '/en/work',
+      '/proyectos' : '/en/projects',
       '/contacto' : '/en/contact',
       '/en/': '/',
       '/en/about': '/nosotros',
-      '/en/work' : '/proyectos',
+      '/en/projects' : '/proyectos',
       '/en/contact': '/contacto',
     }
 
