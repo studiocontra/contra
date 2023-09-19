@@ -24,7 +24,7 @@ export default {
   mixins: [mixins],
   async setup() {
     const { PAYLOAD_PUBLIC_URL } = useRuntimeConfig();
-    let page = await $fetch(`${PAYLOAD_PUBLIC_URL}/pages/648f394abb08f256c8b5be14?locale="es"`);
+    let page = await $fetch(`${PAYLOAD_PUBLIC_URL}/pages/648f394abb08f256c8b5be14?locale="en"`);
 
     return {
       title: page.title,
