@@ -17,12 +17,37 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
       ],
       script: [
-        { src: `@/analytics/hotjar.js` }
+        {
+          hid: 'maze',
+          innerHTML: `
+          (function (m, a, z, e) {
+            var s, t;
+            try {
+              t = m.sessionStorage.getItem('maze-us');
+            } catch (err) {}
+          
+            if (!t) {
+              t = new Date().getTime();
+              try {
+                m.sessionStorage.setItem('maze-us', t);
+              } catch (err) {}
+            }
+          
+            s = a.createElement('script');
+            s.src = z + '?t=' + t + '&apiKey=' + e;
+            s.async = true;
+            a.getElementsByTagName('head')[0].appendChild(s);
+            m.mazeUniversalSnippetApiKey = e;
+          })(window, document, 'https://snippet.maze.co/maze-universal-loader.js', '12eafcde-25e9-4899-9587-62628cc601e8');
+          `,
+          type: 'text/javascript',
+          defer: true
+        }
       ],
     },
     pageTransition: { name: 'page', mode: 'out-in' }
   },
-  
+
   runtimeConfig: {
     public: {
       PAYLOAD_PUBLIC_URL: process.env.PAYLOAD_PUBLIC_URL
