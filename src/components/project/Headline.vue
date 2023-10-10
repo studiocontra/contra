@@ -11,8 +11,10 @@
             target="_blank"
             aria-label="Visita el proyecto">
             <div class="logo">
-              <img :src="`https://raw.githubusercontent.com/studiocontra/contra-cms/master${logo}`" :alt="logoAlt">
+              <img :src="`https://raw.githubusercontent.com/studiocontra/contra-cms/master/media/${logo}`" :alt="logoAlt">
             </div>
+
+            {{ console.log(logo) }}
 
             <h2 class="text text--small">
               {{ client }}
@@ -25,7 +27,7 @@
       <div v-if="!isVimeo">
         <picture>
           <LazyNuxtImg
-            :src="`https://raw.githubusercontent.com/studiocontra/contra-cms/master${image.url}`"
+            :src="`https://raw.githubusercontent.com/studiocontra/contra-cms/master/media/${image.filename}`"
             :alt="image.alt"
             :width="image.width"
             :height="image.height" 
@@ -34,7 +36,7 @@
       </div>
       <iframe
         v-else
-        :src="`https://player.vimeo.com/video/${videoId}?loop=1&autoplay=1&autopause=0&muted=1&title=0&byline=0&portrait=0&controls=1`" muted frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
+        :src="`https://player.vimeo.com/video/${videoId}?background=1`" frameborder="0"></iframe>
     </div>
   </div>
 </template>

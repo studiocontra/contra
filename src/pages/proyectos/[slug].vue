@@ -11,7 +11,7 @@
     <ProjectHeadline
       :headline="project.extract"
       :client="project.title"
-      :logo="project.link.logo.url"
+      :logo="project.link.logo.filename"
       :logoAlt="project.link.logo.alt"
       :project-link="project.link.url"
       :isVimeo="isVimeo"

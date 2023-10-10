@@ -17,7 +17,7 @@
         <template v-if="image">
           <div v-if="full">
             <LazyNuxtImg
-              :src="`https://raw.githubusercontent.com/studiocontra/contra-cms/master${image.url}`"
+              :src="`https://raw.githubusercontent.com/studiocontra/contra-cms/master/media/${image.filename}`"
               :alt="image.alt"
               :width="image.width"
               :heght="image.height" 
@@ -25,7 +25,7 @@
           </div >
           <div v-else>
             <LazyNuxtImg
-              :src="`https://raw.githubusercontent.com/studiocontra/contra-cms/master${image.url}`"
+              :src="`https://raw.githubusercontent.com/studiocontra/contra-cms/master/media/${image.filename}`"
               :alt="image.alt"
               :width="image.width"
               :heght="image.height" 

@@ -10,7 +10,7 @@
           v-for="(item, idx) in data.partners"
           :key="idx">
           <NuxtImg
-            :src="`https://raw.githubusercontent.com/studiocontra/contra-cms/master${item.partner.url}`"
+            :src="`https://raw.githubusercontent.com/studiocontra/contra-cms/master/media/${item.partner.filename}`"
             :alt="item.partner.title"
             width="260"
             height="130" />

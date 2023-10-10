@@ -19,11 +19,11 @@
       :data="team" />
     <AboutAwards
       :data="awards" />
-    <Updates
+    <!--<Updates
       :en="true"
       theme="light"
       :updates="updates"
-      :updatesAddon="updatesAddon" />
+      :updatesAddon="updatesAddon" /> -->
     <Footer theme="light" :en="true" />
   </div>
 </template>

@@ -32,7 +32,7 @@
               :name="update.title"
               :description="update.layout[1].intro[0].children[0].text"
               :link="update.slug" 
-              :image="update.thumbnail.url"
+              :image="update.thumbnail.filename"
               :en="en"
             />
             <UpdatesCard
@@ -40,7 +40,7 @@
               :theme="theme"
               :name="update.title"
               :link="update.slug" 
-              :image="update.thumbnail.url"
+              :image="update.thumbnail.filename"
               :content="update.layout[0].content[0].children"
               :en="en"
             />

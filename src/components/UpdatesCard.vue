@@ -10,14 +10,14 @@
       :aria-label="`Lee más sobre ${name}`">
       <div
         class="updates-card__img">
-        <LazyNuxtImg 
+        <!--<LazyNuxtImg 
           v-if="image"
-          :src="`https://raw.githubusercontent.com/studiocontra/contra-cms/master${image}`"
+          :src="`https://raw.githubusercontent.com/studiocontra/contra-cms/master/media/${image}`"
           :alt="name"
           width="300px"
           height="300px"
           loading="lazy"
-        />
+        />-->
       </div>
       <div class="updates-card__content">
         <div class="title title--small" v-html="name"></div>
@@ -28,14 +28,14 @@
     <div v-else-if="content && !small">
       <div
         class="updates-card__img">
-        <LazyNuxtImg 
+        <!--<LazyNuxtImg 
           v-if="image"
-          :src="`https://raw.githubusercontent.com/studiocontra/contra-cms/master${image}`"
+          :src="`https://raw.githubusercontent.com/studiocontra/contra-cms/master/media/${image}`"
           :alt="name"
           width="300px"
           height="300px"
           loading="lazy"
-        />
+        />-->
       </div>
       <div class="updates-card__content">
         <div class="title title--small">

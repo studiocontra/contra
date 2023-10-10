@@ -8,17 +8,16 @@
         :class="`single-image--${item.width} ${item.alignment} ${(item.isVimeo) ? 'single-image--video' : ''}`">
         <div v-if="!item.isVimeo">
           <LazyNuxtImg
-            :src="`https://raw.githubusercontent.com/studiocontra/contra-cms/master${item.image.url}`"
+            :src="`https://raw.githubusercontent.com/studiocontra/contra-cms/master/media/${item.image.filename}`"
             :alt="item.image.alt"
             :width="item.image.width"
             :heght="item.image.height" 
             loading="lazy"
           />
         </div>
-
         <iframe
           v-else
-          :src="`https://player.vimeo.com/video/${item.vimeo}?loop=1&autoplay=1&autopause=0&muted=1&title=0&byline=0&portrait=0&controls=1`" muted frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
+          :src="`https://player.vimeo.com/video/${item.vimeo}?background=1`" frameborder="0"></iframe>
       </div>
     </div>
   </div>
