@@ -51,7 +51,10 @@
       <div class="updates-card__content">
         <div class="title title--small">
           <p v-if="content">
-            <template v-for="node in content"> 
+            <a :href="`/updates/${link}`" v-if="(typeof content === 'string')">
+              {{ content }} 
+            </a>
+            <template v-else v-for="node in content"> 
               <span v-if="node.text">{{ node.text }}</span>
               <a v-if="node.type === 'link'" :href="node.url">{{ node.children[0].text }}</a>
             </template>
@@ -80,7 +83,7 @@ export default {
             type: String,
         },
         content: {
-            type: Array,
+            type: [String, Array],
         },
         description: {
             type: String,

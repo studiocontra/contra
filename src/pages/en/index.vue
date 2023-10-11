@@ -19,11 +19,11 @@
       :projectsContent="projectsContent" />
     <AboutAwards
       :data="awards" />
-    <!--<Updates
+    <Updates
       :en="true"
       theme="light"
       :updates="updates"
-      :updatesAddon="updatesAddon" />-->
+      :updatesAddon="updatesAddon" />
     <Footer :en="true"/>
   </div>
 </template>

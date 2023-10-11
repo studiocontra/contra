@@ -45,16 +45,17 @@
               :en="en"
             />
           </SwiperSlide>
-          <!--<SwiperSlide>
+          <SwiperSlide>
             <UpdatesCard
               v-for="update in updatesAddon"
               :key="update.id"
               :small="true"
               :theme="theme"
               :name="update.title"
-              :content="update.layout[0].content[0].children"
+              :link="update.slug" 
+              :content="(update.layout[0].content) ? update.layout[0].content[0].children : update.title"
             />
-          </SwiperSlide> -->
+          </SwiperSlide> 
         </Swiper>
       </div>
     </div>
@@ -62,10 +63,8 @@
 </template>
 
 <script>
-// import Swiper JS
 import { Swiper, SwiperSlide } from "swiper/vue";
 
-// import Swiper styles
 import 'swiper/css';
 
 import mixins from '@/assets/js/mixins';

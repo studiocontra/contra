@@ -56,6 +56,13 @@ export default {
     const content = project.docs[0].layout.slice(2, project.docs[0].layout.length)
     let updatesData = await $fetch(`${PAYLOAD_PUBLIC_URL}/updates?locale=en`);
 
+    const dateData = new Date(project.docs[0].createdAt)
+    const dia = dateData.getUTCDate();
+    const mes = dateData.getUTCMonth() + 1; 
+    const año = dateData.getUTCFullYear();
+
+    const date = `${dia}.${mes}.${año}`;
+
 
     const updates = updatesData.docs
                       .filter(update => update.status !== 'draft')
@@ -71,7 +78,8 @@ export default {
       description,
       content,
       updates,
-      updatesAddon
+      updatesAddon,
+      date
     }
   },
   computed: {
@@ -85,6 +93,7 @@ export default {
       if(this.project.id === '648b15b0aff359208cf31b62') {
         return '06.06.2023'
       }
+      return this.date
     },  
   }
 }
