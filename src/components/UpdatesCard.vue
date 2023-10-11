@@ -51,7 +51,7 @@
       <div class="updates-card__content">
         <div class="title title--small">
           <p v-if="content">
-            <a :href="`/updates/${link}`" v-if="(typeof content === 'string')">
+            <a :href="en ? `/en/updates/${link}` : `/updates/${link}`" v-if="(typeof content === 'string')">
               {{ content }} 
             </a>
             <template v-else v-for="node in content"> 

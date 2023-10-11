@@ -52,10 +52,11 @@ export default {
   },
   async created() {
     const { PAYLOAD_PUBLIC_URL } = useRuntimeConfig()
-    let updates = await $fetch(`${PAYLOAD_PUBLIC_URL}/updates?locale=en/`);
+    let updates = await $fetch(`${PAYLOAD_PUBLIC_URL}/updates?locale=en`);
 
     this.updates = updates.docs.filter(update => update.status !== 'draft').slice(0, 3)
     this.updatesAddon = updates.docs.slice(4, 8)
+    console.log(updates)
   }
 }
 </script>

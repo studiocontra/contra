@@ -54,6 +54,7 @@
               :name="update.title"
               :link="update.slug" 
               :content="(update.layout[0].content) ? update.layout[0].content[0].children : update.title"
+              :en="en"
             />
           </SwiperSlide> 
         </Swiper>
