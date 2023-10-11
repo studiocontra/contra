@@ -17,12 +17,10 @@
       :projectsContent="projectsContent" />
     <AboutAwards
       :data="awards" />
-    <!--<Updates
+    <Updates
       theme="light"
       :updates="updates"
-      :updatesAddon="updatesAddon" />-->
-
-    {{ console.log(updates) }}
+      :updatesAddon="updatesAddon" />
     <Footer />
   </div>
 </template>

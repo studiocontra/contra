@@ -45,7 +45,7 @@
               :en="en"
             />
           </SwiperSlide>
-          <SwiperSlide>
+          <!--<SwiperSlide>
             <UpdatesCard
               v-for="update in updatesAddon"
               :key="update.id"
@@ -54,7 +54,7 @@
               :name="update.title"
               :content="update.layout[0].content[0].children"
             />
-          </SwiperSlide>
+          </SwiperSlide> -->
         </Swiper>
       </div>
     </div>

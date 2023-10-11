@@ -127,8 +127,6 @@ export default {
 
     const routeName = route.path
 
-    console.log(routeName)
-
     this.route = routes[routeName] 
     
     this.checkMenu();

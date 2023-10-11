@@ -28,7 +28,7 @@
             </template>
             <template v-if="node.media">
               <LazyNuxtImg
-                :src="`https://raw.githubusercontent.com/studiocontra/contra-cms/master${node.media.url}`"
+                :src="`https://raw.githubusercontent.com/studiocontra/contra-cms/master/media/${node.media.filename}`"
                 :alt="node.media.alt"
                 :width="node.media.width"
                 :heght="node.media.height" 
