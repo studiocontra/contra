@@ -57,35 +57,12 @@ export default defineNuxtConfig({
   modules: [
     'nuxt-purgecss',
     '@nuxt/image-edge',
-    ['@funken-studio/sitemap-nuxt-3', {
-      hostname: 'https://studiocontra.co',
-      cacheTime: 1,
-      routes: async () => {
-        const proyectos = await $fetch(`${process.env.PAYLOAD_PUBLIC_URL}/projects`);
-        const projects = await $fetch(`${process.env.PAYLOAD_PUBLIC_URL}/projects?locale=en`);
-        const updates = await $fetch(`${process.env.PAYLOAD_PUBLIC_URL}/updates`);
-        const updatesEn = await $fetch(`${process.env.PAYLOAD_PUBLIC_URL}/updates?locale=en`);
-
-        const proyectosUrl = proyectos.docs.map((project) => `/proyectos/${project.slug}`);
-        const projectsUrl = projects.docs.map((project) => `/en/projects/${project.slug}`);
-        const updatesUrl = updates.docs.map((update) => `/updates/${update.slug}`);
-        const updatesUrlEn = updatesEn.docs.map((update) => `/en/updates/${update.slug}`);
-
-        return [...proyectosUrl, ...updatesUrl, ...projectsUrl, ...updatesUrlEn];
-      },
-      defaults: {
-        changefreq: 'daily',
-        priority: 1,
-        lastmod: new Date().toISOString(),
-      },
-    }],
   ],
 
   purgecss: {
     enabled: false, // Always enable purgecss
   },
 
-  // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '@/assets/scss/_grid.scss',
     '@/assets/scss/_base.scss',
