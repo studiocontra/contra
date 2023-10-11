@@ -11,7 +11,7 @@
               <div class="col-md-6">
                 <div class="tags">
                   <span v-for="(cat, idx) in project.categories"
-                  :key="idx" v-html="cat.name"></span>
+                  :key="idx">{{ (idx > 0) ? cat.name : `${cat.name},`}}</span>
                 </div>
               </div>
 
