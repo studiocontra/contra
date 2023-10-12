@@ -10,12 +10,13 @@
           Publicado el {{date}}
         </span>
       </div>
-      <div class="main__image">
+      <div class="main__image" v-if="image">
         <LazyNuxtImg
           :src="`https://raw.githubusercontent.com/studiocontra/contra-cms/master/media/${image.filename}`"
           :alt="image.alt"
           :width="image.width"
           :heght="image.height"
+          :v-if="image"
           loading="lazy"/>
       </div>
     </div>
@@ -35,7 +36,6 @@ export default {
     },
     image: {
       type: [Object, Boolean],
-      default: false
     },
   }
 }
